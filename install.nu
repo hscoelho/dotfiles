@@ -1,10 +1,11 @@
 #!/usr/bin/env nu
 
-# myscript.nu
 def "main windows" [] {
   print "installing dotfiles for windows"
   print "configuring neovim"
-  nvim_windows
+  # configure_nvim_windows
+  print "configuring wezterm"
+  configure_wezterm_windows
 }
 
 def "main ubuntu" [] {
@@ -12,13 +13,30 @@ def "main ubuntu" [] {
   #print "installing dotfiles for windows"
 }
 
-# important for the command to be exposed to the outside
+let dotfiles_dir = pwd
+let home_dir = get_home_dir
+def get_home_dir [] {
+  #todo: add linux
+  $env.HOMEPATH
+}
+
 def main [] {
   print "the script should be executed like: nu install.nu <os>"
   print "<os> can be windows or ubuntu"
 }
 
-def nvim_windows [] {
+def link_folder [
+  existing_folder: string 
+  link_destination: string
+] {
+  # todo: add linux cmd
+  print "linking..."
+  print $existing_folder
+  print $link_destination
+  mklink /d $existing_folder $link_destination
+}
+
+def configure_nvim_windows [] {
   # print "installing neovim"
   # winget install Neovim.neovim
 
@@ -28,6 +46,17 @@ def nvim_windows [] {
 
   print "symlinking config"
   let curr_dir = pwd
-  mklink /d ~\AppData\Local\nvim $"($curr_dir)\\neovim"
+  mklink /d ~\AppData\Local\nvim $"($dotfiles_dir)\\neovim"
+}
+
+def configure_wezterm_windows [] {
+  # print "installing wezterm"
+  # winget install ...
+
+  print "cleaning old wezterm config"
+  rm -rf ~\.config\wezterm
+
+  print "symlinking config"
+  link_folder $"($home_dir)\\.config\\wezterm" $"($dotfiles_dir)\\wezterm"
 }
 
