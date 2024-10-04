@@ -3,7 +3,7 @@
 def "main windows" [] {
   print "installing dotfiles for windows"
   print "configuring neovim"
-  # configure_nvim_windows
+  configure_nvim_windows
   print "configuring wezterm"
   configure_wezterm_windows
 }
