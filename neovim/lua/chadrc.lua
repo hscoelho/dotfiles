@@ -3,7 +3,7 @@
 
 ---@type ChadrcConfig
 local M = {
-  ui = {
+  base46 = {
     theme = "melange",
 
     hl_override = {
