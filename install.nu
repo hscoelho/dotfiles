@@ -1,17 +1,21 @@
 #!/usr/bin/env nu
 
-def "main link_config" [] {
-  print "configuring dotfiles"
-  link_nvim
-  link_wezterm
-  link_nushell
+def main [] {
+  print "the script should be executed like: nu install.nu <cmd>"
+  print "<os> can be windows or ubuntu"
 }
+
+# def "main link_config" [] {
+#   print "configuring dotfiles"
+#   link_nvim
+#   link_wezterm
+#   link_nushell
+# }
 
 def "main install_pkgs" [] {
   print "not yet implemented!"
 }
 
-<<<<<<< HEAD
 let dotfiles_dir = pwd
 let home_dir = get_home_dir
 def get_home_dir [] {
@@ -21,18 +25,12 @@ def get_home_dir [] {
     "~"
   }
 }
-=======
-let dotfiles_dir = get_dotfiles_dir
->>>>>>> main
 
+let dotfiles_dir = get_dotfiles_dir
 def get_dotfiles_dir [] {
   $env.FILE_PWD
 }
 
-def main [] {
-  print "the script should be executed like: nu install.nu <os>"
-  print "<os> can be windows or ubuntu"
-}
 
 def is_windows [] {
   return ($nu.os-info.name == "windows")
@@ -46,7 +44,6 @@ def link_folder [
   existing_folder: string 
   link_destination: string
 ] {
-  # todo: add linux cmd
   print $existing_folder
   print $link_destination
   if (is_windows) {
