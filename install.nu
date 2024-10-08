@@ -2,28 +2,46 @@
 
 let dotfiles_dir = $env.FILE_PWD
 let home_dir = get_home_dir
-def get_home_dir [] {
-  if (is_windows) {
-    $env.HOMEPATH
-  } else {
-    $env.HOME
-  }
-}
 
 def main [] {
   print "the script should be executed like: nu install.nu <cmd>"
-  print "<os> can be windows or ubuntu"
 }
 
 def "main link" [] {
   print "configuring dotfiles"
   link_nvim
-  # link_wezterm
+  link_wezterm
   # link_nushell
 }
 
-def "main install" [] {
-  print "not yet implemented!"
+def link_nvim [] {
+  print "removing old nvim config and linking new"
+
+  if (is_windows) {
+    rm -rf ~\AppData\Local\nvim
+    rm -rf ~\AppData\Local\nvim-data
+
+    link_folder $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\nvim"
+  } else if (is_linux) {
+    rm -rf ~\.config\nvim
+
+    link_folder $"($home_dir)/.config/nvim" $"($dotfiles_dir)/nvim"
+  }
+}
+
+def link_wezterm [] {
+  if (is_windows) {
+    print "removing old wezterm config and linking new"
+    rm -rf ~\.config\wezterm
+
+    print "symlinking config"
+    link_folder $"($home_dir)\\.config\\wezterm" $"($dotfiles_dir)\\wezterm"
+  }
+  # linux nao precisa por enquanto pq uso o wsl
+}
+
+def link_nushell [] {
+  # link_folder $nu.config-path $"($dotfiles_dir)\\nushell"
 }
 
 def is_windows [] {
@@ -46,47 +64,12 @@ def link_folder [
   }
 }
 
-def install_pkgs [] {
-  # nushell nao precisa instalar pq precisa dele para rodar esse script
-
-  # starship
-  # zoxide
-  # fzf
+def get_home_dir [] {
   if (is_windows) {
-    let winget_pkgs = "Neovim.neovim wez.wezterm"
-    winget install $winget_pkgs
+    $env.HOMEPATH
   } else if (is_linux) {
-
+    $env.HOME
+  } else {
+    ""
   }
-}
-
-
-def link_nvim [] {
-  print "removing old nvim config and linking new"
-
-  if (is_windows) {
-    #rm -rf ~\AppData\Local\nvim
-    #rm -rf ~\AppData\Local\nvim-data
-
-    #link_folder $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\neovim"
-  } else if (is_linux) {
-    rm -rf ~\.config\nvim
-
-    link_folder $"($home_dir)/.config/nvim" $"($dotfiles_dir)/neovim"
-  }
-}
-
-def link_wezterm [] {
-  if (is_windows) {
-    print "removing old wezterm config and linking new"
-    rm -rf ~\.config\wezterm
-
-    print "symlinking config"
-    link_folder $"($home_dir)\\.config\\wezterm" $"($dotfiles_dir)\\wezterm"
-  }
-  # linux nao precisa por enquanto pq uso o wsl
-}
-
-def link_nushell [] {
-  # link_folder $nu.config-path $"($dotfiles_dir)\\nushell"
 }
