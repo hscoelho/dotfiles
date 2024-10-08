@@ -11,7 +11,7 @@ def "main install_pkgs" [] {
   print "not yet implemented!"
 }
 
-let dotfiles_dir = get_dotfiles_dir
+let dotfiles_dir = pwd
 let home_dir = get_home_dir
 def get_home_dir [] {
   if (is_windows) {
@@ -31,11 +31,11 @@ def main [] {
 }
 
 def is_windows [] {
-  $nu.os-info.name == "windows"
+  return ($nu.os-info.name == "windows")
 }
 
 def is_linux [] {
-  $nu.os-info.name == "linux"
+  return ($nu.os-info.name == "linux")
 }
 
 def link_folder [
@@ -43,10 +43,12 @@ def link_folder [
   link_destination: string
 ] {
   # todo: add linux cmd
-  if is_windows {
+  print $existing_folder
+  print $link_destination
+  if (is_windows) {
     mklink /d $existing_folder $link_destination
   } else {
-
+    ln -s $link_destination $existing_folder
   }
 }
 
@@ -72,7 +74,7 @@ def link_nvim [] {
     rm -rf ~\AppData\Local\nvim
     rm -rf ~\AppData\Local\nvim-data
 
-    link_folder ~\AppData\Local\nvim $"($dotfiles_dir)\\neovim"
+    link_folder $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\neovim"
   } else if (is_linux) {
     rm -rf ~\.config\nvim
 
