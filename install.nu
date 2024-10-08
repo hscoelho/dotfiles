@@ -79,7 +79,7 @@ def link_nvim [] {
   } else if (is_linux) {
     rm -rf ~\.config\nvim
 
-    link_folder ~\.config\nvim $"($dotfiles_dir)\\neovim"
+    link_folder "~/.config/nvim" $"($dotfiles_dir)/neovim"
   }
 }
 
@@ -89,7 +89,7 @@ def link_wezterm [] {
     rm -rf ~\.config\wezterm
 
     print "symlinking config"
-    link_folder ~\.config\wezterm $"($dotfiles_dir)\\wezterm"
+    link_folder $"($home_dir)\\.config\\wezterm" $"($dotfiles_dir)\\wezterm"
   }
   # linux nao precisa por enquanto pq uso o wsl
 }
