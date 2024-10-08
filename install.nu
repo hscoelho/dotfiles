@@ -11,6 +11,7 @@ def "main install_pkgs" [] {
   print "not yet implemented!"
 }
 
+<<<<<<< HEAD
 let dotfiles_dir = pwd
 let home_dir = get_home_dir
 def get_home_dir [] {
@@ -20,9 +21,12 @@ def get_home_dir [] {
     "~"
   }
 }
+=======
+let dotfiles_dir = get_dotfiles_dir
+>>>>>>> main
 
 def get_dotfiles_dir [] {
-  pwd
+  $env.FILE_PWD
 }
 
 def main [] {
@@ -88,7 +92,7 @@ def link_wezterm [] {
     rm -rf ~\.config\wezterm
 
     print "symlinking config"
-    link_folder $"($home_dir)\\.config\\wezterm" $"($dotfiles_dir)\\wezterm"
+    link_folder ~\.config\wezterm $"($dotfiles_dir)\\wezterm"
   }
   # linux nao precisa por enquanto pq uso o wsl
 }
