@@ -5,14 +5,14 @@ def main [] {
   print "<os> can be windows or ubuntu"
 }
 
-# def "main link_config" [] {
-#   print "configuring dotfiles"
-#   link_nvim
-#   link_wezterm
-#   link_nushell
-# }
+def "main link" [] {
+  # print "configuring dotfiles"
+  # link_nvim
+  # link_wezterm
+  # link_nushell
+}
 
-def "main install_pkgs" [] {
+def "main install" [] {
   print "not yet implemented!"
 }
 
