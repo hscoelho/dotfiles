@@ -1,13 +1,23 @@
 #!/usr/bin/env nu
 
+let dotfiles_dir = $env.FILE_PWD
+let home_dir = get_home_dir
+def get_home_dir [] {
+  if (is_windows) {
+    $env.HOMEPATH
+  } else {
+    $env.HOME
+  }
+}
+
 def main [] {
   print "the script should be executed like: nu install.nu <cmd>"
   print "<os> can be windows or ubuntu"
 }
 
 def "main link" [] {
-  # print "configuring dotfiles"
-  # link_nvim
+  print "configuring dotfiles"
+  link_nvim
   # link_wezterm
   # link_nushell
 }
@@ -15,22 +25,6 @@ def "main link" [] {
 def "main install" [] {
   print "not yet implemented!"
 }
-
-let dotfiles_dir = pwd
-let home_dir = get_home_dir
-def get_home_dir [] {
-  if (is_windows) {
-    $env.HOMEPATH
-  } else {
-    "~"
-  }
-}
-
-let dotfiles_dir = get_dotfiles_dir
-def get_dotfiles_dir [] {
-  $env.FILE_PWD
-}
-
 
 def is_windows [] {
   return ($nu.os-info.name == "windows")
@@ -44,12 +38,11 @@ def link_folder [
   existing_folder: string 
   link_destination: string
 ] {
-  print $existing_folder
-  print $link_destination
+  print $"linking ($link_destination) to ($existing_folder)"
   if (is_windows) {
     mklink /d $existing_folder $link_destination
-  } else {
-    ln -s $link_destination $existing_folder
+  } else if (is_linux) {
+    ln -s $link_destination $existing_folder 
   }
 }
 
@@ -72,14 +65,14 @@ def link_nvim [] {
   print "removing old nvim config and linking new"
 
   if (is_windows) {
-    rm -rf ~\AppData\Local\nvim
-    rm -rf ~\AppData\Local\nvim-data
+    #rm -rf ~\AppData\Local\nvim
+    #rm -rf ~\AppData\Local\nvim-data
 
-    link_folder $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\neovim"
+    #link_folder $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\neovim"
   } else if (is_linux) {
     rm -rf ~\.config\nvim
 
-    link_folder "~/.config/nvim" $"($dotfiles_dir)/neovim"
+    link_folder $"($home_dir)/.config/nvim" $"($dotfiles_dir)/neovim"
   }
 }
 
