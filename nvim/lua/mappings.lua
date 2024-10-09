@@ -16,3 +16,6 @@ map("n", "<leader>fp", require("telescope.builtin").keymaps, { desc = "Telescope
 -- terminal
 map("t", "<C-j><C-j>", "<C-\\><C-n>")
 map("n", "<leader>tt", ":terminal nu<CR>", { desc = "Terminal open nushell terminal", silent = true })
+map({ "n", "t" }, "<A-f>", function()
+  require("nvchad.term").toggle { pos = "float", id = "nushell float" }
+end, { desc = "terminal toggle nushell floating term" })
