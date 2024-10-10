@@ -2,7 +2,6 @@
 #
 # version = "0.85.0"
 
-use C:\Users\henri\AppData\Roaming\nushell\conda.nu
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
 # And here is the theme collection
@@ -790,4 +789,5 @@ $env.config = {
 use ~/.cache/starship/init.nu
 source ~/.zoxide.nu
 
-use 'C:\Users\henri\AppData\Roaming\dystroy\broot\config\launcher\nushell\br' *
+use $"($nu.default-config-dir)/conda.nu"
+# use 'C:\Users\henri\AppData\Roaming\dystroy\broot\config\launcher\nushell\br' *
