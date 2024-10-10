@@ -30,9 +30,12 @@ local M = {
     },
   },
   term = {
+    winopts = {
+      number = true, -- this was added because some tui were broken without numbers
+    },
     float = {
       relative = "editor",
-      row = 0.05,
+      row = 0.01,
       col = 0.05,
       width = 0.9,
       height = 0.8,
