@@ -11,7 +11,7 @@ def "main link" [] {
   print "configuring dotfiles"
   link_nvim
   link_wezterm
-  # link_nushell
+  link_nushell
 }
 
 def link_nvim [] {
@@ -40,8 +40,12 @@ def link_wezterm [] {
   # linux nao precisa por enquanto pq uso o wsl
 }
 
+def "main link_nushell" [] {
+  link_nushell
+}
 def link_nushell [] {
-  # link_folder $nu.config-path $"($dotfiles_dir)\\nushell"
+  rm -rf $nu.default-config-dir
+  link_folder $nu.default-config-dir $"($dotfiles_dir)\\nushell"
 }
 
 def is_windows [] {
