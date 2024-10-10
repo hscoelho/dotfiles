@@ -46,6 +46,8 @@ return {
         "rust",
         "cpp",
         "python",
+        "typescript",
+        "javascript",
       },
     },
     dependencies = {
