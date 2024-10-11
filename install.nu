@@ -12,6 +12,7 @@ def "main link" [] {
   link_nvim
   link_wezterm
   link_nushell
+  link_starship
 }
 
 def link_nvim [] {
@@ -51,6 +52,20 @@ def link_nushell [] {
   } else if (is_linux) {
     ln -s -T $"($dotfiles_dir)/nushell" $nu.default-config-dir
   }
+}
+
+def "main link_starship" [] {
+  link_starship
+}
+
+def link_starship [] {
+  rm -f ~/.config/starship.toml
+  if (is_windows) {
+    mklink $"($home_dir)\\.config\\starship.toml" $"($dotfiles_dir)\\starship\\starship.toml"
+  } else if (is_linux) {
+    ln -s -T $"($dotfiles_dir)/starship/starship.toml" $"($home_dir)/.config/starship.toml"
+  }
+
 }
 
 def is_windows [] {
