@@ -31,7 +31,7 @@ local M = {
   },
   term = {
     winopts = {
-      number = true, -- this was added because some tui were broken without numbers
+      number = false,
     },
     float = {
       relative = "editor",

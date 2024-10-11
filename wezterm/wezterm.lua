@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
-config.font_size = 16
+config.font_size = 15
 
 config.color_scheme_dirs = { "./colors/" }
 config.color_scheme = "melange_dark"
