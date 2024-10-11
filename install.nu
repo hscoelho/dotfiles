@@ -21,11 +21,11 @@ def link_nvim [] {
     rm -rf ~\AppData\Local\nvim
     rm -rf ~\AppData\Local\nvim-data
 
-    link_folder $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\nvim"
+    mklink /d $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\nvim"
   } else if (is_linux) {
-    rm -rf ~\.config\nvim
+    rm -rf ~/.config/nvim
 
-    link_folder $"($home_dir)/.config/nvim" $"($dotfiles_dir)/nvim"
+    ln -T -s $"($dotfiles_dir)/nvim" $"($home_dir)/.config/nvim" 
   }
 }
 
@@ -35,7 +35,7 @@ def link_wezterm [] {
     rm -rf ~\.config\wezterm
 
     print "symlinking config"
-    link_folder $"($home_dir)\\.config\\wezterm" $"($dotfiles_dir)\\wezterm"
+    mklink /d $"($home_dir)\\.config\\wezterm" $"($dotfiles_dir)\\wezterm"
   }
   # linux nao precisa por enquanto pq uso o wsl
 }
@@ -43,9 +43,14 @@ def link_wezterm [] {
 def "main link_nushell" [] {
   link_nushell
 }
+
 def link_nushell [] {
   rm -rf $nu.default-config-dir
-  link_folder $nu.default-config-dir $"($dotfiles_dir)\\nushell"
+  if (is_windows) {
+    mklink /d $nu.default-config-dir $"($dotfiles_dir)\\nushell"
+  } else if (is_linux) {
+    ln -s -T $"($dotfiles_dir)/nushell" $nu.default-config-dir
+  }
 }
 
 def is_windows [] {
@@ -54,18 +59,6 @@ def is_windows [] {
 
 def is_linux [] {
   return ($nu.os-info.name == "linux")
-}
-
-def link_folder [
-  existing_folder: string 
-  link_destination: string
-] {
-  print $"linking ($link_destination) to ($existing_folder)"
-  if (is_windows) {
-    mklink /d $existing_folder $link_destination
-  } else if (is_linux) {
-    ln -s $link_destination $existing_folder 
-  }
 }
 
 def get_home_dir [] {
