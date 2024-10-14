@@ -1,11 +1,18 @@
 -- This file  needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
 
+--- this is done to remove the base46 themes colors from the terminal
+local base46_term_integration_file = io.open(vim.g.base46_cache .. "term", "wb")
+if base46_term_integration_file then
+  base46_term_integration_file:write ""
+  base46_term_integration_file:close()
+end
+
 ---@type ChadrcConfig
 local M = {
   base46 = {
     theme = "melange",
-
+    integrations = {},
     hl_override = {
       Comment = {
         fg = "red",
