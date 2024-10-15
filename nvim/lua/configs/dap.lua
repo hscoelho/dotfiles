@@ -1,7 +1,12 @@
 local dap = require "dap"
 local dapui = require "dapui"
 
-dap.adapters.codelldb = {
+dap.defaults.fallback.external_terminal = {
+  command = "wezterm",
+  args = { "-e" },
+}
+
+local lldb_config = {
   type = "server",
   port = 13000,
   executable = {
@@ -12,16 +17,8 @@ dap.adapters.codelldb = {
   },
 }
 
-dap.adapters.lldb = {
-  type = "server",
-  port = 13000,
-  executable = {
-    command = vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/adapter/codelldb",
-    args = { "--port", "13000" },
-
-    detached = vim.loop.os_uname().sysname ~= "Windows_NT",
-  },
-}
+dap.adapters.codelldb = lldb_config
+dap.adapters.lldb = lldb_config
 
 dapui.setup()
 
