@@ -11,7 +11,7 @@ end
 ---@type ChadrcConfig
 local M = {
   base46 = {
-    theme = "melange",
+    theme = "gruvbox",
     integrations = {},
     hl_override = {
       Comment = {
