@@ -21,6 +21,10 @@
       "width": 300
     }
   },
+  "bar_configurations": [
+    "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.monitor1.json",
+    "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.monitor2.json"
+  ],
   "monitors": [
     {
       "workspaces": [
