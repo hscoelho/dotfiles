@@ -81,6 +81,7 @@ $env.NU_PLUGIN_DIRS = [
 if ($nu.os-info.name == "windows") {
   $env.YAZI_FILE_ONE =  "C:/Program Files/Git/usr/bin/file.exe"
   $env.KOMOREBI_CONFIG_HOME = $"($env.HOMEPATH)/.config/komorebi"
+  $env.WHKD_CONFIG_HOME = $"($env.HOMEPATH)/.config/komorebi"
 }
 
 mkdir ~/.cache/starship
