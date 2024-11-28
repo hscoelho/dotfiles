@@ -14,14 +14,12 @@ alt + q                 : komorebic close
 alt + m                 : komorebic minimize
 
 # Focus windows
-# alt + h                 : komorebic focus left
-# alt + j                 : komorebic focus down
-# alt + k                 : komorebic focus up
-# alt + l                 : komorebic focus right
-# alt + shift + oem_4     : komorebic cycle-focus previous # oem_4 is [
-# alt + shift + oem_6     : komorebic cycle-focus next # oem_6 is ]
-alt + k                   : komorebic cycle-focus previous
-alt + j                   : komorebic cycle-focus next
+alt + h                 : komorebic focus left
+alt + j                 : komorebic focus down
+alt + k                 : komorebic focus up
+alt + l                 : komorebic focus right
+alt + shift + oem_4     : komorebic cycle-focus previous # oem_4 is [
+alt + shift + oem_6     : komorebic cycle-focus next # oem_6 is ]
 
 # Move windows
 alt + shift + h         : komorebic move left
@@ -40,12 +38,10 @@ alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
 alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
 
 # Resize
-# alt + oem_plus          : komorebic resize-axis horizontal increase
-# alt + oem_minus         : komorebic resize-axis horizontal decrease
-# alt + shift + oem_plus  : komorebic resize-axis vertical increase
-# alt + shift + oem_minus : komorebic resize-axis vertical decrease
-alt + l  : komorebic resize-axis horizontal increase
-alt + h  : komorebic resize-axis horizontal decrease
+alt + oem_plus          : komorebic resize-axis horizontal increase
+alt + oem_minus         : komorebic resize-axis horizontal decrease
+alt + shift + oem_plus  : komorebic resize-axis vertical increase
+alt + shift + oem_minus : komorebic resize-axis vertical decrease
 
 # Manipulate windows
 alt + t                 : komorebic toggle-float
@@ -56,8 +52,8 @@ alt + shift + r         : komorebic retile
 alt + p                 : komorebic toggle-pause
 
 # Layouts
-# alt + x                 : komorebic flip-layout horizontal
-# alt + y                 : komorebic flip-layout vertical
+alt + x                 : komorebic flip-layout horizontal
+alt + y                 : komorebic flip-layout vertical
 
 # Workspaces
 alt + 1                 : komorebic focus-workspace 0
@@ -68,6 +64,7 @@ alt + 5                 : komorebic focus-workspace 4
 alt + 6                 : komorebic focus-workspace 5
 alt + 7                 : komorebic focus-workspace 6
 alt + 8                 : komorebic focus-workspace 7
+alt + 8                 : komorebic focus-workspace 9
 
 # Move windows across workspaces
 alt + shift + 1         : komorebic move-to-workspace 0
@@ -78,3 +75,4 @@ alt + shift + 5         : komorebic move-to-workspace 4
 alt + shift + 6         : komorebic move-to-workspace 5
 alt + shift + 7         : komorebic move-to-workspace 6
 alt + shift + 8         : komorebic move-to-workspace 7
+alt + shift + 9         : komorebic move-to-workspace 8
