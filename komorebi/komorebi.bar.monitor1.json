@@ -40,24 +40,24 @@
     },
     {
       "Storage": {
-        "enable": true
+        "enable": false
       }
     },
     {
       "Memory": {
-        "enable": true
+        "enable": false
       }
     },
     {
       "Network": {
-        "enable": true,
-        "show_total_data_transmitted": true,
-        "show_network_activity": true
+        "enable": false,
+        "show_total_data_transmitted": false,
+        "show_network_activity": false
       }
     },
     {
       "Date": {
-        "enable": true,
+        "enable": false,
         "format": "DayDateMonthYear"
       }
     },
