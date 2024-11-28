@@ -68,6 +68,17 @@ def link_starship [] {
 
 }
 
+def "main link_komorebi" [] {
+  link_komorebi
+}
+
+def link_komorebi [] {
+  if (is_windows) {
+    rm -rf ~\\.config\\komorebi
+    mklink /d ~\\.config\\komorebi $"($dotfiles_dir)\\komorebi"
+  }
+}
+
 def is_windows [] {
   return ($nu.os-info.name == "windows")
 }
