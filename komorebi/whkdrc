@@ -28,7 +28,7 @@ alt + shift + h         : komorebic move left
 alt + shift + j         : komorebic move down
 alt + shift + k         : komorebic move up
 alt + shift + l         : komorebic move right
-alt + shift + return    : komorebic promote
+alt + return            : komorebic promote
 
 # Stack windows
 alt + left              : komorebic stack left
@@ -44,8 +44,8 @@ alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
 # alt + oem_minus         : komorebic resize-axis horizontal decrease
 # alt + shift + oem_plus  : komorebic resize-axis vertical increase
 # alt + shift + oem_minus : komorebic resize-axis vertical decrease
-alt + l  : komorebic resize-axis vertical increase
-alt + h  : komorebic resize-axis vertical decrease
+alt + l  : komorebic resize-axis horizontal increase
+alt + h  : komorebic resize-axis horizontal decrease
 
 # Manipulate windows
 alt + t                 : komorebic toggle-float
