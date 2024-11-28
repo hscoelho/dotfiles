@@ -13,6 +13,7 @@ def "main link" [] {
   link_wezterm
   link_nushell
   link_starship
+  link_komorebi
 }
 
 def link_nvim [] {
