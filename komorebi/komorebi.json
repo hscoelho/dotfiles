@@ -5,8 +5,8 @@
   "cross_monitor_move_behaviour": "Insert",
   "default_workspace_padding": 0,
   "default_container_padding": 0,
-  "border": true,
-  "border_width": 4,
+  "border": false,
+  "border_width": 0,
   "border_offset": -1,
   "theme": {
     "palette": "Base16",
@@ -15,8 +15,9 @@
     "bar_accent": "Base0D"
   },
   "stackbar": {
-    "height": 40,
+    "height": 30,
     "mode": "OnStack",
+    "label": "Title",
     "tabs": {
       "width": 300
     }
