@@ -10,9 +10,10 @@
     }
   },
   "font_family": "JetBrains Mono",
+  "font_size": 11,
   "theme": {
     "palette": "Base16",
-    "name": "Ashes",
+    "name": "GruvboxDarkHard",
     "accent": "Base0D"
   },
   "left_widgets": [
