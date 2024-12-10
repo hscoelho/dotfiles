@@ -22,7 +22,7 @@
         "workspaces": {
           "enable": true,
           "hide_empty_workspaces": false,
-          "display": "Icon"
+          "display": "IconAndText"
         },
         "layout": {
           "enable": true
