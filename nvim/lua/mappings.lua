@@ -12,6 +12,7 @@ map("n", "<A-Right>", "<C-I>", { desc = "Go forward" })
 -- telescope
 map("n", "<leader>fc", require("telescope.builtin").commands, { desc = "Telescope Find commands" })
 map("n", "<leader>fp", require("telescope.builtin").keymaps, { desc = "Telescope Keymaps (cmd palette)" })
+map("n", "<S-TAB>", require("telescope.builtin").oldfiles, { desc = "Telescope Oldfiles" })
 
 -- terminal
 map("t", "<C-j><C-j>", "<C-\\><C-n>")

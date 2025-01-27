@@ -92,4 +92,19 @@ return {
     end,
     lazy = false,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      pickers = {
+        oldfiles = {
+          mappings = {
+            i = {
+              ["<S-Tab>"] = "move_selection_next",
+              ["<Tab>"] = "move_selection_previous",
+            },
+          },
+        },
+      },
+    },
+  },
 }
