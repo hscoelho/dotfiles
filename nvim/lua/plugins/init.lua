@@ -103,12 +103,15 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     opts = {
+      defaults = {
+        preview = false,
+      },
       pickers = {
         oldfiles = {
           mappings = {
             i = {
-              ["<S-Tab>"] = "move_selection_next",
-              ["<Tab>"] = "move_selection_previous",
+              ["Tab"] = "move_selection_next",
+              ["<S-Tab>"] = "move_selection_previous",
             },
           },
         },
