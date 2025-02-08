@@ -13,7 +13,6 @@ def "main link" [] {
   link_wezterm
   link_nushell
   link_starship
-  link_komorebi
 }
 
 def link_nvim [] {
@@ -31,15 +30,20 @@ def link_nvim [] {
   }
 }
 
+def "main link_wezterm" [] {
+  link_wezterm
+}
+
 def link_wezterm [] {
+  print "removing old wezterm config and linking new"
   if (is_windows) {
-    print "removing old wezterm config and linking new"
     rm -rf ~\.config\wezterm
 
-    print "symlinking config"
     mklink /d $"($home_dir)\\.config\\wezterm" $"($dotfiles_dir)\\wezterm"
+  } else {
+    ln -T -s $"($dotfiles_dir)/wezterm" $"($home_dir)/.config/wezterm" 
   }
-  # linux nao precisa por enquanto pq uso o wsl
+  print "wezterm linked"
 }
 
 def "main link_nushell" [] {
