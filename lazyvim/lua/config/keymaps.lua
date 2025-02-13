@@ -10,6 +10,8 @@ map("n", "<A-Left>", "<C-O>", { desc = "Go back" })
 map("n", "<A-Right>", "<C-I>", { desc = "Go forward" })
 
 map("n", "<C-n>", LazyVim.pick("oldfiles"), { desc = "Picker recent" })
+
+map({ "n", "t" }, "<A-i>", "<cmd>Floaterm<CR>", { desc = "Floating terminal" })
 -- telescope
 -- map("n", "<leader>fc", require("telescope.builtin").commands, { desc = "Telescope Find commands" })
 -- map("n", "<leader>fp", require("telescope.builtin").keymaps, { desc = "Telescope Keymaps (cmd palette)" })
