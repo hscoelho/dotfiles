@@ -22,11 +22,11 @@ def link_nvim [] {
     rm -rf ~\AppData\Local\nvim
     rm -rf ~\AppData\Local\nvim-data
 
-    mklink /d $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\nvim"
+    mklink /d $"($home_dir)\\AppData\\Local\\nvim" $"($dotfiles_dir)\\lazyvim"
   } else if (is_linux) {
     rm -rf ~/.config/nvim
 
-    ln -T -s $"($dotfiles_dir)/nvim" $"($home_dir)/.config/nvim" 
+    ln -T -s $"($dotfiles_dir)/lazyvim" $"($home_dir)/.config/nvim" 
   }
 }
 
