@@ -30,6 +30,10 @@ def link_nvim [] {
   }
 }
 
+def "main link_nvim" [] {
+  link_nvim
+}
+
 def "main link_wezterm" [] {
   link_wezterm
 }
