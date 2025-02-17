@@ -4,6 +4,9 @@ return {
     server = {
       default_settings = {
         ["rust-analyzer"] = {
+          cargo = {
+            allFeatures = false,
+          },
           inlayHints = {
             chainingHints = {
               enable = false,
