@@ -10,7 +10,7 @@
     }
   },
   "font_family": "JetBrains Mono",
-  "font_size": 11,
+  "font_size": 12,
   "theme": {
     "palette": "Base16",
     "name": "GruvboxDarkHard",
