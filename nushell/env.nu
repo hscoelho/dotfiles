@@ -82,6 +82,8 @@ if ($nu.os-info.name == "windows") {
   $env.YAZI_FILE_ONE =  "C:/Program Files/Git/usr/bin/file.exe"
   $env.KOMOREBI_CONFIG_HOME = $"($env.HOMEPATH)/.config/komorebi"
   $env.WHKD_CONFIG_HOME = $"($env.HOMEPATH)/.config/komorebi"
+} else {
+  $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.pixi/bin')
 }
 
 mkdir ~/.cache/starship
