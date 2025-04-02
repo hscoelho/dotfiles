@@ -5,6 +5,9 @@ config.font = wezterm.font("JetBrains Mono")
 
 config.font_size = 13
 
+config.window_close_confirmation = "NeverPrompt"
+config.hide_tab_bar_if_only_one_tab = true
+
 config.color_scheme_dirs = { "./colors/" }
 config.color_scheme = "melange_dark"
 
