@@ -84,12 +84,14 @@ if ($nu.os-info.name == "windows") {
   $env.WHKD_CONFIG_HOME = $"($env.HOMEPATH)/.config/komorebi"
 } else {
   $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.pixi/bin')
-  $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/share/fnm')
 }
 
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 zoxide init nushell | save -f ~/.zoxide.nu
 
-fnm env --json | from json | load-env
-$env.PATH ++= [($env.FNM_MULTISHELL_PATH|path join bin)]
+do -i {
+  $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/share/fnm')
+  fnm env --json | from json | load-env
+  $env.PATH ++= [($env.FNM_MULTISHELL_PATH|path join bin)]
+}
