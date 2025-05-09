@@ -5,8 +5,6 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "nu" }
 else
 	config.default_prog = { "fish" }
-	local toggle_terminal = wezterm.plugin.require("https://github.com/zsh-sage/toggle_terminal.wez")
-	-- toggle_terminal.apply_to_config(config)
 end
 
 config.font = wezterm.font("JetBrains Mono")
@@ -20,7 +18,6 @@ config.color_scheme_dirs = { "./colors/" }
 config.color_scheme = "melange_dark"
 
 config.default_prog = { "nu" }
-
 
 config.keys = {
 	{
