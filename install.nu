@@ -15,6 +15,16 @@ def "main link" [] {
   link_starship
 }
 
+def link_fish [] {
+  # not tested
+  if (is_linux) {
+      rm -rf ~/.config/fish
+
+      ln -T -s $"($dotfiles_dir)/fish" $"($home_dir)/.config/fish" 
+  }
+ 
+}
+
 def link_nvim [] {
   print "removing old nvim config and linking new"
 
