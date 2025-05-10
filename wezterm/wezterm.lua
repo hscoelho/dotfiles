@@ -17,8 +17,6 @@ config.hide_tab_bar_if_only_one_tab = true
 config.color_scheme_dirs = { "./colors/" }
 config.color_scheme = "melange_dark"
 
-config.default_prog = { "nu" }
-
 config.keys = {
 	{
 		key = "Enter",
