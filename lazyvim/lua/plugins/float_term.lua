@@ -37,7 +37,7 @@ local function toggle_floating_terminal()
   if vim.api.nvim_win_is_valid(term_state.win_id) == false then
     create_floating_window(term_state.buf_id)
     if vim.bo[term_state.buf_id].buftype ~= "terminal" then
-      vim.cmd.terminal()
+      vim.cmd.terminal("nu")
     end
     vim.api.nvim_command("startinsert")
   else
