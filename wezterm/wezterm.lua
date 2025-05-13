@@ -25,4 +25,6 @@ config.keys = {
 	},
 }
 
+config.enable_scroll_bar = true
+
 return config
