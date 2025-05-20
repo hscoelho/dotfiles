@@ -7,7 +7,8 @@ else
 	config.default_prog = { "fish" }
 end
 
-config.font = wezterm.font("JetBrains Mono")
+config.font =
+	wezterm.font_with_fallback({ { family = "Intel One Mono", harfbuzz_features = { "ss01" } }, "JetBrains Mono" })
 
 config.font_size = 12
 
