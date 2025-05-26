@@ -11,7 +11,7 @@ return {
   },
   keys = {
     -- swaps the default fF and ff
-    { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
-    { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+    -- { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    -- { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
   },
 }
