@@ -26,6 +26,12 @@ config.keys = {
 	},
 }
 
-config.enable_scroll_bar = true
+-- config.enable_scroll_bar = true
+config.window_padding = {
+	left = 10,
+	right = 5,
+	top = 5,
+	bottom = 5,
+}
 
 return config
