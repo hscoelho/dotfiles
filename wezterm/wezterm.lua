@@ -16,7 +16,7 @@ config.window_close_confirmation = "NeverPrompt"
 config.hide_tab_bar_if_only_one_tab = true
 
 config.color_scheme_dirs = { "./colors/" }
-config.color_scheme = "alabaster_dark"
+config.color_scheme = "gruvbox_dark_hard"
 
 config.keys = {
 	{

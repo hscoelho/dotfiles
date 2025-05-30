@@ -1,11 +1,14 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
-  { "p00f/alabaster.nvim" },
-
+  {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      contrast = "hard",
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "alabaster",
+      colorscheme = "gruvbox",
     },
   },
 }
