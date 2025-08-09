@@ -5,7 +5,7 @@ if status is-interactive
     # eval (zellij setup --generate-auto-start fish | string collect)
 end
 fish_add_path ~/.pixi/bin
-fish_add_path /home/linuxbrew/.linuxbrew/bin
+fish_add_path ~/.local/bin
 
 starship init fish | source
 zoxide init fish | source
