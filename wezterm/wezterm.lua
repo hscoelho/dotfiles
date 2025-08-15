@@ -7,8 +7,7 @@ else
 	config.default_prog = { "fish" }
 end
 
-config.font =
-	wezterm.font_with_fallback({ { family = "Intel One Mono", harfbuzz_features = { "ss01" } }, "JetBrains Mono" })
+config.font = wezterm.font_with_fallback({ "Go Mono", { family = "Intel One Mono", harfbuzz_features = { "ss01" } } })
 
 config.font_size = 12
 
@@ -26,7 +25,7 @@ config.keys = {
 	},
 }
 
--- config.enable_scroll_bar = true
+config.enable_scroll_bar = true
 config.window_padding = {
 	left = 10,
 	right = 5,
