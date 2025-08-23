@@ -5,7 +5,7 @@ link: neovim wezterm fish starship
 clean: neovim_clean wezterm_clean fish_clean starship_clean
 
 neovim_folder := "~/.config/nvim"
-neovim_dot := justfile_directory() + "/lazyvim/"
+neovim_dot := justfile_directory() + "/astronvim/"
 neovim: (_link neovim_dot neovim_folder)
 neovim_clean: (_clean_bkup neovim_folder)
 
