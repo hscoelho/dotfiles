@@ -46,6 +46,8 @@ return {
         number = true,
         signcolumn = "yes",
         wrap = false,
+        foldlevel = 99,
+        foldlevelstart = 99,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
