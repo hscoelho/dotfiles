@@ -58,7 +58,12 @@ return {
     mappings = {
       -- first key is the mode
       n = {
-        -- second key is the lefthand side of the map
+        -- tables with just a `desc` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        -- ["<Leader>b"] = { desc = "Buffers" },
+
+        -- setting a mapping to false will disable it
+        -- ["<C-S>"] = false,
 
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
@@ -74,16 +79,18 @@ return {
           desc = "Close buffer from tabline",
         },
 
-        ["<C-n>"] = { function() require("snacks").picker.buffers() end, desc = "Snacks buffer picker" },
+        -- buffer picker
+        ["<C-n>"] = {
+          function() require("telescope.builtin").buffers() end,
+          desc = "Buffers",
+        },
 
+        -- back and forward movement
         ["<A-Left>"] = { "<C-O>", desc = "Go back" },
         ["<A-Right>"] = { "<C-I>", desc = "Go forward" },
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
 
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
+        -- folding
+        ["<leader><leader>"] = { "za", desc = "Toggle folding" },
       },
     },
   },
