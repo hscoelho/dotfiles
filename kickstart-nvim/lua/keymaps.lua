@@ -15,10 +15,10 @@ map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
-map("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
-map("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
-map("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
-map("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+map('n', '<C-S-h>', '<C-w>H', { desc = 'Move window to the left' })
+map('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
+map('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
+map('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -37,5 +37,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
 
 -- vim: ts=2 sts=2 sw=2 et

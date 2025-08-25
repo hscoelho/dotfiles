@@ -1,10 +1,3 @@
--- NOTE: Plugins can specify dependencies.
---
--- The dependencies are proper plugin specifications as well - anything
--- you do for a plugin at the top level, you can do for a dependency.
---
--- Use the `dependencies` key to specify the dependencies of a particular plugin
-
 return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
@@ -74,25 +67,25 @@ return {
       pcall(require('telescope').load_extension, 'ui-select')
 
       -- See `:help telescope.builtin`
-      local builtin = require 'telescope.builtin'
       local map = vim.keymap.set
-      map('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
-      map('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
-      map('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-      map('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
-      map('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
-      map('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
-      map('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
-      map('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
-      map('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [b]uffers' })
-      map('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
-      map('n', '<leader>fo', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
-      map('n', '<C-n>', builtin.buffers, { desc = '[F]ind [b]uffers' })
+      local telescope = require 'telescope.builtin'
+      map('n', '<leader>fh', telescope.help_tags, { desc = '[F]ind [H]elp' })
+      map('n', '<leader>fk', telescope.keymaps, { desc = '[F]ind [K]eymaps' })
+      map('n', '<leader>ff', telescope.find_files, { desc = '[F]ind [F]iles' })
+      map('n', '<leader>fs', telescope.builtin, { desc = '[F]ind [S]elect Telescope' })
+      map('n', '<leader>fw', telescope.grep_string, { desc = '[F]ind current [W]ord' })
+      map('n', '<leader>fg', telescope.live_grep, { desc = '[F]ind by [G]rep' })
+      map('n', '<leader>fd', telescope.diagnostics, { desc = '[F]ind [D]iagnostics' })
+      map('n', '<leader>fr', telescope.resume, { desc = '[F]ind [R]esume' })
+      map('n', '<leader>fb', telescope.buffers, { desc = '[F]ind [b]uffers' })
+      map('n', '<leader>f.', telescope.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
+      map('n', '<leader>fo', telescope.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
+      map('n', '<C-n>', telescope.buffers, { desc = '[F]ind [b]uffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       map('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        telescope.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           previewer = false,
         })
@@ -101,7 +94,7 @@ return {
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
       map('n', '<leader>f/', function()
-        builtin.live_grep {
+        telescope.live_grep {
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
         }
@@ -109,7 +102,7 @@ return {
 
       -- Shortcut for searching your Neovim configuration files
       map('n', '<leader>fn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
+        telescope.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[F]ind [N]eovim files' })
     end,
   },

@@ -17,17 +17,14 @@ return {
             },
           },
         },
-      }
-    }
+      },
+    },
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    opts = {
-      ensure_installed = {
-        'lua_ls',
-        'stylua',
-      }
-    }
+    opts = function(_, opts)
+      opts.ensure_installed = util.list_insert_unique(opts.ensure_installed, { 'lua_ls', 'stylua' })
+    end,
   },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -40,5 +37,5 @@ return {
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
       },
     },
-  }
+  },
 }
