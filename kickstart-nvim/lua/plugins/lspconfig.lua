@@ -30,7 +30,7 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-      }
+      },
     },
     config = function(_, opts)
       -- Brief aside: **What is LSP?**
@@ -111,7 +111,7 @@ return {
           map('gt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
           local function client_supports_method(client, method, bufnr)
-              return client:supports_method(method, bufnr)
+            return client:supports_method(method, bufnr)
           end
 
           -- The following two autocommands are used to highlight references of the

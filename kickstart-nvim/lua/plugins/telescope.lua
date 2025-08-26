@@ -23,11 +23,13 @@ return {
           sort_mru = true,
           previewer = false,
         },
-        frecency = {},
       },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
+        },
+        frecency = {
+          previewer = false,
         },
       },
       -- mappings = {
@@ -39,8 +41,8 @@ return {
     keys = {
       { '<leader>fh', require('telescope.builtin').help_tags, desc = '[F]ind [H]elp' },
       { '<leader>fk', require('telescope.builtin').keymaps, desc = '[F]ind [K]eymaps' },
-      { '<leader>fF', require('telescope.builtin').find_files, desc = '[F]ind [F]iles' },
-      { '<leader>ff', '<cmd>Telescope frecency workspace=CWD<CR>', desc = '[F]ind [F]iles frecency' },
+      { '<leader>ff', require('telescope.builtin').find_files, desc = '[F]ind [F]iles' },
+      { '<leader>fF', '<cmd>Telescope frecency workspace=CWD<CR>', desc = '[F]ind [F]iles frecency' },
       { '<leader>fs', require('telescope.builtin').builtin, desc = '[F]ind [S]elect Telescope' },
       { '<leader>fw', require('telescope.builtin').grep_string, desc = '[F]ind current [W]ord' },
       { '<leader>fg', require('telescope.builtin').live_grep, desc = '[F]ind by [G]rep' },
