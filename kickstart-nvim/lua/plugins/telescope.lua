@@ -5,6 +5,21 @@ return {
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-tree/nvim-web-devicons' },
+      { 'nvim-telescope/telescope-frecency.nvim' },
+      { 'nvim-telescope/telescope-ui-select.nvim' },
+      {
+        -- If encountering errors, see telescope-fzf-native README for installation instructions
+        'nvim-telescope/telescope-fzf-native.nvim',
+        -- `build` is used to run some command when the plugin is installed/updated.
+        -- This is only run then, not every time Neovim starts up.
+        build = 'make',
+
+        -- `cond` is a condition used to determine whether this plugin should be
+        -- installed and loaded.
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
+      },
     },
     opts = {
       --  All the info you're looking for is in `:help telescope.setup()`
@@ -25,9 +40,9 @@ return {
         },
       },
       extensions = {
-        ['ui-select'] = {
-          require('telescope.themes').get_dropdown(),
-        },
+        -- ['ui-select'] = {
+        --   require('telescope.themes').get_dropdown(),
+        -- },
         frecency = {
           previewer = false,
         },
@@ -80,44 +95,12 @@ return {
         desc = '[F]ind [N]eovim files',
       },
     },
-  },
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-    dependencies = {
-      { 'nvim-telescope/telescope.nvim' },
-    },
-    config = function()
-      pcall(require('telescope').load_extension, 'ui-select')
-    end,
-  },
-  {
-    -- If encountering errors, see telescope-fzf-native README for installation instructions
-    'nvim-telescope/telescope-fzf-native.nvim',
-    dependencies = {
-      { 'nvim-telescope/telescope.nvim' },
-    },
-
-    -- `build` is used to run some command when the plugin is installed/updated.
-    -- This is only run then, not every time Neovim starts up.
-    build = 'make',
-
-    -- `cond` is a condition used to determine whether this plugin should be
-    -- installed and loaded.
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
-    config = function()
-      pcall(require('telescope').load_extension, 'fzf')
-    end,
-  },
-  {
-    'nvim-telescope/telescope-frecency.nvim',
-    dependencies = {
-      { 'nvim-telescope/telescope.nvim' },
-    },
     config = function()
       pcall(require('telescope').load_extension, 'frecency')
-    end,
+      pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'fzf')
+      require('telescope').setup(opts)
+    end
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
