@@ -32,6 +32,7 @@ require 'options'
 -- [[ Basic Keymaps ]]
 require 'keymaps'
 
+if vim.g.vscode then return end
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
 

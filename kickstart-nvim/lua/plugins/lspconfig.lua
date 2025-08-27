@@ -189,8 +189,12 @@ return {
       --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       local servers = opts.servers
+      local ensure_installed = {}
+      for key, _ in pairs(servers) do
+        table.insert(ensure_installed, key)
+      end
       require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        ensure_installed = ensure_installed,
         automatic_installation = true,
         handlers = {
           function(server_name)
