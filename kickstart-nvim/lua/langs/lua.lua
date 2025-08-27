@@ -20,12 +20,12 @@ return {
       },
     },
   },
-  {
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
-    opts = function(_, opts)
-      -- opts.ensure_installed = util.list_insert_unique(opts.ensure_installed, { 'lua_ls', 'stylua' })
-    end,
-  },
+  -- {
+  --   'WhoIsSethDaniel/mason-tool-installer.nvim',
+  --   opts = function(_, opts)
+  --     opts.ensure_installed = util.list_insert_unique(opts.ensure_installed, { 'lua_ls', 'stylua' })
+  --   end,
+  -- },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
