@@ -21,7 +21,11 @@ return {
         end,
       },
     },
-    opts = {
+    opts = function()
+      pcall(require('telescope').load_extension, 'frecency')
+      pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'fzf')
+      return {
       --  All the info you're looking for is in `:help telescope.setup()`
       defaults = {
         layout_config = {
@@ -47,26 +51,27 @@ return {
           previewer = false,
         },
       },
+    }
+    end,
       -- mappings = {
       -- },
-    },
     -- Two important keymaps to use while in Telescope are:
     --  - Insert mode: <c-/>
     --  - Normal mode: ?
     keys = {
-      { '<leader>fh', require('telescope.builtin').help_tags, desc = '[F]ind [H]elp' },
-      { '<leader>fk', require('telescope.builtin').keymaps, desc = '[F]ind [K]eymaps' },
-      { '<leader>ff', require('telescope.builtin').find_files, desc = '[F]ind [F]iles' },
+      { '<leader>fh', '<cmd>Telescope help_tags<CR>', desc = '[F]ind [H]elp' },
+      { '<leader>fk', '<cmd>Telescope keymaps<CR>', desc = '[F]ind [K]eymaps' },
+      { '<leader>ff', '<cmd>Telescope find_files<CR>', desc = '[F]ind [F]iles' },
       { '<leader>fF', '<cmd>Telescope frecency workspace=CWD<CR>', desc = '[F]ind [F]iles frecency' },
-      { '<leader>fs', require('telescope.builtin').builtin, desc = '[F]ind [S]elect Telescope' },
-      { '<leader>fw', require('telescope.builtin').grep_string, desc = '[F]ind current [W]ord' },
-      { '<leader>fg', require('telescope.builtin').live_grep, desc = '[F]ind by [G]rep' },
-      { '<leader>fd', require('telescope.builtin').diagnostics, desc = '[F]ind [D]iagnostics' },
-      { '<leader>fr', require('telescope.builtin').resume, desc = '[F]ind [R]esume' },
-      { '<leader>fb', require('telescope.builtin').buffers, desc = '[F]ind [b]uffers' },
-      { '<leader>f.', require('telescope.builtin').oldfiles, desc = '[F]ind Recent Files ("." for repeat)' },
-      { '<leader>fo', require('telescope.builtin').oldfiles, desc = '[F]ind Recent Files ("." for repeat)' },
-      { '<C-n>', require('telescope.builtin').buffers, desc = '[F]ind [b]uffers' },
+      { '<leader>fs', '<cmd>Telescope builtin<CR>', desc = '[F]ind [S]elect Telescope' },
+      { '<leader>fw', '<cmd>Telescope grep_string<CR>', desc = '[F]ind current [W]ord' },
+      { '<leader>fg', '<cmd>Telescope live_grep<CR>', desc = '[F]ind by [G]rep' },
+      { '<leader>fd', '<cmd>Telescope diagnostics<CR>', desc = '[F]ind [D]iagnostics' },
+      { '<leader>fr', '<cmd>Telescope resume<CR>', desc = '[F]ind [R]esume' },
+      { '<leader>fb', '<cmd>Telescope buffers<CR>', desc = '[F]ind [b]uffers' },
+      { '<leader>f.', '<cmd>Telescope oldfiles<CR>', desc = '[F]ind Recent Files ("." for repeat)' },
+      { '<leader>fo', '<cmd>Telescope oldfiles<CR>', desc = '[F]ind Recent Files ("." for repeat)' },
+      { '<C-n>', '<cmd>Telescope buffers<CR>', desc = '[F]ind [b]uffers' },
       {
         '<leader>/',
         function()
@@ -95,12 +100,6 @@ return {
         desc = '[F]ind [N]eovim files',
       },
     },
-    config = function()
-      pcall(require('telescope').load_extension, 'frecency')
-      pcall(require('telescope').load_extension, 'ui-select')
-      pcall(require('telescope').load_extension, 'fzf')
-      require('telescope').setup(opts)
-    end
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
