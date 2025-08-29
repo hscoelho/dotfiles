@@ -33,4 +33,8 @@ config.window_padding = {
 	bottom = 5,
 }
 
+local opacity = 0.75
+config.window_background_opacity = opacity
+config.text_background_opacity = opacity
+
 return config
