@@ -20,6 +20,10 @@ map('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
 map('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
 map('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
+-- Go back and forward
+map('n', '<A-Left>', '<C-O>', { desc = 'Go back' })
+map('n', '<A-Right>', '<C-I>', { desc = 'Go forward' })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -37,6 +41,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
-
 
 -- vim: ts=2 sts=2 sw=2 et
