@@ -20,17 +20,17 @@ return {
 
         icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
         controls = {
-          icons = {
-            pause = '⏸',
-            play = '▶',
-            step_into = '⏎',
-            step_over = '⏭',
-            step_out = '⏮',
-            step_back = 'b',
-            run_last = '▶▶',
-            terminate = '⏹',
-            disconnect = '⏏',
-          },
+          -- icons = {
+          --   pause = '⏸',
+          --   play = '▶',
+          --   step_into = '⏎',
+          --   step_over = '⏭',
+          --   step_out = '⏮',
+          --   step_back = 'b',
+          --   run_last = '▶▶',
+          --   terminate = '⏹',
+          --   disconnect = '⏏',
+          -- },
         },
       },
     },
@@ -40,10 +40,6 @@ return {
 
     -- Installs the debug adapters for you
     'mason-org/mason.nvim',
-    { 'jay-babu/mason-nvim-dap.nvim', opts = {
-      automatic_installation = true,
-      ensure_installed = {},
-    } },
 
     -- Add your own debuggers here
     -- 'leoluz/nvim-dap-go',
@@ -101,33 +97,22 @@ return {
       desc = 'Debug: See last session result.',
     },
   },
-  opts = function()
+  config = function()
     -- TODO: Move to dap ui opts
-    vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
-    vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
-    local breakpoint_icons = { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
-    for type, icon in pairs(breakpoint_icons) do
-      local tp = 'Dap' .. type
-      local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
-      vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
-    end
+    -- debug icons
+    -- vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
+    -- vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
+    -- local breakpoint_icons = { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
+    -- for type, icon in pairs(breakpoint_icons) do
+    --   local tp = 'Dap' .. type
+    --   local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
+    --   vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
+    -- end
 
-    return {
-      listeners = {
-        after = {
-          event_initialized = {
-            ['dapui_config'] = require('dapui').open,
-          },
-        },
-        before = {
-          event_terminated = {
-            ['dapui_config'] = require('dapui').close,
-          },
-          event_exited = {
-            ['dapui_config'] = require('dapui').close,
-          },
-        },
-      },
-    }
+    local dap = require 'dap'
+    local dapui = require 'dapui'
+    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+    dap.listeners.before.event_exited['dapui_config'] = dapui.close
   end,
 }

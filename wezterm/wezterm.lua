@@ -7,7 +7,8 @@ else
 	config.default_prog = { "fish" }
 end
 
-config.font = wezterm.font_with_fallback({ "Go Mono", { family = "Intel One Mono", harfbuzz_features = { "ss01" } } })
+config.font =
+	wezterm.font_with_fallback({ "GoMono Nerd Font", { family = "Intel One Mono", harfbuzz_features = { "ss01" } } })
 
 config.font_size = 12
 

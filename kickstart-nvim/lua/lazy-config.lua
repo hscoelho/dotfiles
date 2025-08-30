@@ -9,9 +9,10 @@
 --    :Lazy update
 --
 -- This will load plugins from the lua/plugins folder
-require("lazy").setup({
-  { import = "plugins" },
-  { import = "langs" }
-})
+require('lazy').setup {
+  { import = 'plugins' },
+  { import = 'lang' },
+  { import = 'debug' },
+}
 
 -- vim: ts=2 sts=2 sw=2 et
