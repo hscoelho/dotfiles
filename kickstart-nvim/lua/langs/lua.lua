@@ -3,7 +3,7 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
-        stylua = {}, -- to install with mason-tool-installer
+        stylua = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
