@@ -4,8 +4,19 @@ return {
     'ellisonleao/gruvbox.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
-      vim.o.background = 'dark'
-      vim.cmd.colorscheme 'gruvbox'
+      -- vim.o.background = 'dark'
+      -- vim.cmd.colorscheme 'gruvbox'
+    end,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+    config = function(_, opts)
+      require('kanagawa').setup(opts)
+      vim.cmd.colorscheme 'kanagawa-wave'
     end,
   },
 }
