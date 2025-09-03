@@ -1,14 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-local opacity = 0.7
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	config.default_prog = { "nu" }
-	opacity = 0.8
-else
-	config.default_prog = { "fish" }
-end
-
 config.font =
 	wezterm.font_with_fallback({ "GoMono Nerd Font", { family = "Intel One Mono", harfbuzz_features = { "ss01" } } })
 
@@ -36,7 +28,7 @@ config.window_padding = {
 	bottom = 5,
 }
 
+local opacity = 0.85
 config.window_background_opacity = opacity
-config.text_background_opacity = opacity
 
 return config
