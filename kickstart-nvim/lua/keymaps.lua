@@ -24,6 +24,9 @@ map('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 map('n', '<A-Left>', '<C-O>', { desc = 'Go back' })
 map('n', '<A-Right>', '<C-I>', { desc = 'Go forward' })
 
+-- Fold toggle
+map('n', '<Leader><Leader>', 'za', { desc = 'Toggle fold' })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
