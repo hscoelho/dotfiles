@@ -46,7 +46,12 @@ return {
         return '%2l:%-2v'
       end
 
-      require('mini.files').setup()
+      require('mini.files').setup {
+        mappings = {
+          go_in = 'L',
+          go_in_plus = 'l',
+        },
+      }
       vim.keymap.set('n', '<Leader>e', function()
         if not require('mini.files').close() then
           require('mini.files').open()
