@@ -78,13 +78,13 @@ return {
       map('n', '<leader>fb', cmd 'Pick buffers', { desc = 'Mini Pick Buffers' })
 
       -- lsp
-      map('n', 'gr', cmd "Pick lsp scope='references'", { desc = '[G]oto [R]eferences' })
+      map('n', 'gr', cmd 'Pick lsp scope="references"', { desc = '[G]oto [R]eferences' })
       -- map('n', 'gi', cmd "Pick lsp scope='implementation'", { desc = '[G]oto [I]mplementation' })
       -- map('n', 'gd', cmd "Pick lsp scope='definition'", { desc = '[G]oto [D]efinition' })
       -- map('n', 'gD', cmd "Pick lsp scope='declaration'", { desc = '[G]oto [D]eclaration' })
-      map('n', 'gO', cmd "Pick lsp scope='document_symbol'", { desc = 'Open Document Symbols' })
-      map('n', 'gW', cmd "Pick lsp scope='workpsace_symbol'", { desc = 'Open Workspace Symbols' })
-      map('n', 'gt', cmd "Pick lsp scope='type_definition'", { desc = '[G]oto [T]ype Definition' })
+      map('n', 'gO', cmd 'Pick lsp scope="document_symbol"', { desc = 'Open Document Symbols' })
+      map('n', 'gW', cmd 'Pick lsp scope="workpsace_symbol"', { desc = 'Open Workspace Symbols' })
+      map('n', 'gt', cmd 'Pick lsp scope="type_definition"', { desc = '[G]oto [T]ype Definition' })
     end,
   },
 }
