@@ -17,7 +17,7 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      require('mini.pairs').setup()
+      -- require('mini.pairs').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -52,12 +52,6 @@ return {
           go_in_plus = 'l',
         },
       }
-      vim.keymap.set('n', '<Leader>e', function()
-        if not require('mini.files').close() then
-          require('mini.files').open()
-        end
-      end, { desc = 'File explorer' })
-
       require('mini.pick').setup()
       require('mini.icons').setup()
       require('mini.extra').setup()
@@ -66,6 +60,12 @@ return {
       local cmd = function(cmd)
         return '<cmd>' .. cmd .. '<cr>'
       end
+
+      map('n', '<Leader>e', function()
+        if not require('mini.files').close() then
+          require('mini.files').open()
+        end
+      end, { desc = 'File explorer' })
       map('n', '<leader>ff', cmd 'Pick files', { desc = 'Mini Pick Files' })
       map('n', '<C-n>', cmd 'Pick oldfiles', { desc = 'Mini Pick Oldfiles' })
       map('n', '<leader>fo', cmd 'Pick oldfiles', { desc = 'Mini Pick Oldfiles' })
