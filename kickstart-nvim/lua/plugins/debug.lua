@@ -54,7 +54,6 @@ return {
       end
 
       local dap = require 'dap'
-
       dap.adapters['chrome'] = {
         type = 'executable',
         command = vim.fn.exepath 'chrome-debug-adapter',
