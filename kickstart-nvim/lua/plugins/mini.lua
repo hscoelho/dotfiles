@@ -67,7 +67,7 @@ return {
         end
       end, { desc = 'File explorer' })
       map('n', '<leader>ff', cmd 'Pick files', { desc = 'Mini Pick Files' })
-      map('n', '<C-n>', cmd 'Pick oldfiles', { desc = 'Mini Pick Oldfiles' })
+      map('n', '<C-n>', cmd 'Pick buffers', { desc = 'Mini Pick Oldfiles' })
       map('n', '<leader>fo', cmd 'Pick oldfiles', { desc = 'Mini Pick Oldfiles' })
       map('n', '<leader>ft', cmd 'Pick colorschemes', { desc = 'Mini Pick Theme' })
       map('n', '<leader>fg', cmd 'Pick grep_live', { desc = 'Mini Pick Grep live' })
@@ -79,9 +79,9 @@ return {
 
       -- lsp
       map('n', 'gr', cmd "Pick lsp scope='references'", { desc = '[G]oto [R]eferences' })
-      map('n', 'gi', cmd "Pick lsp scope='implementation'", { desc = '[G]oto [I]mplementation' })
-      map('n', 'gd', cmd "Pick lsp scope='definition'", { desc = '[G]oto [D]efinition' })
-      map('n', 'gD', cmd "Pick lsp scope='declaration'", { desc = '[G]oto [D]eclaration' })
+      -- map('n', 'gi', cmd "Pick lsp scope='implementation'", { desc = '[G]oto [I]mplementation' })
+      -- map('n', 'gd', cmd "Pick lsp scope='definition'", { desc = '[G]oto [D]efinition' })
+      -- map('n', 'gD', cmd "Pick lsp scope='declaration'", { desc = '[G]oto [D]eclaration' })
       map('n', 'gO', cmd "Pick lsp scope='document_symbol'", { desc = 'Open Document Symbols' })
       map('n', 'gW', cmd "Pick lsp scope='workpsace_symbol'", { desc = 'Open Workspace Symbols' })
       map('n', 'gt', cmd "Pick lsp scope='type_definition'", { desc = '[G]oto [T]ype Definition' })
