@@ -12,7 +12,6 @@
 require('lazy').setup {
   { import = 'plugins' },
   { import = 'lang' },
-  { import = 'debug' },
 }
 
 -- vim: ts=2 sts=2 sw=2 et

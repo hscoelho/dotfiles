@@ -5,121 +5,87 @@
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
-
 return {
-  'mfussenegger/nvim-dap',
-  dependencies = {
-    -- Creates a beautiful debugger UI
-    {
-      'rcarriga/nvim-dap-ui',
-      opts = {
-        -- Set icons to characters that are more likely to work in every terminal.
-        --    Feel free to remove or use ones that you like more! :)
-        --    Don't feel like these are good choices.
-        --
-
-        icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
-        controls = {
-          -- icons = {
-          --   pause = '⏸',
-          --   play = '▶',
-          --   step_into = '⏎',
-          --   step_over = '⏭',
-          --   step_out = '⏮',
-          --   step_back = 'b',
-          --   run_last = '▶▶',
-          --   terminate = '⏹',
-          --   disconnect = '⏏',
-          -- },
-        },
-      },
-    },
-
-    -- Required dependency for nvim-dap-ui
-    'nvim-neotest/nvim-nio',
-
-    -- Installs the debug adapters for you
-    'mason-org/mason.nvim',
-
-    -- Add your own debuggers here
-    -- 'leoluz/nvim-dap-go',
+  {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    opts = function(_, opts)
+      opts.ensure_installed = util.list_insert_unique(opts.ensure_installed, { 'firefox-debug-adapter', 'chrome-debug-adapter' })
+    end,
   },
-  keys = {
-    -- Basic debugging keymaps, feel free to change to your liking!
-    {
-      '<F5>',
-      function()
-        require('dap').continue()
-      end,
-      desc = 'Debug: Start/Continue',
-    },
-    {
-      '<Leader>dc',
-      function()
-        require('dap').continue()
-      end,
-      desc = 'Debug: Start/Continue',
-    },
-    {
-      '<F1>',
-      function()
-        require('dap').step_into()
-      end,
-      desc = 'Debug: Step Into',
-    },
-    {
-      '<F2>',
-      function()
-        require('dap').step_over()
-      end,
-      desc = 'Debug: Step Over',
-    },
-    {
-      '<F3>',
-      function()
-        require('dap').step_out()
-      end,
-      desc = 'Debug: Step Out',
-    },
-    {
-      '<leader>db',
-      function()
-        require('dap').toggle_breakpoint()
-      end,
-      desc = 'Debug: Toggle Breakpoint',
-    },
-    {
-      '<leader>dB',
-      function()
+  {
+    'miroshQa/debugmaster.nvim',
+    -- osv is needed if you want to debug neovim lua code. Also can be used
+    -- as a way to quickly test-drive the plugin without configuring debug adapters
+    dependencies = { 'mfussenegger/nvim-dap', 'jbyuki/one-small-step-for-vimkind' },
+    config = function()
+      local dm = require 'debugmaster'
+      dm.plugins.ui_auto_toggle.enabled = false
+      dm.plugins.osv_integration.enabled = true -- needed if you want to debug neovim lua code
+
+      -- Alternative keybindings to "<leader>d" could be: "<leader>m", "<leader>;"
+      vim.keymap.set({ 'n', 'v' }, '<leader>dd', dm.mode.toggle, { desc = 'Debugmaster: Toggle debug mode', nowait = true })
+      -- If you want to disable debug mode in addition to leader+d using the Escape key:
+      -- vim.keymap.set("n", "<Esc>", dm.mode.disable)
+      -- This might be unwanted if you already use Esc for ":noh"
+      -- vim.keymap.set('t', '<C-\\>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+      local cmd = function(cmd)
+        return '<cmd>' .. cmd .. '<CR>'
+      end
+
+      vim.keymap.set('n', '<F5>', cmd 'DapContinue', { desc = 'Debug: Start/Continue' })
+      vim.keymap.set('n', '<Leader>dc', cmd 'DapContinue', { desc = 'Debug: Start/Continue' })
+      vim.keymap.set('n', '<F1>', cmd 'DapStepInto', { desc = 'Debug: Step Into' })
+      vim.keymap.set('n', '<F2>', cmd 'DapStepOver', { desc = 'Debug: Step Over' })
+      vim.keymap.set('n', '<F3>', cmd 'DapStepOut', { desc = 'Debug: Step Out' })
+      vim.keymap.set('n', '<leader>db', cmd 'DapToggleBreakpoint', { desc = 'Debug: Toggle Breakpoint' })
+      vim.keymap.set('n', '<leader>dB', function()
         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-      end,
-      desc = 'Debug: Set Breakpoint',
-    },
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    {
-      '<F7>',
-      function()
-        require('dapui').toggle()
-      end,
-      desc = 'Debug: See last session result.',
-    },
-  },
-  config = function()
-    -- TODO: Move to dap ui opts
-    -- debug icons
-    -- vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
-    -- vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
-    -- local breakpoint_icons = { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
-    -- for type, icon in pairs(breakpoint_icons) do
-    --   local tp = 'Dap' .. type
-    --   local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
-    --   vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
-    -- end
+      end, { desc = 'Debug: Set Breakpoint' })
 
-    local dap = require 'dap'
-    local dapui = require 'dapui'
-    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    dap.listeners.before.event_exited['dapui_config'] = dapui.close
-  end,
+      -- breakpoints icons
+      vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
+      vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
+      local breakpoint_icons = { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
+      for type, icon in pairs(breakpoint_icons) do
+        local tp = 'Dap' .. type
+        local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
+        vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
+      end
+
+      local dap = require 'dap'
+
+      dap.adapters['chrome'] = {
+        type = 'executable',
+        command = vim.fn.exepath 'chrome-debug-adapter',
+      }
+
+      dap.adapters['firefox'] = {
+        type = 'executable',
+        command = vim.fn.exepath 'firefox-debug-adapter',
+      }
+      dap.configurations['firefox'] = {
+        name = 'Firefox: Debug',
+        type = 'firefox',
+        request = 'launch',
+        reAttach = true,
+        url = 'http://localhost:4200',
+        webRoot = '${workspaceFolder}',
+        firefoxExecutable = '/usr/bin/flatpak run org.mozilla.firefox',
+      }
+
+      -- TODO: Create a PR in the repo
+      vim.api.nvim_create_autocmd('User', {
+        group = vim.api.nvim_create_augroup('DebugMasterUI', { clear = true }),
+        pattern = 'DebugModeChanged',
+        callback = function(ev)
+          if ev and ev.data and ev.data.enabled then
+            require('debugmaster.state').sidepanel:open()
+          else
+            require('debugmaster.state').sidepanel:close()
+          end
+        end,
+      })
+    end,
+  },
 }
