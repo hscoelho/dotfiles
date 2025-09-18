@@ -2,6 +2,7 @@ return {
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
+      local map = vim.keymap.set
       -- Better Around/Inside textobjects
       --
       -- Examples:
@@ -16,8 +17,9 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+      map({ 'n', 'x' }, 's', '<Nop>')
 
-      -- require('mini.pairs').setup()
+      require('mini.pairs').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -56,7 +58,6 @@ return {
       require('mini.icons').setup()
       require('mini.extra').setup()
 
-      local map = vim.keymap.set
       local cmd = function(cmd)
         return '<cmd>' .. cmd .. '<cr>'
       end
@@ -78,7 +79,7 @@ return {
       map('n', '<leader>fb', cmd 'Pick buffers', { desc = 'Mini Pick Buffers' })
 
       -- lsp
-      map('n', 'gr', cmd "Pick lsp scope='references'", { desc = '[G]oto [R]eferences' })
+      map('n', 'grr', cmd "Pick lsp scope='references'", { desc = '[G]oto [R]eferences' })
       map('n', 'gi', cmd "Pick lsp scope='implementation'", { desc = '[G]oto [I]mplementation' })
       map('n', 'gd', cmd "Pick lsp scope='definition'", { desc = '[G]oto [D]efinition' })
       map('n', 'gD', cmd "Pick lsp scope='declaration'", { desc = '[G]oto [D]eclaration' })
