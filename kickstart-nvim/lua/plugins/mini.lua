@@ -19,7 +19,21 @@ return {
       require('mini.surround').setup()
       map({ 'n', 'x' }, 's', '<Nop>')
 
-      require('mini.pairs').setup()
+      require('mini.pairs').setup {
+        mappings = {
+          ['('] = { action = 'open', pair = '()', neigh_pattern = '.%s' },
+          ['['] = { action = 'open', pair = '[]', neigh_pattern = '.%s' },
+          ['{'] = { action = 'open', pair = '{}', neigh_pattern = '.%s' },
+
+          [')'] = { action = 'close', pair = '()', neigh_pattern = '.%s' },
+          [']'] = { action = 'close', pair = '[]', neigh_pattern = '.%s' },
+          ['}'] = { action = 'close', pair = '{}', neigh_pattern = '.%s' },
+
+          ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '.%s', register = { cr = false } },
+          ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '.%s', register = { cr = false } },
+          ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '.%s', register = { cr = false } },
+        },
+      }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
