@@ -93,7 +93,7 @@ return {
       map('n', '<leader>fb', cmd 'Pick buffers', { desc = 'Mini Pick Buffers' })
 
       -- lsp
-      map('n', 'gr', cmd 'Pick lsp scope="references"', { desc = '[G]oto [R]eferences' })
+      map('n', 'grr', cmd 'Pick lsp scope="references"', { desc = '[G]oto [R]eferences' })
       -- map('n', 'gi', cmd "Pick lsp scope='implementation'", { desc = '[G]oto [I]mplementation' })
       -- map('n', 'gd', cmd "Pick lsp scope='definition'", { desc = '[G]oto [D]efinition' })
       -- map('n', 'gD', cmd "Pick lsp scope='declaration'", { desc = '[G]oto [D]eclaration' })
