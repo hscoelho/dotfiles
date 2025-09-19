@@ -3,7 +3,7 @@ return {
   opts = {},
   keys = {
     {
-      '<Leader>ot',
+      '<Leader>oo',
       '<cmd>OverseerToggle<CR>',
       mode = 'n',
       desc = '[O]verseer: Toggle task [o]utput',
