@@ -1,9 +1,9 @@
 return {
-  -- {
-  --   'chrisgrieser/nvim-origami',
-  --   event = 'VeryLazy',
-  --   opts = {
-  --     useLspFoldsWithTreesitterFallback = false,
-  --   },
-  -- },
+  {
+    'chrisgrieser/nvim-origami',
+    event = 'VeryLazy',
+    opts = {
+      useLspFoldsWithTreesitterFallback = true,
+    },
+  },
 }
