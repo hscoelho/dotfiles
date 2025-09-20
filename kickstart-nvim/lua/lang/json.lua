@@ -10,14 +10,14 @@ return {
         end,
       })
 
-      require('lspconfig').jsonls.setup {
+      vim.lsp.config('jsonls', {
         settings = {
           json = {
             schemas = require('schemastore').json.schemas(),
             validate = { enable = true },
           },
         },
-      }
+      })
     end,
     dependencies = {
       'neovim/nvim-lspconfig',
@@ -26,7 +26,7 @@ return {
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     opts = function(_, opts)
-      opts.ensure_installed = util.list_insert_unique(opts.ensure_installed, { 'jsonls', 'jsonlint' })
+      opts.ensure_installed = util.list_insert_unique(opts.ensure_installed, { 'json-lsp', 'jsonlint' })
     end,
   },
 }
