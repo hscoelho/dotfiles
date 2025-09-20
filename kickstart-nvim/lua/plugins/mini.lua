@@ -68,11 +68,13 @@ return {
           go_in_plus = 'l',
         },
       }
-      require('mini.pick').setup()
+
       require('mini.icons').setup()
       require('mini.extra').setup()
 
+      -- mini pick config
       local MiniPick = require 'mini.pick'
+      MiniPick.setup()
       MiniPick.registry.registry = function()
         local items = vim.tbl_keys(MiniPick.registry)
         table.sort(items)
@@ -108,26 +110,6 @@ return {
           require('mini.files').open()
         end
       end, { desc = 'File explorer' })
-      map('n', '<leader>ff', cmd 'Pick files', { desc = 'Mini Pick Files' })
-      map('n', '<C-n>', cmd 'Pick buffers', { desc = 'Mini Pick Oldfiles' })
-      map('n', '<leader>fo', cmd 'Pick oldfiles', { desc = 'Mini Pick Oldfiles' })
-      map('n', '<leader>ft', cmd 'Pick colorschemes', { desc = 'Mini Pick Theme' })
-      map('n', '<leader>fg', cmd 'Pick grep_live', { desc = 'Mini Pick Grep live' })
-      map('n', '<leader>fh', cmd 'Pick help', { desc = 'Mini Pick Help' })
-      map('n', '<leader>fk', cmd 'Pick keymaps', { desc = 'Mini Pick Keymaps' })
-      map('n', '<leader>fd', cmd 'Pick diagnostic', { desc = 'Mini Pick Diagnostics' })
-      map('n', '<leader>fr', cmd 'Pick resume', { desc = 'Mini Pick Resume' })
-      map('n', '<leader>fb', cmd 'Pick buffers', { desc = 'Mini Pick Buffers' })
-      map('n', '<leader>fn', cmd 'Pick notifications', { desc = 'Mini Pick Notifications' })
-
-      -- lsp
-      map('n', 'grr', cmd 'Pick lsp scope="references"', { desc = '[G]oto [R]eferences' })
-      -- map('n', 'gi', cmd "Pick lsp scope='implementation'", { desc = '[G]oto [I]mplementation' })
-      -- map('n', 'gd', cmd "Pick lsp scope='definition'", { desc = '[G]oto [D]efinition' })
-      -- map('n', 'gD', cmd "Pick lsp scope='declaration'", { desc = '[G]oto [D]eclaration' })
-      map('n', 'gO', cmd 'Pick lsp scope="document_symbol"', { desc = 'Open Document Symbols' })
-      map('n', 'gW', cmd 'Pick lsp scope="workpsace_symbol"', { desc = 'Open Workspace Symbols' })
-      map('n', 'gt', cmd 'Pick lsp scope="type_definition"', { desc = '[G]oto [T]ype Definition' })
     end,
   },
 }
