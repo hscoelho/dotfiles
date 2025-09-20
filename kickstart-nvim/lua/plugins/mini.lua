@@ -72,6 +72,33 @@ return {
       require('mini.icons').setup()
       require('mini.extra').setup()
 
+      local MiniPick = require 'mini.pick'
+      MiniPick.registry.registry = function()
+        local items = vim.tbl_keys(MiniPick.registry)
+        table.sort(items)
+        local source = { items = items, name = 'Registry', choose = function() end }
+        local chosen_picker_name = MiniPick.start { source = source }
+        if chosen_picker_name == nil then
+          return
+        end
+        return MiniPick.registry[chosen_picker_name]()
+      end
+
+      MiniPick.registry.notifications = function()
+        local notify = require 'notify'
+        local notifications = notify.history()
+        local items = {}
+        for i, value in ipairs(notifications) do
+          -- TODO: The message is a table of lines
+          -- There should be some formatting
+          table.insert(items, i, value.message)
+        end
+        local source = { items = items, name = 'Notications', choose = function() end }
+        MiniPick.start { source = source }
+        -- TODO: Get selected notification and show full notification text somewhere
+        -- TODO: Add preview to show full notification
+      end
+
       local cmd = function(cmd)
         return '<cmd>' .. cmd .. '<cr>'
       end
@@ -91,6 +118,7 @@ return {
       map('n', '<leader>fd', cmd 'Pick diagnostic', { desc = 'Mini Pick Diagnostics' })
       map('n', '<leader>fr', cmd 'Pick resume', { desc = 'Mini Pick Resume' })
       map('n', '<leader>fb', cmd 'Pick buffers', { desc = 'Mini Pick Buffers' })
+      map('n', '<leader>fn', cmd 'Pick notifications', { desc = 'Mini Pick Notifications' })
 
       -- lsp
       map('n', 'grr', cmd 'Pick lsp scope="references"', { desc = '[G]oto [R]eferences' })
@@ -103,4 +131,3 @@ return {
     end,
   },
 }
--- vim: ts=2 sts=2 sw=2 et
