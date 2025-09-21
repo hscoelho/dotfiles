@@ -15,4 +15,5 @@ return {
       desc = '[O]verseer: Select and [r]un task',
     },
   },
+  lazy = false,
 }
