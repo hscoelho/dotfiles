@@ -115,6 +115,7 @@ return {
 
       local servers = opts.servers
       for server, config in pairs(servers) do
+        vim.lsp.enable(server)
         if not vim.tbl_isempty(config) then
           vim.lsp.config(server, config)
         end

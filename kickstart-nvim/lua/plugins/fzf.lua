@@ -22,7 +22,7 @@ return {
     map('n', '<C-n>', cmd 'FzfLua oldfiles', { desc = 'Fzf Oldfiles' })
     map('n', '<leader>fo', cmd 'FzfLua oldfiles', { desc = 'Fzf Oldfiles' })
     map('n', '<leader>ft', cmd 'FzfLua colorschemes', { desc = 'Fzf Theme' })
-    map('n', '<leader>fg', cmd 'FzfLua grep_live', { desc = 'Fzf Grep live' })
+    map('n', '<leader>fg', cmd 'FzfLua live_grep', { desc = 'Fzf Live Grep' })
     map('n', '<leader>fh', cmd 'FzfLua helptags', { desc = 'Fzf Help' })
     map('n', '<leader>fk', cmd 'FzfLua keymaps', { desc = 'Fzf Keymaps' })
     map('n', '<leader>fd', cmd 'FzfLua diagnostic', { desc = 'Fzf Diagnostics' })
