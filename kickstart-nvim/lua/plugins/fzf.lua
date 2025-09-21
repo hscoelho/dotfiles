@@ -8,6 +8,9 @@ return {
           layout = 'vertical',
         },
       },
+      oldfiles = {
+        include_current_session = true,
+      },
     }
 
     local cmd = function(cmd)
@@ -20,7 +23,7 @@ return {
     map('n', '<leader>fo', cmd 'FzfLua oldfiles', { desc = 'Fzf Oldfiles' })
     map('n', '<leader>ft', cmd 'FzfLua colorschemes', { desc = 'Fzf Theme' })
     map('n', '<leader>fg', cmd 'FzfLua grep_live', { desc = 'Fzf Grep live' })
-    map('n', '<leader>fh', cmd 'FzfLua help', { desc = 'Fzf Help' })
+    map('n', '<leader>fh', cmd 'FzfLua helptags', { desc = 'Fzf Help' })
     map('n', '<leader>fk', cmd 'FzfLua keymaps', { desc = 'Fzf Keymaps' })
     map('n', '<leader>fd', cmd 'FzfLua diagnostic', { desc = 'Fzf Diagnostics' })
     map('n', '<leader>fr', cmd 'FzfLua resume', { desc = 'Fzf Resume' })
