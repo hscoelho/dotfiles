@@ -21,6 +21,7 @@ require('lazy').setup {
   -- themes
   { 'ellisonleao/gruvbox.nvim', lazy = false },
   { 'rebelot/kanagawa.nvim', lazy = false },
+  { 'tritlo/hypersubatomic.vim', lazy = false },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },
   {
