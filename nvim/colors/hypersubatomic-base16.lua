@@ -1,3 +1,5 @@
+-- not good and can't add transparency with this plugin
+-- TODO: fork kanagawa or leaf and create this palette there
 require('mini.base16').setup {
   palette = {
     base00 = '', -- default background

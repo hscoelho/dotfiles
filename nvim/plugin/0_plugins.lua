@@ -85,11 +85,16 @@ require('lazy').setup {
   { 'nvim-lua/plenary.nvim', lazy = false },
   { 'lewis6991/gitsigns.nvim', lazy = false },
   { 'nmac427/guess-indent.nvim', lazy = false },
-  { 'lukas-reineke/indent-blankline.nvim', lazy = false },
   { 'wakatime/vim-wakatime', lazy = false },
   { 'folke/which-key.nvim', lazy = false },
   { 'folke/todo-comments.nvim', lazy = false },
   { 'windwp/nvim-autopairs', lazy = false },
   { 'windwp/nvim-ts-autotag', lazy = false },
+  { 'hedyhli/outline.nvim', lazy = false },
+  -- indent
   { 'nmac427/guess-indent.nvim', lazy = false },
+  { 'lukas-reineke/indent-blankline.nvim', lazy = false },
+  -- markdown/obsidian
+  { 'MeanderingProgrammer/render-markdown.nvim', lazy = false },
+  { 'epwalsh/obsidian.nvim', lazy = false },
 }

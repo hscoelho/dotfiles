@@ -68,11 +68,16 @@ end, {
 })
 
 -- Task runner (Overseer)
-map('n', '<Leader>oo', cmd 'OverseerToggle', {
-  desc = '[O]verseer: Toggle task [o]utput',
+map('n', '<Leader>to', cmd 'OverseerToggle', {
+  desc = '[T]ask runner (overseer): Toggle task [o]utput',
 })
-map('n', '<Leader>or', cmd 'OverseerRun', {
-  desc = '[O]verseer: Select and [r]un task',
+map('n', '<Leader>tt', cmd 'OverseerRun', {
+  desc = '[T]ask runner (overseer): Select and run [t]ask',
+})
+
+-- Outline
+map('n', '<Leader>o', cmd 'Outline', {
+  desc = '[O]utline',
 })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
