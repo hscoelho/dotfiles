@@ -90,4 +90,5 @@ require('lazy').setup {
   { 'folke/todo-comments.nvim', lazy = false },
   { 'windwp/nvim-autopairs', lazy = false },
   { 'windwp/nvim-ts-autotag', lazy = false },
+  { 'nmac427/guess-indent.nvim', lazy = false },
 }

@@ -3,6 +3,7 @@ if vim.g.vscode then
 end
 
 require('ibl').setup()
+require('guess-indent').setup()
 require('nvim-autopairs').setup()
 require('todo-comments').setup(
   -- { signs = false }
