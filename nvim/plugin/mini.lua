@@ -26,3 +26,9 @@ require('mini.files').setup {
 
 require('mini.icons').setup()
 require('mini.extra').setup()
+require('mini.hipatterns').setup {
+  highlighters = {
+    -- Highlight hex color strings (`#rrggbb`) using that color
+    hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
+  },
+}

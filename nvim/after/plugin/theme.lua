@@ -1,4 +1,7 @@
 require('kanagawa').setup {
   transparent = true,
 }
-vim.cmd.colorscheme 'kanagawa-wave'
+require('leaf').setup {
+  transparent = true,
+}
+vim.cmd.colorscheme 'leaf'
