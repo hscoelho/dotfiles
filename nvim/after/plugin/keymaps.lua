@@ -68,10 +68,10 @@ end, {
 })
 
 -- Task runner (Overseer)
-map('n', '<Leader>to', cmd 'OverseerToggle', {
+map('n', '<Leader>tt', cmd 'OverseerToggle', {
   desc = '[T]ask runner (overseer): Toggle task [o]utput',
 })
-map('n', '<Leader>tt', cmd 'OverseerRun', {
+map('n', '<Leader>tr', cmd 'OverseerRun', {
   desc = '[T]ask runner (overseer): Select and run [t]ask',
 })
 

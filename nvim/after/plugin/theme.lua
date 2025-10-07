@@ -19,9 +19,14 @@ require('nightfox').setup {
 require('catppuccin').setup {
   transparent_background = true,
   float = {
-    transparent = true, -- enable transparent floating windows
+    transparent = true,
     solid = false, -- use solid styling for floating windows, see |winborder|
   },
+  custom_highlights = function(colors)
+    return {
+      Comment = { fg = colors.teal },
+    }
+  end,
 }
 
 vim.cmd.colorscheme 'catppuccin'
