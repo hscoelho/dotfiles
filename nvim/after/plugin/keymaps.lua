@@ -9,6 +9,7 @@ map('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
 -- Finder (fzf-lua)
 -- Pickers
 map('n', '<leader>ff', cmd 'FzfLua files', { desc = 'Fzf Files' })
+map('n', '<leader>fp', cmd 'FzfLua global', { desc = 'Fzf Global(vscode-like)' })
 map('n', '<C-n>', cmd 'FzfLua oldfiles', { desc = 'Fzf Oldfiles' })
 map('n', '<leader>fo', cmd 'FzfLua oldfiles', { desc = 'Fzf Oldfiles' })
 map('n', '<leader>ft', cmd 'FzfLua colorschemes', { desc = 'Fzf Theme' })
@@ -18,7 +19,7 @@ map('n', '<leader>fk', cmd 'FzfLua keymaps', { desc = 'Fzf Keymaps' })
 map('n', '<leader>fd', cmd 'FzfLua diagnostic', { desc = 'Fzf Diagnostics' })
 map('n', '<leader>fr', cmd 'FzfLua resume', { desc = 'Fzf Resume' })
 map('n', '<leader>fb', cmd 'FzfLua buffers', { desc = 'Fzf Buffers' })
-map('n', '<leader>fn', cmd 'FzfLua notifications', { desc = 'Fzf Notifications' })
+map('n', '<leader>fn', cmd 'Noice fzf', { desc = 'Fzf notifications' })
 -- LSP Pickers
 map('n', 'grr', cmd 'FzfLua lsp_references', { desc = '[G]oto [R]eferences' })
 map('n', 'gi', cmd 'FzfLua lsp_implementations', { desc = '[G]oto [I]mplementation' })
@@ -72,11 +73,6 @@ map('n', '<Leader>to', cmd 'OverseerToggle', {
 })
 map('n', '<Leader>tt', cmd 'OverseerRun', {
   desc = '[T]ask runner (overseer): Select and run [t]ask',
-})
-
--- Outline
-map('n', '<Leader>o', cmd 'Outline', {
-  desc = '[O]utline',
 })
 
 -- Clear highlights on search when pressing <Esc> in normal mode

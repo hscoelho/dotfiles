@@ -4,6 +4,9 @@ end
 
 vim.lsp.enable 'vtsls'
 vim.lsp.enable 'angularls'
+vim.lsp.config('angularls', {
+  filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx', 'htmlangular' },
+})
 vim.lsp.enable 'html'
 
 vim.lsp.enable 'jsonls'
