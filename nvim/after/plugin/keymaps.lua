@@ -5,7 +5,6 @@ end
 
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
-map({ 'n', 'x' }, 's', '<Nop>')
 
 -- Finder (fzf-lua)
 -- Pickers
