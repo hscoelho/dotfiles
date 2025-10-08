@@ -93,6 +93,7 @@ require('lazy').setup {
   { 'folke/todo-comments.nvim', lazy = false },
   { 'windwp/nvim-autopairs', lazy = false },
   { 'windwp/nvim-ts-autotag', lazy = false },
+  { 'akinsho/toggleterm.nvim', lazy = false },
   -- indent
   { 'nmac427/guess-indent.nvim', lazy = false },
   { 'lukas-reineke/indent-blankline.nvim', lazy = false },
