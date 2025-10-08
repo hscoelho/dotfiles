@@ -8,26 +8,6 @@ local debugmaster = require 'debugmaster'
 debugmaster.plugins.ui_auto_toggle.enabled = false
 debugmaster.plugins.osv_integration.enabled = true -- needed if you want to debug neovim lua code
 
-local dap = require 'dap'
-dap.adapters['chrome'] = {
-  type = 'executable',
-  command = vim.fn.exepath 'chrome-debug-adapter',
-}
-
-dap.adapters['firefox'] = {
-  type = 'executable',
-  command = vim.fn.exepath 'firefox-debug-adapter',
-}
-dap.configurations['firefox'] = {
-  name = 'Firefox: Debug',
-  type = 'firefox',
-  request = 'launch',
-  reAttach = true,
-  url = 'http://localhost:4200',
-  webRoot = '${workspaceFolder}',
-  firefoxExecutable = '/usr/bin/flatpak run org.mozilla.firefox',
-}
-
 -- TODO: I could open a PR in the debugmaster to add this option
 -- Open and close debugmaster panel on when it's entered and exitted
 vim.api.nvim_create_autocmd('User', {
