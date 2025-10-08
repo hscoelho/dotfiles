@@ -22,6 +22,8 @@ require('lazy').setup {
   { 'ellisonleao/gruvbox.nvim', lazy = false },
   { 'rebelot/kanagawa.nvim', lazy = false },
   { 'daschw/leaf.nvim', lazy = false },
+  { 'EdenEast/nightfox.nvim', lazy = false },
+  { 'catppuccin/nvim', name = 'catppuccin', lazy = false },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },
   {

@@ -10,4 +10,18 @@ require('leaf').setup {
   },
 }
 
-vim.cmd.colorscheme 'leaf'
+require('nightfox').setup {
+  options = {
+    transparent = true,
+  },
+}
+
+require('catppuccin').setup {
+  transparent_background = true,
+  float = {
+    transparent = true, -- enable transparent floating windows
+    solid = false, -- use solid styling for floating windows, see |winborder|
+  },
+}
+
+vim.cmd.colorscheme 'catppuccin'
