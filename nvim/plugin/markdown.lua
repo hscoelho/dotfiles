@@ -3,14 +3,14 @@ if vim.g.vscode then
 end
 
 require('render-markdown').setup()
-require('obsidian').setup {
-  workspaces = {
-    {
-      name = 'SyncVault',
-      path = '~/Documents/SyncVault',
-    },
-  },
-  ui = {
-    enable = false,
-  },
-}
+-- require('obsidian').setup {
+--   workspaces = {
+--     {
+--       name = 'SyncVault',
+--       path = '~/Documents/SyncVault',
+--     },
+--   },
+--   ui = {
+--     enable = false,
+--   },
+-- }
