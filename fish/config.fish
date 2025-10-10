@@ -8,4 +8,6 @@ zoxide init fish | source
 fnm env --use-on-cd --shell fish | source
 
 alias lazyjj="~/code/lazyjj/target/release/lazyjj"
+alias cat="echo 'Use > bat'"
+alias ls="eza"
 
