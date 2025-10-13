@@ -17,5 +17,6 @@ require('mason-tool-installer').setup {
     'stylua',
     'vtsls',
     'eslint-lsp',
+    'clangd',
   },
 }

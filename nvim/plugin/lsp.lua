@@ -2,6 +2,7 @@ if vim.g.vscode then
   return
 end
 
+-- web (typescript + html)
 vim.lsp.enable 'vtsls'
 vim.lsp.enable 'angularls'
 vim.lsp.config('angularls', {
@@ -9,6 +10,7 @@ vim.lsp.config('angularls', {
 })
 vim.lsp.enable 'html'
 
+-- json
 vim.lsp.enable 'jsonls'
 vim.lsp.config('jsonls', {
   settings = {
@@ -25,6 +27,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
+-- lua
 vim.lsp.enable 'lua_ls'
 vim.lsp.config('lua_ls', {
   -- cmd = { ... },
@@ -46,6 +49,9 @@ require('lazydev').setup {
     { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
   },
 }
+
+-- c/cpp
+vim.lsp.enable 'clangd'
 
 -- Diagnostic Config
 -- See :help vim.diagnostic.Opts
