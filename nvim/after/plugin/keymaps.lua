@@ -37,12 +37,13 @@ map('n', '<leader>ch', function()
 end, { desc = '[T]oggle Inlay [H]ints' })
 
 -- Obsidian
-map('n', '<leader>oc', cmd 'FzfObsidianCommands', { desc = 'Obsidian: Commands picker' })
-map('n', '<leader>on', cmd 'ObsidianQuickSwitch', { desc = 'Obsidian: Notes picker' })
-map('n', '<leader>ot', cmd 'ObsidianTags', { desc = 'Obsidian: Tags picker' })
-map('n', '<leader>oo', cmd 'ObsidianToday', { desc = "Obsidian: Open today's daily note" })
-map('n', '<leader>od', cmd 'ObsidianDailies', { desc = 'Obsidian: Daily notes picker' })
-map('n', '<leader>oa', cmd 'ObsidianOpen', { desc = 'Obsidian: Open Obsidian app' })
+map('n', '<leader>oc', cmd 'FzfObsidianCommands', { desc = 'Obsidian: [C]ommands picker' })
+map('n', '<leader>of', cmd 'ObsidianQuickSwitch', { desc = 'Obsidian: [F]ind notes' })
+map('n', '<leader>on', cmd 'ObsidianNew', { desc = 'Obsidian: [N]ew notes' })
+map('n', '<leader>ot', cmd 'ObsidianTags', { desc = 'Obsidian: [T]ags' })
+map('n', '<leader>oo', cmd 'ObsidianToday', { desc = "Obsidian: [O]pen today's daily note" })
+map('n', '<leader>od', cmd 'ObsidianDailies', { desc = 'Obsidian: [D]aily notes picker' })
+map('n', '<leader>oa', cmd 'ObsidianOpen', { desc = 'Obsidian: Open Obsidian [A]pp' })
 
 -- File explorer
 map('n', '<Leader>e', function()
