@@ -5,6 +5,7 @@ end
 
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
+map({ 'n', 'i', 's' }, '<Esc>', cmd 'noh', { desc = 'Clear hlsearch' })
 
 -- Finder (fzf-lua)
 -- Pickers
@@ -37,10 +38,12 @@ map('n', '<leader>ch', function()
 end, { desc = '[T]oggle Inlay [H]ints' })
 
 -- Obsidian
-map('n', '<leader>oc', cmd 'FzfObsidianCommands', { desc = 'Obsidian: Commands' })
-map('n', '<leader>on', cmd 'ObsidianQuickSwitch', { desc = 'Obsidian: Notes' })
-map('n', '<leader>ot', cmd 'ObsidianTags', { desc = 'Obsidian: Tags' })
-map('n', '<leader>od', cmd 'ObsidianToday', { desc = "Obsidian: Open today's daily note" })
+map('n', '<leader>oc', cmd 'FzfObsidianCommands', { desc = 'Obsidian: Commands picker' })
+map('n', '<leader>on', cmd 'ObsidianQuickSwitch', { desc = 'Obsidian: Notes picker' })
+map('n', '<leader>ot', cmd 'ObsidianTags', { desc = 'Obsidian: Tags picker' })
+map('n', '<leader>oo', cmd 'ObsidianToday', { desc = "Obsidian: Open today's daily note" })
+map('n', '<leader>od', cmd 'ObsidianDailies', { desc = 'Obsidian: Daily notes picker' })
+map('n', '<leader>oa', cmd 'ObsidianOpen', { desc = 'Obsidian: Open Obsidian app' })
 
 -- File explorer
 map('n', '<Leader>e', function()
