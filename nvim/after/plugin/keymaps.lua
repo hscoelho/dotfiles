@@ -36,6 +36,12 @@ map('n', '<leader>ch', function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = '[T]oggle Inlay [H]ints' })
 
+-- Obsidian
+map('n', '<leader>oc', cmd 'FzfObsidianCommands', { desc = 'Obsidian: Commands' })
+map('n', '<leader>on', cmd 'ObsidianQuickSwitch', { desc = 'Obsidian: Notes' })
+map('n', '<leader>ot', cmd 'ObsidianTags', { desc = 'Obsidian: Tags' })
+map('n', '<leader>od', cmd 'ObsidianToday', { desc = "Obsidian: Open today's daily note" })
+
 -- File explorer
 map('n', '<Leader>e', function()
   if not require('mini.files').close() then

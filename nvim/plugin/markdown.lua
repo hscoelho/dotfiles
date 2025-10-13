@@ -14,3 +14,41 @@ require('render-markdown').setup()
 --     enable = false,
 --   },
 -- }
+
+local FzfObsidianCommands = function()
+  local cmds = {
+    'ObsidianOpen',
+    'ObsidianNew',
+    'ObsidianQuickSwitch',
+    'ObsidianFollowLink',
+    'ObsidianBacklink',
+    'ObsidianTags',
+    'ObsidianToday',
+    'ObsidianYesterday',
+    'ObsidianTommorow',
+    'ObsidianDailies',
+    'ObsidianTemplate',
+    'ObsidianSearch',
+    'ObsidianLink',
+    'ObsidianLinkNew',
+    'ObsidianLinks',
+    'ObsidianExtractNote',
+    'ObsidianWorkspace',
+    'ObsidianPasteImg',
+    'ObsidianRename',
+    'ObsidianToggleCheckbox',
+    'ObsidianCheck',
+    'ObsidianNewFromTemplate',
+    'ObsidianTOC',
+  }
+  require('fzf-lua').fzf_exec(cmds, {
+    actions = {
+      ['default'] = function(selected, _)
+        vim.cmd(selected[1])
+      end,
+    },
+  })
+end
+vim.api.nvim_create_user_command('FzfObsidianCommands', FzfObsidianCommands, {
+  desc = 'Obsidian commands',
+})
