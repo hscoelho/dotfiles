@@ -1,6 +1,10 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_prog = { "nu" }
+end
+
 config.font =
 	wezterm.font_with_fallback({ "GoMono Nerd Font", { family = "Intel One Mono", harfbuzz_features = { "ss01" } } })
 
