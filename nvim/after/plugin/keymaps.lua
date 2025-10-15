@@ -3,8 +3,8 @@ local cmd = function(cmd)
   return '<cmd>' .. cmd .. '<CR>'
 end
 
-map('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
-map('t', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+map('i', 'kk', '<Esc>', { desc = 'Exit insert mode' })
+map('t', 'kk', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Finder (fzf-lua)
 -- Pickers
