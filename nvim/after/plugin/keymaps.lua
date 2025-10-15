@@ -6,7 +6,6 @@ end
 map('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('t', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-map('t', 'tt', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Finder (fzf-lua)
 -- Pickers
@@ -49,7 +48,7 @@ map('n', '<leader>od', cmd 'ObsidianDailies', { desc = 'Obsidian: [D]aily notes 
 map('n', '<leader>oa', cmd 'ObsidianOpen', { desc = 'Obsidian: Open Obsidian [A]pp' })
 
 -- Terminal
-map('n', '<leader>tt', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
+map({ 'n', 't' }, '<leader>tt', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
 map('n', '<leader>tn', cmd 'TermNew', { desc = '[T]erm: [N]ew' })
 map('n', '<leader>td', cmd 'ToggleTermSetName', { desc = '[T]erm: [D]escribe' })
 
