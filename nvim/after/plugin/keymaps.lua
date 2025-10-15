@@ -8,18 +8,19 @@ map('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
 
 -- Finder (fzf-lua)
 -- Pickers
-map('n', '<leader>ff', cmd 'FzfLua files', { desc = 'Fzf Files' })
-map('n', '<leader>fp', cmd 'FzfLua global', { desc = 'Fzf Global(vscode-like)' })
-map('n', '<C-n>', cmd 'FzfLua oldfiles', { desc = 'Fzf Oldfiles' })
-map('n', '<leader>fo', cmd 'FzfLua oldfiles', { desc = 'Fzf Oldfiles' })
-map('n', '<leader>ft', cmd 'FzfLua colorschemes', { desc = 'Fzf Theme' })
-map('n', '<leader>fg', cmd 'FzfLua live_grep', { desc = 'Fzf Live Grep' })
-map('n', '<leader>fh', cmd 'FzfLua helptags', { desc = 'Fzf Help' })
-map('n', '<leader>fk', cmd 'FzfLua keymaps', { desc = 'Fzf Keymaps' })
-map('n', '<leader>fd', cmd 'FzfLua diagnostic', { desc = 'Fzf Diagnostics' })
-map('n', '<leader>fr', cmd 'FzfLua resume', { desc = 'Fzf Resume' })
-map('n', '<leader>fb', cmd 'FzfLua buffers', { desc = 'Fzf Buffers' })
-map('n', '<leader>fn', cmd 'Noice fzf', { desc = 'Fzf notifications' })
+map('n', '<leader>ff', cmd 'FzfLua files', { desc = '[F]ind Files' })
+map('n', '<leader>fp', cmd 'FzfLua global', { desc = '[F]ind Global(vscode-like)' })
+map('n', '<C-n>', cmd 'FzfLua oldfiles', { desc = 'Find Oldfiles' })
+map('n', '<leader>fo', cmd 'FzfLua oldfiles', { desc = '[F]ind Oldfiles' })
+map('n', '<leader>fc', cmd 'FzfLua colorschemes', { desc = '[F]ind colorschemes' })
+map('n', '<leader>fg', cmd 'FzfLua live_grep', { desc = '[F]ind Live Grep' })
+map('n', '<leader>fh', cmd 'FzfLua helptags', { desc = '[F]ind Help' })
+map('n', '<leader>fk', cmd 'FzfLua keymaps', { desc = '[F]ind Keymaps' })
+map('n', '<leader>fd', cmd 'FzfLua diagnostic', { desc = '[F]ind Diagnostics' })
+map('n', '<leader>fr', cmd 'FzfLua resume', { desc = '[F]ind Resume' })
+map('n', '<leader>fb', cmd 'FzfLua buffers', { desc = '[F]ind Buffers' })
+map('n', '<leader>fn', cmd 'Noice fzf', { desc = '[F]ind notifications' })
+map('n', '<leader>ft', cmd 'TermSelect', { desc = '[F]ind Terminal' })
 -- LSP Pickers
 map('n', 'grr', cmd 'FzfLua lsp_references', { desc = '[G]oto [R]eferences' })
 map('n', 'gi', cmd 'FzfLua lsp_implementations', { desc = '[G]oto [I]mplementation' })
@@ -44,6 +45,19 @@ map('n', '<leader>ot', cmd 'ObsidianTags', { desc = 'Obsidian: [T]ags' })
 map('n', '<leader>oo', cmd 'ObsidianToday', { desc = "Obsidian: [O]pen today's daily note" })
 map('n', '<leader>od', cmd 'ObsidianDailies', { desc = 'Obsidian: [D]aily notes picker' })
 map('n', '<leader>oa', cmd 'ObsidianOpen', { desc = 'Obsidian: Open Obsidian [A]pp' })
+
+-- Terminal
+map('n', '<leader>tt', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
+map('n', '<leader>tn', cmd 'TermNew', { desc = '[T]erm: [N]ew' })
+map('n', '<leader>td', cmd 'ToggleTermSetName', { desc = '[T]erm: [D]escribe' })
+
+-- Task runner (Overseer)
+map('n', '<Leader>rt', cmd 'OverseerRun', {
+  desc = 'Task runner: [R]un [t]ask',
+})
+map('n', '<Leader>rr', cmd 'OverseerToggle', {
+  desc = 'Task [r]unner: Toggle [r]unner output',
+})
 
 -- File explorer
 map('n', '<Leader>e', function()
@@ -76,20 +90,14 @@ end, {
   desc = '[C]ode [f]ormat buffer',
 })
 
--- Task runner (Overseer)
-map('n', '<Leader>rt', cmd 'OverseerRun', {
-  desc = 'Overseer: [R]un [t]ask',
-})
-map('n', '<Leader>rr', cmd 'OverseerToggle', {
-  desc = 'Overseer: Toggle task [r]unner output',
-})
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Debugging (nvim-dap + deubgmaster)
+-- Debugging
+-- debugmaster
 map({ 'n', 'v' }, '<leader>dd', require('debugmaster').mode.toggle, { desc = 'Debugmaster: Toggle debug mode', nowait = true })
 map('n', '<Esc>', require('debugmaster').mode.disable)
+-- nvim-dap
 map('n', '<F5>', cmd 'DapContinue', { desc = 'Debug: Start/Continue' })
 map('n', '<Leader>dc', cmd 'DapContinue', { desc = 'Debug: Start/Continue' })
 map('n', '<F1>', cmd 'DapStepInto', { desc = 'Debug: Step Into' })

@@ -7,7 +7,6 @@ require('mason-tool-installer').setup {
   ensure_installed = {
     'firefox-debug-adapter',
     'chrome-debug-adapter',
-    'rust-analyzer',
     'codelldb',
     'angular-language-server',
     'html-lsp',
