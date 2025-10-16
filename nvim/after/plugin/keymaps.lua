@@ -47,7 +47,8 @@ map('n', '<leader>od', cmd 'ObsidianDailies', { desc = 'Obsidian: [D]aily notes 
 map('n', '<leader>oa', cmd 'ObsidianOpen', { desc = 'Obsidian: Open Obsidian [A]pp' })
 
 -- Terminal
-map({ 'n', 't' }, '<leader>tt', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
+map('n', '<leader>tt', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
+map({ 'n', 't' }, '<C-t>', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
 map('n', '<leader>tn', cmd 'TermNew', { desc = '[T]erm: [N]ew' })
 map('n', '<leader>td', cmd 'ToggleTermSetName', { desc = '[T]erm: [D]escribe' })
 
