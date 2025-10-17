@@ -25,3 +25,5 @@ require('which-key').setup {
     { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
   },
 }
+
+require('hunk').setup()

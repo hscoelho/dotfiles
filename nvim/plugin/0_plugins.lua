@@ -100,4 +100,5 @@ require('lazy').setup {
   -- markdown/obsidian
   { 'MeanderingProgrammer/render-markdown.nvim', lazy = false },
   { 'epwalsh/obsidian.nvim', lazy = false },
+  { 'julienvincent/hunk.nvim', lazy = false },
 }
