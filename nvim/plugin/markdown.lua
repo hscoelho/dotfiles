@@ -6,8 +6,8 @@ require('render-markdown').setup()
 require('obsidian').setup {
   workspaces = {
     {
-      name = 'SyncVault',
-      path = '~/Obsidian/SyncVault',
+      name = 'Obsidian',
+      path = '~/Obsidian',
     },
   },
   ui = {

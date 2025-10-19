@@ -14,7 +14,7 @@ config.window_close_confirmation = "NeverPrompt"
 config.hide_tab_bar_if_only_one_tab = true
 
 config.color_scheme_dirs = { "./colors/" }
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "everforest"
 
 config.keys = {
 	{
@@ -32,7 +32,7 @@ config.window_padding = {
 	bottom = 5,
 }
 
-local opacity = 0.85
+local opacity = 0.9
 config.window_background_opacity = opacity
 
 return config

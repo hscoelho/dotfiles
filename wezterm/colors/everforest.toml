@@ -1,0 +1,27 @@
+# everforest dark harder (modified from everforest dark hard (gogh))
+[colors]
+background= "#1C2125"  # Background
+cursor_fg= "#1C2125"
+cursor_bg= "#D3C6AA"
+cursor_border= "#D3C6AA"
+
+ansi = [
+ "#2E383C",    # Black (Host)
+ "#E67E80",    # Red (Syntax string)
+ "#A7C080",    # Green (Command)
+ "#DBBC7F",    # Yellow (Command second)
+ "#7FBBB3",    # Blue (Path)
+ "#D699B6",    # Magenta (Syntax var)
+ "#83C092",    # Cyan (Prompt)
+ "#D3C6AA",    # White
+]
+brights = [
+  "#5C6A72",    # Bright Black
+  "#F85552",    # Bright Red (Command error)
+  "#8DA101",    # Bright Green (Exec)
+  "#DFA000",    # Bright Yellow
+  "#3A94C5",    # Bright Blue (Folder)
+  "#DF69BA",    # Bright Magenta
+  "#35A77C",    # Bright Cyan
+  "#DFDDC8",    # Bright White
+]

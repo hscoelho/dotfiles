@@ -29,4 +29,10 @@ require('catppuccin').setup {
   end,
 }
 
-vim.cmd.colorscheme 'catppuccin'
+require('everforest').setup {
+  ui_contrast = 'high',
+  background = 'hard',
+  transparent_background_level = 2,
+}
+
+vim.cmd.colorscheme 'everforest'

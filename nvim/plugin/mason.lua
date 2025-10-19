@@ -17,5 +17,6 @@ require('mason-tool-installer').setup {
     'vtsls',
     'eslint-lsp',
     'clangd',
+    'markdownlint',
   },
 }
