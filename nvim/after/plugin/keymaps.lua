@@ -92,7 +92,7 @@ end, {
 })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
-map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc><Esc>', '<cmd>nohlsearch<CR>')
 
 -- Debugging
 -- debugmaster
