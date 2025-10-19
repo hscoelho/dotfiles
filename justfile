@@ -1,8 +1,8 @@
 default:
 	just --list
 
-link: neovim wezterm fish starship XCompose
-clean: neovim_clean wezterm_clean fish_clean starship_clean XCompose_clean
+link: neovim wezterm fish starship XCompose gitignore
+clean: neovim_clean wezterm_clean fish_clean starship_clean XCompose_clean gitignore_clean
 
 neovim_folder := "~/.config/nvim"
 neovim_dot := justfile_directory() + "/nvim/"
@@ -25,9 +25,14 @@ starship: (_link starship_dot starship_file)
 starship_clean: (_clean_bkup starship_file)
 
 XCompose_file := "~/.XCompose"
-XCompose_dot := justfile_directory() + "/.XCompose"
+XCompose_dot := justfile_directory() + "/XCompose"
 XCompose: (_link XCompose_dot XCompose_file)
 XCompose_clean: (_clean_bkup XCompose_file)
+
+gitignore_file := "~/.config/git/ignore"
+gitignore_dot := justfile_directory() + "/gitignore"
+gitignore: (_link gitignore_dot gitignore_file)
+gitignore_clean: (_clean_bkup gitignore_file)
 
 _link dot link_location:
 	@echo "Creating a link at '{{link_location}}' to dotfile: '{{dot}}'"
