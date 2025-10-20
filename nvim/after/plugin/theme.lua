@@ -33,6 +33,9 @@ require('everforest').setup {
   ui_contrast = 'high',
   background = 'hard',
   transparent_background_level = 2,
+  on_highlights = function(hl, palette)
+    hl.Comment = { fg = palette.orange, bg = palette.none }
+  end,
 }
 
 vim.cmd.colorscheme 'everforest'
