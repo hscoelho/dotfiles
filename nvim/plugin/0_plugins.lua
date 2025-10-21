@@ -24,7 +24,6 @@ require('lazy').setup {
   { 'daschw/leaf.nvim', lazy = false },
   { 'EdenEast/nightfox.nvim', lazy = false },
   { 'catppuccin/nvim', name = 'catppuccin', lazy = false },
-  { '/nvim', name = 'catppuccin', lazy = false },
   { 'neanias/everforest-nvim', lazy = false },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },
