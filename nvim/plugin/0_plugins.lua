@@ -72,6 +72,10 @@ require('lazy').setup {
   { 'miroshQa/debugmaster.nvim', lazy = false },
   { 'jbyuki/one-small-step-for-vimkind', lazy = false },
   { 'stevearc/overseer.nvim', lazy = false },
+  -- Testing
+  { 'nvim-neotest/neotest', lazy = false },
+  { 'antoinemadec/FixCursorHold.nvim', lazy = false },
+  { 'nvim-neotest/nvim-nio', lazy = false },
   -- package manager
   { 'mason-org/mason.nvim', lazy = false },
   { 'WhoIsSethDaniel/mason-tool-installer.nvim', lazy = false },

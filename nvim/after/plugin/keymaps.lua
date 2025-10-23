@@ -53,11 +53,16 @@ map('n', '<leader>tn', cmd 'TermNew', { desc = '[T]erm: [N]ew' })
 map('n', '<leader>td', cmd 'ToggleTermSetName', { desc = '[T]erm: [D]escribe' })
 
 -- Task runner (Overseer)
-map('n', '<Leader>rt', cmd 'OverseerRun', {
-  desc = 'Task runner: [R]un [t]ask',
+map('n', '<Leader>rta', cmd 'OverseerRun', {
+  desc = '[R]un [ta]sk',
+})
+map('n', '<Leader>rtt', function()
+  require('neotest').run.run()
+end, {
+  desc = '[R]un [t]est',
 })
 map('n', '<Leader>rr', cmd 'OverseerToggle', {
-  desc = 'Task [r]unner: Toggle [r]unner output',
+  desc = 'Toggle overseer output',
 })
 
 -- File explorer
