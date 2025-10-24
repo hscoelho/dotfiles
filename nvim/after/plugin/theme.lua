@@ -10,12 +10,6 @@ require('leaf').setup {
   },
 }
 
-require('nightfox').setup {
-  options = {
-    transparent = true,
-  },
-}
-
 require('catppuccin').setup {
   transparent_background = true,
   float = {
@@ -38,4 +32,13 @@ require('everforest').setup {
   end,
 }
 
-vim.cmd.colorscheme 'everforest'
+require('monokai-pro').setup {
+  transparent_background = true,
+  override = function(c)
+    return {
+      Comment = { fg = c.base.cyan },
+    }
+  end,
+}
+
+vim.cmd.colorscheme 'monokai-pro-machine'
