@@ -34,9 +34,12 @@ require('everforest').setup {
 
 require('monokai-pro').setup {
   transparent_background = true,
+  styles = {
+    comment = { italic = false },
+  },
   override = function(c)
     return {
-      Comment = { fg = c.base.cyan },
+      Comment = { fg = c.base.dimmed1 },
     }
   end,
 }
