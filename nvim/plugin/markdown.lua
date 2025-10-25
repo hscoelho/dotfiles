@@ -13,6 +13,10 @@ require('obsidian').setup {
   ui = {
     enable = false,
   },
+  daily_notes = {
+    folder = 'Daily Notes',
+    workdays_only = false,
+  },
 }
 
 local FzfObsidianCommands = function()

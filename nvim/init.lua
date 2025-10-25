@@ -25,6 +25,7 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.termguicolors = true
+vim.o.conceallevel = 1
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 vim.o.list = true
