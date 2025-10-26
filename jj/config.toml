@@ -1,0 +1,27 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "hcoelho"
+email = "henriquescharlaucoelho@gmail.com"
+
+[ui]
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+editor = "nvim"
+
+[[--scope]]
+--when.platforms = ["unix"]  
+[--scope.ui]
+default-command = ["logstatus"]
+[--scope.revset-aliases]
+'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
+[--scope.aliases]
+logstatus = ["util", "exec", "--", "sh", "-c", "jj status && jj log"]
+# tug is from: https://andre.arko.net/2025/10/15/jj-part-4-configuration/
+# it tugs the closest or the arg bookmark to the closest pushable commit
+tug = ["util", "exec", "--", "sh", "-c", """
+if [ "x$1" = "x" ]; then
+  jj bookmark move --from "closest_bookmark(@)" --to "closest_pushable(@)"
+else
+  jj bookmark move --to "closest_pushable(@)" "$@"
+fi
+""", ""]
