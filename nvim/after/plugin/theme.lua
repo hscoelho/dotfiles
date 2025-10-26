@@ -35,14 +35,14 @@ require('everforest').setup {
 require('monokai-pro').setup {
   transparent_background = true,
   styles = {
+    annotation = { italic = false },
     comment = { italic = false },
     keyword = { italic = false }, -- any other keyword
-    type = { italic = false }, -- (preferred) int, long, char, etc
+    parameter = { italic = false }, -- parameter pass in function
     storageclass = { italic = false }, -- static, register, volatile, etc
     structure = { italic = false }, -- struct, union, enum, etc
-    parameter = { italic = false }, -- parameter pass in function
-    annotation = { italic = false },
     tag_attribute = { italic = false }, -- attribute of tag in reactjs
+    type = { italic = false }, -- (preferred) int, long, char, etc
   },
   background_clear = {
     'float_win',
@@ -63,3 +63,16 @@ require('monokai-pro').setup {
 }
 
 vim.cmd.colorscheme 'monokai-pro-machine'
+
+-- The following code came from the referenced issue
+-- Disable all italics (it's broken, waiting on https://github.com/loctvl842/monokai-pro.nvim/issues/136)
+local disable_italics = function()
+  for _, group in ipairs(vim.fn.getcompletion('', 'highlight')) do
+    local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = group, link = false })
+    if ok and hl and hl.italic then
+      hl.italic = false
+      vim.api.nvim_set_hl(0, group, hl)
+    end
+  end
+end
+disable_italics()
