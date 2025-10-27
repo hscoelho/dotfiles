@@ -21,9 +21,7 @@ require('lazy').setup {
   -- themes
   { 'ellisonleao/gruvbox.nvim', lazy = false },
   { 'rebelot/kanagawa.nvim', lazy = false },
-  { 'daschw/leaf.nvim', lazy = false },
   { 'catppuccin/nvim', name = 'catppuccin', lazy = false },
-  { 'neanias/everforest-nvim', lazy = false },
   { 'loctvl842/monokai-pro.nvim', lazy = false },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },
@@ -50,7 +48,7 @@ require('lazy').setup {
     lazy = false,
     version = '1.*',
   },
-  { 'rafamadriz/friendly-snippets', lazy = false },
+  { 'rafamadriz/friendly-snippets', lazy = false }, -- optional dependency of blink.cmp
   {
     'L3MON4D3/LuaSnip',
     lazy = false,
@@ -74,14 +72,14 @@ require('lazy').setup {
   { 'stevearc/overseer.nvim', lazy = false },
   -- Testing
   { 'nvim-neotest/neotest', lazy = false },
-  { 'antoinemadec/FixCursorHold.nvim', lazy = false },
-  { 'nvim-neotest/nvim-nio', lazy = false },
+  { 'antoinemadec/FixCursorHold.nvim', lazy = false }, -- recommended dependency of neotest
+  { 'nvim-neotest/nvim-nio', lazy = false }, -- dependency of neotest
   -- package manager
   { 'mason-org/mason.nvim', lazy = false },
   { 'WhoIsSethDaniel/mason-tool-installer.nvim', lazy = false },
   -- Finder
   { 'ibhagwan/fzf-lua', lazy = false },
-  --
+  -- Dropbar
   { 'Bekaboo/dropbar.nvim', lazy = false },
   -- Notifications
   { 'j-hui/fidget.nvim', lazy = false },
@@ -90,7 +88,7 @@ require('lazy').setup {
   { 'chrisgrieser/nvim-origami', lazy = false },
   -- Misc
   { 'echasnovski/mini.nvim', lazy = false },
-  { 'nvim-lua/plenary.nvim', lazy = false },
+  { 'nvim-lua/plenary.nvim', lazy = false }, -- dependency of neotest,
   { 'lewis6991/gitsigns.nvim', lazy = false },
   { 'nmac427/guess-indent.nvim', lazy = false },
   { 'wakatime/vim-wakatime', lazy = false },

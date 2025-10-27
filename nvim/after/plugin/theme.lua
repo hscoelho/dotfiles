@@ -2,14 +2,6 @@ require('kanagawa').setup {
   transparent = true,
 }
 
-local leaf_colors = require('leaf.colors').setup()
-require('leaf').setup {
-  transparent = true,
-  overrides = {
-    Comment = { fg = leaf_colors.leaf_red_0 },
-  },
-}
-
 require('catppuccin').setup {
   transparent_background = true,
   float = {
@@ -23,18 +15,10 @@ require('catppuccin').setup {
   end,
 }
 
-require('everforest').setup {
-  ui_contrast = 'high',
-  background = 'hard',
-  transparent_background_level = 2,
-  on_highlights = function(hl, palette)
-    hl.Comment = { fg = palette.orange, bg = palette.none }
-  end,
-}
-
 require('monokai-pro').setup {
   transparent_background = true,
   styles = {
+    -- this is not working
     annotation = { italic = false },
     comment = { italic = false },
     keyword = { italic = false }, -- any other keyword
