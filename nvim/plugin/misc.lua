@@ -29,6 +29,7 @@ require('ibl').setup { indent = { highlight = highlight } }
 
 require('guess-indent').setup {}
 require('nvim-autopairs').setup()
+require('nvim-ts-autotag').setup()
 require('todo-comments').setup(
   -- { signs = false }
 )
