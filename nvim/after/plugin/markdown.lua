@@ -10,9 +10,6 @@ require('obsidian').setup {
       path = '~/Obsidian',
     },
   },
-  ui = {
-    enable = false,
-  },
   daily_notes = {
     folder = 'Daily Notes',
     workdays_only = false,
