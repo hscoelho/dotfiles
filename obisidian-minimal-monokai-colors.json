@@ -7,15 +7,15 @@
   "minimal-style@@ui2@@dark": "#545f62",
   "minimal-style@@ui3@@dark": "#6b7678",
   "minimal-style@@ax1@@dark": "#7cd5f1",
-  "minimal-style@@ax2@@dark": "#98DCF1",
-  "minimal-style@@ax3@@dark": "#3E7B6F",
+  "minimal-style@@ax2@@dark": "#8fedff",
+  "minimal-style@@ax3@@dark": "#005b4d",
   "minimal-style@@sp1@@dark": "#f2fffc",
   "minimal-style@@color-red@@dark": "#ff6d7e",
   "minimal-style@@color-orange@@dark": "#ffb270",
   "minimal-style@@color-yellow@@dark": "#ffed72",
   "minimal-style@@color-green@@dark": "#a2e57b",
-  "minimal-style@@color-cyan@@dark": "#7cd5f1",
+  "minimal-style@@color-cyan@@dark": "#8fedff",
   "minimal-style@@color-blue@@dark": "#7cd5f1",
   "minimal-style@@color-purple@@dark": "#baa0f8",
-  "minimal-style@@color-pink@@dark": "#ff6d7e"
+  "minimal-style@@color-pink@@dark": "#ff9aa1"
 }
