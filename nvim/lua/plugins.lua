@@ -1,7 +1,11 @@
 if vim.g.vscode then
   return
 end
--- TODO: when neovim is updated to 0.12: replace lazy with first party pack
+-- TODO: when neovim is updated to 0.12:
+-- - [ ] replace lazy pack
+-- - [ ] remove lazy = false
+-- - [ ] move this file to plugins folder and name it +plugins.lua (so it's executed first)
+-- - [ ] add load = true if moved to plugins folder in every spec
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
