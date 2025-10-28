@@ -37,3 +37,5 @@ vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
+
+require 'plugins'

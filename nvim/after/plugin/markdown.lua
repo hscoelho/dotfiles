@@ -17,38 +17,30 @@ require('obsidian').setup {
     folder = 'Daily Notes',
     workdays_only = false,
   },
+  legacy_commands = false,
 }
 
 local FzfObsidianCommands = function()
   local cmds = {
-    'ObsidianOpen',
-    'ObsidianNew',
-    'ObsidianQuickSwitch',
-    'ObsidianFollowLink',
-    'ObsidianBacklink',
-    'ObsidianTags',
-    'ObsidianToday',
-    'ObsidianYesterday',
-    'ObsidianTomorrow',
-    'ObsidianDailies',
-    'ObsidianTemplate',
-    'ObsidianSearch',
-    'ObsidianLink',
-    'ObsidianLinkNew',
-    'ObsidianLinks',
-    'ObsidianExtractNote',
-    'ObsidianWorkspace',
-    'ObsidianPasteImg',
-    'ObsidianRename',
-    'ObsidianToggleCheckbox',
-    'ObsidianCheck',
-    'ObsidianNewFromTemplate',
-    'ObsidianTOC',
+    'open',
+    'new',
+    'new_from_template',
+    'quick_switch',
+    'backlink',
+    'tags',
+    'today',
+    'yesterday',
+    'tomorrow',
+    'dailies',
+    'template',
+    'search',
+    'workspace',
+    'check',
   }
   require('fzf-lua').fzf_exec(cmds, {
     actions = {
       ['default'] = function(selected, _)
-        vim.cmd(selected[1])
+        vim.cmd('Obsidian ' .. selected[1])
       end,
     },
   })

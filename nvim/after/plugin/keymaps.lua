@@ -40,12 +40,12 @@ end, { desc = '[T]oggle Inlay [H]ints' })
 
 -- Obsidian
 map('n', '<leader>oc', cmd 'FzfObsidianCommands', { desc = 'Obsidian: [C]ommands picker' })
-map('n', '<leader>of', cmd 'ObsidianQuickSwitch', { desc = 'Obsidian: [F]ind notes' })
-map('n', '<leader>on', cmd 'ObsidianNew', { desc = 'Obsidian: [N]ew notes' })
-map('n', '<leader>ot', cmd 'ObsidianTags', { desc = 'Obsidian: [T]ags' })
-map('n', '<leader>oo', cmd 'ObsidianToday', { desc = "Obsidian: [O]pen today's daily note" })
-map('n', '<leader>od', cmd 'ObsidianDailies', { desc = 'Obsidian: [D]aily notes picker' })
-map('n', '<leader>oa', cmd 'ObsidianOpen', { desc = 'Obsidian: Open Obsidian [A]pp' })
+map('n', '<leader>of', cmd 'Obsidian quick_switch', { desc = 'Obsidian: [F]ind notes' })
+map('n', '<leader>on', cmd 'Obsidian new', { desc = 'Obsidian: [N]ew notes' })
+map('n', '<leader>ot', cmd 'Obsidian tags', { desc = 'Obsidian: [T]ags' })
+map('n', '<leader>oo', cmd 'Obsidian today', { desc = "Obsidian: [O]pen today's daily note" })
+map('n', '<leader>od', cmd 'Obsidian dailies', { desc = 'Obsidian: [D]aily notes picker' })
+map('n', '<leader>oa', cmd 'Obsidian open', { desc = 'Obsidian: Open Obsidian [A]pp' })
 
 -- Terminal
 map('n', '<leader>tt', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
