@@ -1,8 +1,6 @@
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+-- `:help vim.o`
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
--- `:help vim.o`
 vim.o.number = true
 vim.o.mouse = 'a'
 vim.o.showmode = true
@@ -27,8 +25,6 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.conceallevel = 1
 vim.o.winborder = 'rounded'
-
--- Sets how neovim will display certain whitespace characters in the editor.
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
