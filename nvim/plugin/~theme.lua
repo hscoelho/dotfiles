@@ -47,7 +47,6 @@ require('monokai-pro').setup {
 }
 
 vim.cmd.colorscheme 'monokai-pro-machine'
-
 -- The following code came from the referenced issue
 -- Disable all italics (it's broken, waiting on https://github.com/loctvl842/monokai-pro.nvim/issues/136)
 local disable_italics = function()

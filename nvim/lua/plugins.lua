@@ -21,8 +21,8 @@ require('lazy').setup {
   -- themes
   { 'ellisonleao/gruvbox.nvim', lazy = false },
   { 'rebelot/kanagawa.nvim', lazy = false },
-  { 'catppuccin/nvim', name = 'catppuccin', lazy = false },
-  { 'loctvl842/monokai-pro.nvim', lazy = false },
+  { 'catppuccin/nvim', name = 'catppuccin', lazy = false, priority = 1000 },
+  { 'loctvl842/monokai-pro.nvim', lazy = false, priority = 1000 },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },
   {
@@ -90,7 +90,6 @@ require('lazy').setup {
   { 'echasnovski/mini.nvim', lazy = false },
   { 'nvim-lua/plenary.nvim', lazy = false }, -- dependency of neotest,
   { 'lewis6991/gitsigns.nvim', lazy = false },
-  { 'nmac427/guess-indent.nvim', lazy = false },
   { 'wakatime/vim-wakatime', lazy = false },
   { 'folke/which-key.nvim', lazy = false },
   { 'folke/todo-comments.nvim', lazy = false },
