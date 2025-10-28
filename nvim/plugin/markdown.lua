@@ -29,7 +29,7 @@ local FzfObsidianCommands = function()
     'ObsidianTags',
     'ObsidianToday',
     'ObsidianYesterday',
-    'ObsidianTommorow',
+    'ObsidianTomorrow',
     'ObsidianDailies',
     'ObsidianTemplate',
     'ObsidianSearch',
