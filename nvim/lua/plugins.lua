@@ -86,7 +86,6 @@ require('lazy').setup {
   -- Dropbar
   { 'Bekaboo/dropbar.nvim', lazy = false },
   -- Notifications
-  { 'j-hui/fidget.nvim', lazy = false },
   { 'MunifTanjim/nui.nvim', lazy = false },
   -- Folding
   { 'chrisgrieser/nvim-origami', lazy = false },

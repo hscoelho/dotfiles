@@ -1,3 +1,7 @@
-require('snacks').setup {
-  image = {},
-}
+require('snacks').setup(
+  ---@type snacks.Config
+  {
+    image = {},
+    notifier = {},
+  }
+)

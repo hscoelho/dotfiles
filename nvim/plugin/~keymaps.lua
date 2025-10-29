@@ -20,7 +20,7 @@ map('n', '<leader>fd', cmd 'FzfLua git_diff', { desc = '[F]ind Git [d]iff files'
 map('n', '<leader>fe', cmd 'FzfLua diagnostic', { desc = '[F]ind [E]rror Diagnostics' })
 map('n', '<leader>fr', cmd 'FzfLua resume', { desc = '[F]ind Resume' })
 map('n', '<leader>fb', cmd 'FzfLua buffers', { desc = '[F]ind Buffers' })
-map('n', '<leader>fn', cmd 'Noice fzf', { desc = '[F]ind notifications' })
+map('n', '<leader>fn', cmd 'FzfSnacksNotifications', { desc = '[F]ind notifications' })
 map('n', '<leader>ft', cmd 'TermSelect', { desc = '[F]ind Terminal' })
 -- LSP Pickers
 map('n', 'grr', cmd 'FzfLua lsp_references', { desc = '[G]oto [R]eferences' })
@@ -30,6 +30,9 @@ map('n', 'gD', cmd 'FzfLua lsp_declarations', { desc = '[G]oto [D]eclaration' })
 map('n', 'gO', cmd 'FzfLua lsp_document_symbols', { desc = 'Open Document Symbols' })
 map('n', 'gW', cmd 'FzfLua lsp_workpsace_symbols', { desc = 'Open Workspace Symbols' })
 map('n', 'gt', cmd 'FzfLua lsp_type_definitions', { desc = '[G]oto [T]ype Definition' })
+
+-- Notifications
+map('n', '<leader>n', require('snacks').notifier.show_history, { desc = '[N]otifications' })
 
 -- LSP Actions
 map('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'LSP: Code rename' })
