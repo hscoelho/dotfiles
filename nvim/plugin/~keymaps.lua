@@ -47,6 +47,10 @@ map('n', '<leader>oo', cmd 'Obsidian today', { desc = "Obsidian: [O]pen today's 
 map('n', '<leader>od', cmd 'Obsidian dailies', { desc = 'Obsidian: [D]aily notes picker' })
 map('n', '<leader>oa', cmd 'Obsidian open', { desc = 'Obsidian: Open Obsidian [A]pp' })
 
+map('n', '<leader>io', function()
+  require('snacks').image.hover()
+end, { desc = '[I]mage [O]pen' })
+
 -- Terminal
 map('n', '<leader>tt', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
 map({ 'n', 't' }, '<C-t>', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
