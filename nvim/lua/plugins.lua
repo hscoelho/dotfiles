@@ -107,4 +107,8 @@ require('lazy').setup {
   { 'obsidian-nvim/obsidian.nvim', verion = '*', lazy = false },
   { 'julienvincent/hunk.nvim', lazy = false },
   { 'folke/snacks.nvim', lazy = false },
+  {
+    'mistweaverco/kulala.nvim',
+    ft = { 'http', 'rest' },
+  },
 }

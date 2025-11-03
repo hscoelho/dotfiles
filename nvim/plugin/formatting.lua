@@ -12,6 +12,7 @@ require('conform').setup {
       c = true,
       cpp = true,
       typescript = true,
+      http = true,
     }
     if disable_filetypes[vim.bo[bufnr].filetype] then
       return nil
