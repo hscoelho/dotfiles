@@ -38,7 +38,7 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.termguicolors = true
-vim.o.conceallevel = 1
+vim.o.conceallevel = 0
 vim.o.winborder = 'rounded'
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
