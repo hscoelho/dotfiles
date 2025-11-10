@@ -3,12 +3,32 @@ if vim.g.vscode then
 end
 
 -- web (typescript + html)
+vim.lsp.enable 'html'
 vim.lsp.enable 'vtsls'
+vim.lsp.config('vtsls', {
+  settings = {
+    vtsls = {
+      tsserver = {
+        globalPlugins = {
+          {
+            name = '@angular/language-server',
+            localtion = vim.fn.expand '$MASON/packages/angular-language-server/node_modules/@angular/language-server',
+            enableForWorkspaceTypeScriptVersions = false,
+          },
+        },
+      },
+    },
+  },
+})
 vim.lsp.enable 'angularls'
 vim.lsp.config('angularls', {
+  server_capabilities = {
+    -- fix duplicate renaming
+    renameProvider = false,
+  },
+  -- maybe remove typescript from this...(since vtsls is also used in typescript)
   filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx', 'htmlangular' },
 })
-vim.lsp.enable 'html'
 
 -- json
 vim.lsp.enable 'jsonls'
