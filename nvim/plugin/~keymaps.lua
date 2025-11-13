@@ -31,6 +31,10 @@ map('n', 'gO', cmd 'FzfLua lsp_document_symbols', { desc = 'Open Document Symbol
 map('n', 'gW', cmd 'FzfLua lsp_workpsace_symbols', { desc = 'Open Workspace Symbols' })
 map('n', 'gt', cmd 'FzfLua lsp_type_definitions', { desc = '[G]oto [T]ype Definition' })
 
+-- Navigation
+map('n', ']c', cmd 'Gitsigns nav_hunk next', { desc = 'Next diff change (hunk)' })
+map('n', '[c', cmd 'Gitsigns nav_hunk prev', { desc = 'Previous diff change (hunk)' })
+
 -- Notifications
 map('n', '<leader>n', require('snacks').notifier.show_history, { desc = '[N]otifications' })
 
