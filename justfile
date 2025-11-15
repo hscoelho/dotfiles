@@ -35,7 +35,7 @@ XCompose: (_link XCompose_dot XCompose_file)
 XCompose_clean: (_clean_bkup XCompose_file)
 
 gitignore_file := "~/.config/git/ignore"
-gitignore_dot := justfile_directory() + "/gitignore"
+gitignore_dot := justfile_directory() + "/global-gitignore"
 gitignore: (_link gitignore_dot gitignore_file)
 gitignore_clean: (_clean_bkup gitignore_file)
 
