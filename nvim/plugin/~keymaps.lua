@@ -36,7 +36,7 @@ map('n', ']c', cmd 'Gitsigns nav_hunk next', { desc = 'Next diff change (hunk)' 
 map('n', '[c', cmd 'Gitsigns nav_hunk prev', { desc = 'Previous diff change (hunk)' })
 
 -- Notifications
-map('n', '<leader>n', require('snacks').notifier.show_history, { desc = '[N]otifications' })
+map('n', '<leader>n', require('snacks').notifier.show_history, { desc = '[H]istory: [N]otifications' })
 
 -- LSP Actions
 map('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'LSP: Code rename' })
@@ -65,16 +65,18 @@ map('n', '<leader>tn', cmd 'TermNew', { desc = '[T]erm: [N]ew' })
 map('n', '<leader>td', cmd 'ToggleTermSetName', { desc = '[T]erm: [D]escribe' })
 
 -- Task runner (Overseer)
-map('n', '<Leader>rta', cmd 'OverseerRun', {
-  desc = '[R]un [ta]sk',
-})
-map('n', '<Leader>rtt', function()
-  require('neotest').run.run()
-end, {
-  desc = '[R]un [t]est',
+map('n', '<Leader>rt', cmd 'OverseerRun', {
+  desc = 'Task [R]unner(overseer): Run',
 })
 map('n', '<Leader>rr', cmd 'OverseerToggle', {
-  desc = 'Toggle overseer output',
+  desc = 'Task [R]unner(overseer): Toggle',
+})
+
+-- Neotest
+map('n', '<Leader>xt', function()
+  require('neotest').run.run()
+end, {
+  desc = '[E]xecute [t]est',
 })
 
 -- File explorer
