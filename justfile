@@ -24,6 +24,11 @@ jj_dot := justfile_directory() + "/jj/"
 jujutsu: (_link jj_dot jj_folder)
 jujutsu_clean: (_clean_bkup jj_folder)
 
+mise_folder := "~/.config/mise"
+mise_dot := justfile_directory() + "/mise/"
+mise: (_link mise_dot mise_folder)
+mise_clean: (_clean_bkup mise_folder)
+
 starship_file := "~/.config/starship.toml"
 starship_dot := justfile_directory() + "/starship/starship.toml"
 starship: (_link starship_dot starship_file)
