@@ -6,6 +6,5 @@ starship init fish | source
 zoxide init fish | source
 mise activate fish | source
 
-alias lazyjj="~/code/lazyjj/target/release/lazyjj"
-alias cat="echo 'Use > bat'"
+alias cat="bat"
 

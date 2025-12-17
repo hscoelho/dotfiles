@@ -1,5 +1,4 @@
-# name: 'cyberdream'
-# url: 'https://github.com/scottmckendry/cyberdream.nvim'
+# name: cyberdream
 # preferred_background: 16181a
 
 fish_color_normal ffffff
