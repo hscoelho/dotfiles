@@ -27,6 +27,7 @@ require('lazy').setup {
   { 'rebelot/kanagawa.nvim', lazy = false },
   { 'catppuccin/nvim', name = 'catppuccin', lazy = false, priority = 1000 },
   { 'loctvl842/monokai-pro.nvim', lazy = false, priority = 1000 },
+  { 'scottmckendry/cyberdream.nvim', lazy = false, priority = 1000 },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },
   {
