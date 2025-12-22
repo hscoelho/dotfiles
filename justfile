@@ -52,3 +52,33 @@ _link dot link_location:
 _clean_bkup path:
 	-rm -rf {{path}}_bkup
 
+
+power:
+	#!/usr/bin/env bash
+	set -euo pipefail
+
+
+	echo "→ Installing power profile policy files"
+	sudo install -m 755 {{justfile_directory()}}/power/power-profile-policy.sh /usr/local/bin/
+	sudo install -m 644 {{justfile_directory()}}/power/power-profile-boot.service /etc/systemd/system/
+	sudo install -m 644 {{justfile_directory()}}/power/99-power-profile.rules /etc/udev/rules.d/
+
+	echo "→ Reloading systemd and udev"
+	sudo systemctl daemon-reload
+	sudo systemctl enable power-profile-boot.service
+	sudo udevadm control --reload
+
+power_clean:
+	#!/usr/bin/env bash
+	set -euo pipefail
+
+	sudo systemctl disable --now power-profile-boot.service || true
+
+	sudo rm -f \
+	/usr/local/bin/power-profile-policy.sh \
+	/etc/systemd/system/power-profile-boot.service \
+	/etc/udev/rules.d/99-power-profile.rules
+
+	sudo systemctl daemon-reload
+	sudo udevadm control --reload
+
