@@ -11,4 +11,5 @@ alias rdp-win='xfreerdp /network:lan /gfx:avc444 /dynamic-resolution +clipboard'
 alias rdp-vpn='xfreerdp /network:auto /gfx:avc420 +compression +bitmap-cache +clipboard'
 
 alias rdp-docker='rdp-win /v:127.0.0.1:3389 /u:hcoelho /d:'
+alias rdp-elipse='rdp-win /v:henrique /u:henrique /d:'
 
