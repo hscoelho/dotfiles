@@ -1,0 +1,2 @@
+SUBSYSTEM=="input", KERNEL=="event*", ATTRS{name}=="MiniBookSupport Virtual Switch", SYMLINK+="input/tablet-switch"
+

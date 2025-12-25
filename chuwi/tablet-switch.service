@@ -1,0 +1,12 @@
+[Unit]
+Description=Virtual tablet mode switch
+After=systemd-udev-settle.service
+Wants=systemd-udev-settle.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/evemu-device /usr/local/share/evemu/tablet-switch.evemu
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

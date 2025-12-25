@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sudo evemu-event /dev/input/tablet-switch \
+  --type EV_SW --code SW_TABLET_MODE --value 0
+
+sudo evemu-event /dev/input/tablet-switch \
+  --type EV_SYN --code SYN_REPORT --value 0

@@ -1,0 +1,10 @@
+# EVEMU 1.3
+N: MiniBookSupport Virtual Switch
+I: 0003 1234 5678 0001
+P: 00 00 00 00 00 00 00 00
+
+# EV_SYN
+B: 00 00 00 00 00 00 00 00 00
+
+# EV_SW (only SW_TABLET_MODE)
+B: 05 02 00 00 00 00 00 00 00

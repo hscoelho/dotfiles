@@ -82,3 +82,31 @@ power_clean:
 	sudo systemctl daemon-reload
 	sudo udevadm control --reload
 
+
+EVEMU_DIR := "/usr/local/share/evemu"
+UDEV_DIR := "/etc/udev/rules.d"
+SYSTEMD_DIR := "/etc/systemd/system"
+
+chuwi_tablet_mode:
+	@echo "==> Installing evemu device definition"
+	sudo mkdir -p {{EVEMU_DIR}}
+	sudo install -m 0644 {{justfile_directory()}}/chuwi/tablet-switch.evemu {{EVEMU_DIR}}/tablet-switch.evemu
+
+	@echo "==> Installing udev rule"
+	sudo install -m 0644 {{justfile_directory()}}/chuwi/99-tablet-switch.rules {{UDEV_DIR}}/99-tablet-switch.rules
+
+	@echo "==> Installing systemd service"
+	sudo install -m 0644 {{justfile_directory()}}/chuwi/tablet-switch.service {{SYSTEMD_DIR}}/tablet-switch.service
+
+	@echo "==> Reloading udev rules"
+	sudo udevadm control --reload
+	sudo udevadm trigger
+
+	@echo "==> Reloading systemd"
+	sudo systemctl daemon-reexec
+	sudo systemctl daemon-reload
+
+	@echo "==> Enabling and starting tablet switch service"
+	sudo systemctl enable --now tablet-switch.service
+
+	@echo "==> Chuwi tablet mode service installation complete"
