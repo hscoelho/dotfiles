@@ -238,9 +238,9 @@
         blue: 1.0,
     )),
     accent: Some((
-        red: 0.81960785,
-        green: 0.4862745,
-        blue: 0.0,
+        red: 1.0,
+        green: 0.7411765,
+        blue: 0.36862743,
     )),
     success: Some((
         red: 0.654902,
