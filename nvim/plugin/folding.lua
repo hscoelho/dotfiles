@@ -3,8 +3,15 @@ if vim.g.vscode then
 end
 
 require('origami').setup {
-  useLspFoldsWithTreesitterFallback = true,
+  useLspFoldsWithTreesitterFallback = {
+    enabled = true,
+    foldmethodIfNeitherIsAvailable = 'indent', ---@type string|fun(bufnr: number): string
+  },
   autoFold = {
     enabled = false,
+  },
+  foldKeymaps = {
+    setup = true, -- modifies `h`, `l`, `^`, and `$`
+    closeOnlyOnFirstColumn = true, -- `h` and `^` only close in the 1st column
   },
 }
