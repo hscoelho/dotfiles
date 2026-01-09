@@ -1,8 +1,8 @@
 default:
 	just --list
 
-link: neovim wezterm fish starship XCompose gitignore jujutsu zellij
-clean: neovim_clean wezterm_clean fish_clean starship_clean XCompose_clean gitignore_clean jujutsu_clean zellij_clean
+link: neovim wezterm ghostty fish starship XCompose gitignore jujutsu zellij 
+clean: neovim_clean wezterm_clean ghostty_clean fish_clean starship_clean XCompose_clean gitignore_clean jujutsu_clean zellij_clean
 
 neovim_folder := "~/.config/nvim"
 neovim_dot := justfile_directory() + "/nvim/"
@@ -13,6 +13,11 @@ wezterm_folder := "~/.config/wezterm"
 wezterm_dot := justfile_directory() + "/wezterm/"
 wezterm: (_link wezterm_dot wezterm_folder)
 wezterm_clean: (_clean_bkup wezterm_folder)
+
+ghostty_folder := "~/.config/ghostty"
+ghostty_dot := justfile_directory() + "/ghostty/"
+ghostty: (_link ghostty_dot ghostty_folder)
+ghostty_clean: (_clean_bkup ghostty_folder)
 
 fish_folder := "~/.config/fish"
 fish_dot := justfile_directory() + "/fish/"
