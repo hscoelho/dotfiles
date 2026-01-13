@@ -1,5 +1,10 @@
 require('cyberdream').setup {
   transparent = true,
+  overrides = function(colors)
+    return {
+      Comment = { fg = colors.yellow, bg = 'NONE', italic = true },
+    }
+  end,
 }
 require('kanagawa').setup {
   transparent = true,
