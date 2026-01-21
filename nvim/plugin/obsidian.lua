@@ -17,6 +17,11 @@ require('obsidian').setup {
     workdays_only = false,
   },
   legacy_commands = false,
+  checkbox = {
+    enabled = true,
+    create_new = true,
+    order = { ' ', '/', 'x' },
+  },
 }
 
 local FzfObsidianCommands = function()
