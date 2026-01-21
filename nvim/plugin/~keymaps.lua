@@ -46,7 +46,7 @@ map('n', '<leader>ch', function()
 end, { desc = '[T]oggle Inlay [H]ints' })
 
 -- Obsidian
-map('n', '<leader>oc', cmd 'FzfObsidianCommands', { desc = '[O]bsidian: [C]ommands' })
+map('n', '<leader>oc', cmd 'Obsidian', { desc = '[O]bsidian: [C]ommands' })
 map('n', '<leader>off', cmd 'Obsidian quick_switch', { desc = '[O]bsidian: [F]ind [f]iles' })
 map('n', '<leader>on', cmd 'Obsidian new', { desc = '[O]bsidian: [N]ew' })
 map('n', '<leader>oft', cmd 'Obsidian tags', { desc = '[O]bsidian: [F]ind [T]ags' })
