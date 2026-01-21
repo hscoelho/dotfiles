@@ -41,6 +41,7 @@ vim.o.termguicolors = true
 vim.o.conceallevel = 0
 vim.o.winborder = 'rounded'
 vim.o.list = true
+vim.o.modeline = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Folding

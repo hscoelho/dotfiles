@@ -14,6 +14,13 @@ require('fzf-lua').setup {
 }
 require('fzf-lua').register_ui_select()
 
+vim.api.nvim_create_user_command('FzfJJDiff', function()
+  require('fzf-lua').fzf_exec('jj diff --name-only --no-pager', {
+    preview = 'jj diff {}',
+    fzf_opts = { ['--preview-window'] = 'nohidden,down,50%' },
+  })
+end, {})
+
 -- This is not good.
 -- I tried using fzf_opts = [--preview] but not even the wiki example works
 vim.api.nvim_create_user_command('FzfSnacksNotifications', function()
