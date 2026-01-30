@@ -5,6 +5,7 @@ fish_add_path ~/.local/bin
 starship init fish | source
 zoxide init fish | source
 mise activate fish | source
+zellij setup --generate-completion fish | source
 
 alias cat="bat"
 alias rdp-local='xfreerdp /network:lan /gfx:avc444 /dynamic-resolution +clipboard'
