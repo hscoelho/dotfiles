@@ -15,3 +15,5 @@ alias zellij="zellij -l welcome"
 alias rdp-vm='rdp-local /v:127.0.0.1:3389 /u:hcoelho /d:'
 alias rdp-elipse='rdp-net /v:henrique /u:henrique /d:'
 
+alias jl='just --justfile justfile.local'
+
