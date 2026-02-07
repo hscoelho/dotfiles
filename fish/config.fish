@@ -18,3 +18,12 @@ alias rdp-elipse='rdp-net /v:henrique /u:henrique /d:'
 
 alias jl='just --justfile justfile.local'
 
+# yazi cd on quit(q)
+function y
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	command yazi $argv --cwd-file="$tmp"
+	if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
