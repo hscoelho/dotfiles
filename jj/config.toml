@@ -15,7 +15,7 @@ default-command = ["logstatus"]
 [--scope.revset-aliases]
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 [--scope.aliases]
-logstatus = ["util", "exec", "--", "sh", "-c", "jj status && jj log"]
+logstatus = ["util", "exec", "--", "sh", "-c", "jj status && jj log -n 10"]
 # tug is from: https://andre.arko.net/2025/10/15/jj-part-4-configuration/
 # it tugs the closest or the arg bookmark to the closest pushable commit
 tug = ["util", "exec", "--", "sh", "-c", """
