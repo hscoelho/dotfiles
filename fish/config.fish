@@ -1,4 +1,5 @@
 set -x SHELL /usr/bin/fish
+set -x EDITOR nvim
 fish_add_path ~/.pixi/bin
 fish_add_path ~/.local/bin
 
