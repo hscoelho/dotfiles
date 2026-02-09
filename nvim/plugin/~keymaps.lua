@@ -6,6 +6,16 @@ end
 map('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Leap
+-- map('n', 's', )
+-- local leap = require('leap').leap
+map({ 'n', 'x', 'o' }, 's', function()
+  require('leap').leap {}
+end)
+map({ 'n', 'x', 'o' }, 'S', function()
+  require('leap').leap { backward = true }
+end)
+
 -- Finder (fzf-lua)
 -- Pickers
 map('n', '<leader>ff', cmd 'FzfLua files', { desc = '[F]ind Files' })
