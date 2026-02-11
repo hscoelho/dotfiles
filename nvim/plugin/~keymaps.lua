@@ -40,7 +40,7 @@ map('n', 'gd', cmd 'FzfLua lsp_definitions', { desc = '[G]oto [D]efinition' })
 map('n', 'gD', cmd 'FzfLua lsp_declarations', { desc = '[G]oto [D]eclaration' })
 map('n', 'gO', cmd 'FzfLua lsp_document_symbols', { desc = 'Open Document Symbols' })
 map('n', 'gW', cmd 'FzfLua lsp_workpsace_symbols', { desc = 'Open Workspace Symbols' })
-map('n', 'gt', cmd 'FzfLua lsp_type_definitions', { desc = '[G]oto [T]ype Definition' })
+map('n', 'gt', cmd 'FzfLua lsp_typedefs', { desc = '[G]oto [T]ype Definition' })
 
 -- Navigation
 map('n', ']c', cmd 'Gitsigns nav_hunk next', { desc = 'Next diff change (hunk)' })
