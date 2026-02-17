@@ -88,8 +88,6 @@ require('lazy').setup {
   { 'Bekaboo/dropbar.nvim', lazy = false },
   -- Notifications
   { 'MunifTanjim/nui.nvim', lazy = false },
-  -- Folding
-  { 'chrisgrieser/nvim-origami', lazy = false },
   -- Misc
   { 'echasnovski/mini.nvim', lazy = false },
   { 'nvim-lua/plenary.nvim', lazy = false }, -- dependency of neotest,
