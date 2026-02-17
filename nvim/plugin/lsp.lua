@@ -4,7 +4,6 @@ end
 
 -- web (typescript + html)
 vim.lsp.enable 'html'
-vim.lsp.enable 'vtsls'
 vim.lsp.config('vtsls', {
   settings = {
     vtsls = {
@@ -12,7 +11,7 @@ vim.lsp.config('vtsls', {
         globalPlugins = {
           {
             name = '@angular/language-server',
-            localtion = vim.fn.expand '$MASON/packages/angular-language-server/node_modules/@angular/language-server',
+            location = vim.fn.expand '$MASON/packages/angular-language-server/node_modules/@angular/language-server',
             enableForWorkspaceTypeScriptVersions = false,
           },
         },
@@ -20,14 +19,41 @@ vim.lsp.config('vtsls', {
     },
   },
 })
+vim.lsp.enable 'vtsls'
+-- vim.lsp.config('angularls', {
+--   server_capabilities = {
+--     -- fix duplicate renaming
+--     renameProvider = false,
+--   },
+--   -- filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx', 'htmlangular', 'html' },
+-- })
 vim.lsp.enable 'angularls'
-vim.lsp.config('angularls', {
-  server_capabilities = {
-    -- fix duplicate renaming
-    renameProvider = false,
-  },
-  -- maybe remove typescript from this...(since vtsls is also used in typescript)
-  filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx', 'htmlangular' },
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then
+      return
+    end
+
+    -- If angularls is attached, it handles references and definitions across TS and HTML.
+    -- We disable vtsls providers in this case to avoid duplicates and ensure HTML references are shown.
+    if client.name == 'angularls' then
+      local vtsls = vim.lsp.get_clients({ bufnr = args.buf, name = 'vtsls' })[1]
+      if vtsls then
+        vtsls.server_capabilities.referencesProvider = false
+        vtsls.server_capabilities.definitionProvider = false
+        vtsls.server_capabilities.renameProvider = false
+      end
+    elseif client.name == 'vtsls' then
+      local angularls = vim.lsp.get_clients({ bufnr = args.buf, name = 'angularls' })[1]
+      if angularls then
+        client.server_capabilities.referencesProvider = false
+        client.server_capabilities.definitionProvider = false
+        client.server_capabilities.renameProvider = false
+      end
+    end
+  end,
 })
 
 -- json
