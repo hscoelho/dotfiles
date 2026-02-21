@@ -20,13 +20,12 @@ vim.lsp.config('vtsls', {
   },
 })
 vim.lsp.enable 'vtsls'
--- vim.lsp.config('angularls', {
---   server_capabilities = {
---     -- fix duplicate renaming
---     renameProvider = false,
---   },
---   -- filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx', 'htmlangular', 'html' },
--- })
+vim.lsp.config('angularls', {
+  root_dir = function(fname)
+    return vim.fs.root(fname, { 'angular.json' })
+  end,
+  filetypes = { 'typescript', 'htmlangular', 'html' },
+})
 vim.lsp.enable 'angularls'
 
 vim.api.nvim_create_autocmd('LspAttach', {
