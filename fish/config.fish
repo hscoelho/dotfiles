@@ -18,7 +18,7 @@ alias rdp-elipse='rdp-net /v:henrique /u:henrique /d:'
 
 alias jl='just --justfile justfile.local'
 
-source ./themes/cyberdream.fish
+source theme_setter
 
 # yazi cd on quit(q)
 function y

@@ -1,7 +1,6 @@
 -- other themes I might add: sonokai
 
 require('cyberdream').setup {
-  variant = 'light',
   transparent = true,
   overrides = function(colors)
     return {
@@ -13,4 +12,4 @@ require('kanagawa').setup {
   transparent = true,
 }
 
-vim.cmd.colorscheme 'cyberdream'
+require 'theme_setter'
