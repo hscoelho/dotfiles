@@ -23,10 +23,8 @@ rtp:prepend(lazypath)
 
 require('lazy').setup {
   -- themes
-  { 'ellisonleao/gruvbox.nvim', lazy = false },
-  { 'rebelot/kanagawa.nvim', lazy = false },
-  { 'catppuccin/nvim', name = 'catppuccin', lazy = false, priority = 1000 },
-  { 'loctvl842/monokai-pro.nvim', lazy = false, priority = 1000 },
+  { 'ellisonleao/gruvbox.nvim', lazy = false, priority = 1000 },
+  { 'rebelot/kanagawa.nvim', lazy = false, priority = 1000 },
   { 'scottmckendry/cyberdream.nvim', lazy = false, priority = 1000 },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },

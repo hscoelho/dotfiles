@@ -18,6 +18,8 @@ alias rdp-elipse='rdp-net /v:henrique /u:henrique /d:'
 
 alias jl='just --justfile justfile.local'
 
+source ./themes/cyberdream.fish
+
 # yazi cd on quit(q)
 function y
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
