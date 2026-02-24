@@ -1,4 +1,5 @@
 require('cyberdream').setup {
+  variant = 'light',
   transparent = true,
   overrides = function(colors)
     return {
