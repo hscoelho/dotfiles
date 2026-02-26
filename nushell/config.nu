@@ -32,8 +32,8 @@ source ./nu_scripts/custom-completions/just/just-completions.nu
 source ./nu_scripts/custom-completions/zoxide/zoxide-completions.nu
 source ./nu_scripts/custom-completions/zellij/zellij-completions.nu
 
-# I'm trying to set only the nushell theme but for some reason, this is making no difference in 
-# wezterm in windows. need to check if this has any effect in ghostty or wezterm in linux
-# either way, it's not completely necessary because using a terminal theme already accomplishes most of what I want
+# I think not setting the theme and letting it use default term colors is better for now
+# However, LS_COLORS should be set (because it doesn't use the nushell theme)
 # use ./nu_scripts/themes/nu-themes/gruvbox-light-medium.nu
 # gruvbox-light-medium set color_config
+
