@@ -24,3 +24,4 @@ $env.EDITOR = 'nvim'
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 source ~/.zoxide.nu
+source ./nu_scripts/themes/nu-themes/gruvbox-light-medium.nu
