@@ -24,4 +24,15 @@ $env.EDITOR = 'nvim'
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 source ~/.zoxide.nu
-source ./nu_scripts/themes/nu-themes/gruvbox-light-medium.nu
+
+source ./nu_scripts/custom-completions/bat/bat-completions.nu
+source ./nu_scripts/custom-completions/jj/jj-completions.nu
+source ./nu_scripts/custom-completions/just/just-completions.nu
+source ./nu_scripts/custom-completions/zoxide/zoxide-completions.nu
+source ./nu_scripts/custom-completions/zellij/zellij-completions.nu
+
+# I'm trying to set only the nushell theme but for some reason, this is making no difference in 
+# wezterm in windows. need to check if this has any effect in ghostty or wezterm in linux
+# either way, it's not completely necessary because using a terminal theme already accomplishes most of what I want
+# use ./nu_scripts/themes/nu-themes/gruvbox-light-medium.nu
+# gruvbox-light-medium set color_config
