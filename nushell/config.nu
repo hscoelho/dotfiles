@@ -34,6 +34,6 @@ source ./nu_scripts/custom-completions/zellij/zellij-completions.nu
 
 # I think not setting the theme and letting it use default term colors is better for now
 # However, LS_COLORS should be set (because it doesn't use the nushell theme)
-# use ./nu_scripts/themes/nu-themes/gruvbox-light-medium.nu
+# use ./nu_scripts/themes/nu-themes/gruvbox-light-medium.nu 
 # gruvbox-light-medium set color_config
 

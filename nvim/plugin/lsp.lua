@@ -125,3 +125,5 @@ vim.diagnostic.config {
     end,
   },
 }
+
+vim.lsp.enable 'nushell'
