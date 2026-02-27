@@ -24,8 +24,8 @@ def dotfiles_config [] {
         [mise,     "mise",                   "~/.config/mise"]
         [zellij,   "zellij",                 "~/.config/zellij"]
         [starship, "starship/starship.toml", "~/.config/starship.toml"]
-        [XCompose, "XCompose",               "~/.XCompose"]
-        [gitignore,"global-gitignore",       "~/.config/git/ignore"]
+        [XCompose, "misc/XCompose",          "~/.XCompose"]
+        [gitignore,"misc/user-gitignore",    "~/.config/git/ignore"]
     ]
 }
 
