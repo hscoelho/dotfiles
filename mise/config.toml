@@ -1,6 +1,5 @@
 [tools]
 dotenvx = "latest"
-gemini-cli = "latest"
 jj = "latest"
 node = "24.11.1"
 rust = "latest"

@@ -33,7 +33,9 @@ mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 # zoxide config
 source ~/.zoxide.nu
-# TODO: mise(usage?), zellij(zri for example)
+# mise
+use ($nu.default-config-dir | path join mise.nu)
+# TODO: zellij (zri for example)
 
 ## Completions
 source ./nu_scripts/custom-completions/bat/bat-completions.nu
@@ -47,4 +49,5 @@ source ./nu_scripts/custom-completions/zellij/zellij-completions.nu
 # use ./nu_scripts/themes/nu-themes/gruvbox-light-medium.nu 
 # gruvbox-light-medium set color_config
 # However, it could be a good idea to set LS_COLORS (since in windows it's not good)
+
 
