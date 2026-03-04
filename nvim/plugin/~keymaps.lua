@@ -32,7 +32,6 @@ map('n', '<leader>fe', cmd 'FzfLua diagnostic', { desc = '[F]ind [E]rror Diagnos
 map('n', '<leader>fr', cmd 'FzfLua resume', { desc = '[F]ind Resume' })
 map('n', '<leader>fb', cmd 'FzfLua buffers', { desc = '[F]ind Buffers' })
 map('n', '<leader>fn', cmd 'FzfSnacksNotifications', { desc = '[F]ind notifications' })
-map('n', '<leader>ft', cmd 'TermSelect', { desc = '[F]ind Terminal' })
 -- LSP Pickers
 map('n', 'grr', cmd 'FzfLua lsp_references', { desc = '[G]oto [R]eferences' })
 map('n', 'gi', cmd 'FzfLua lsp_implementations', { desc = '[G]oto [I]mplementation' })
@@ -69,12 +68,6 @@ map('n', '<leader>oo', cmd 'Obsidian open', { desc = '[O]bsidian: [O]pen Obsidia
 map('n', '<leader>io', function()
   require('snacks').image.hover()
 end, { desc = '[I]mage [O]pen' })
-
--- Terminal
-map('n', '<leader>tt', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
-map({ 'n', 't' }, '<C-t>', cmd 'ToggleTerm', { desc = '[T]erm: Toggle' })
-map('n', '<leader>tn', cmd 'TermNew', { desc = '[T]erm: [N]ew' })
-map('n', '<leader>td', cmd 'ToggleTermSetName', { desc = '[T]erm: [D]escribe' })
 
 -- Task runner (Overseer)
 map('n', '<Leader>rt', cmd 'OverseerRun', {
