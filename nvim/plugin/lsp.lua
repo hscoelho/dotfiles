@@ -127,3 +127,7 @@ vim.diagnostic.config {
 }
 
 vim.lsp.enable 'nushell'
+
+require('lean').setup {
+  mappings = true,
+}

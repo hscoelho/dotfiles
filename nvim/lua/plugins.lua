@@ -45,6 +45,10 @@ require('lazy').setup {
     'b0o/schemastore.nvim',
     lazy = false,
   },
+  {
+    'Julian/lean.nvim',
+    lazy = false,
+  },
   -- Completion
   {
     'saghen/blink.cmp',
