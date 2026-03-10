@@ -50,4 +50,6 @@ source ./nu_scripts/custom-completions/zellij/zellij-completions.nu
 # gruvbox-light-medium set color_config
 # However, it could be a good idea to set LS_COLORS (since in windows it's not good)
 
+## Custom commands
+use ./code_review.nu *
 
