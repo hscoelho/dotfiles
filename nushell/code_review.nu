@@ -1,16 +1,13 @@
 # experimenting with AI code reviews
 
 export def claude-review [rev?: string] {
-  review claude $rev
+  let prompt_txt = prompt $rev
+  claude $prompt_txt
 }
 
 export def amp-review [rev?: string] {
-  review amp $rev
-}
-
-def review [tool: string, rev?: string] {
   let prompt_txt = prompt $rev
-  ^$tool $prompt_txt
+  echo $prompt_txt | amp
 }
 
 def prompt [rev?: string] {
