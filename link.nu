@@ -13,6 +13,7 @@ def main [
 
 # To add a new config to link, simply add a row in this table
 def dotfiles_config [] {
+    let jujutsu_config_path = jj config path --user
     [
         [name, dot_folder, app_folder];
         [neovim,   "nvim",                   "~/.config/nvim"]
@@ -20,7 +21,7 @@ def dotfiles_config [] {
         [wezterm,  "wezterm",                "~/.config/wezterm"]
         [ghostty,  "ghostty",                "~/.config/ghostty"]
         [fish,     "fish",                   "~/.config/fish"]
-        [jujutsu,  "jj",                     "~/.config/jj"]
+        [jujutsu,  "jj",                     $jujutsu_config_path]
         [mise,     "mise",                   "~/.config/mise"]
         [zellij,   "zellij",                 "~/.config/zellij"]
         [starship, "starship/starship.toml", "~/.config/starship.toml"]
@@ -64,6 +65,13 @@ def create_link [dot_rel_path: string, app_path: string, dry_run: bool] {
 }
 
 def link [target: string, link: string] {
-  #  TODO: Make this cross-platform (use mklink in windows)
-  ln -s $target $link
+  if $nu.os-info.name == "windows" {
+    if ($target | path type) == "dir" {
+      cmd /c mklink /D $link $target
+    } else {
+      cmd /c mklink $link $target
+    }
+  } else {
+    ln -s $target $link
+  }
 }
