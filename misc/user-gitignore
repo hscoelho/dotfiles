@@ -1,3 +1,4 @@
 mise.local.toml
 http-client.private.env.json
 justfile.local
+local-docs/
