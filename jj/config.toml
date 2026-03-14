@@ -7,6 +7,10 @@ email = "henriquescharlaucoelho@gmail.com"
 [ui]
 editor = "nvim"
 
+[merge-tools.hunk]
+program = "nvim"
+edit-args = ["-c", "DiffEditor $left $right $output"]
+
 [aliases]
 tug = ["bookmark", "advance", "--to", "closest_pushable(@)"]
 

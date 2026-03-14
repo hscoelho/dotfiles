@@ -49,6 +49,10 @@ require('lazy').setup {
     'Julian/lean.nvim',
     lazy = false,
   },
+  {
+    'mistweaverco/kulala.nvim',
+    ft = { 'http', 'rest' },
+  },
   -- Completion
   {
     'saghen/blink.cmp',
@@ -93,23 +97,26 @@ require('lazy').setup {
   -- Misc
   { 'echasnovski/mini.nvim', lazy = false },
   { 'nvim-lua/plenary.nvim', lazy = false }, -- dependency of neotest,
-  { 'lewis6991/gitsigns.nvim', lazy = false },
   { 'wakatime/vim-wakatime', lazy = false },
   { 'folke/which-key.nvim', lazy = false },
   { 'folke/todo-comments.nvim', lazy = false },
   { 'windwp/nvim-autopairs', lazy = false },
   { 'windwp/nvim-ts-autotag', lazy = false },
   { 'https://codeberg.org/andyg/leap.nvim', lazy = false },
+  { 'folke/snacks.nvim', lazy = false },
   -- indent
   { 'nmac427/guess-indent.nvim', lazy = false },
   { 'lukas-reineke/indent-blankline.nvim', lazy = false },
   -- markdown/obsidian
   { 'MeanderingProgrammer/render-markdown.nvim', lazy = false },
   { 'obsidian-nvim/obsidian.nvim', verion = '*', lazy = false },
-  { 'julienvincent/hunk.nvim', lazy = false },
-  { 'folke/snacks.nvim', lazy = false },
+  -- source control
+  { 'lewis6991/gitsigns.nvim', lazy = false },
   {
-    'mistweaverco/kulala.nvim',
-    ft = { 'http', 'rest' },
+    'julienvincent/hunk.nvim',
+    cmd = { 'DiffEditor' },
+    config = function()
+      require('hunk').setup()
+    end,
   },
 }
