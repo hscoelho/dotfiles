@@ -2,10 +2,10 @@ if vim.g.vscode then
   return
 end
 -- TODO: when neovim is updated to 0.12:
+-- - [ ] Read this: https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack
 -- - [ ] replace lazy pack
 -- - [ ] remove lazy = false
--- - [ ] move this file to plugins folder and name it +plugins.lua (so it's executed first)
--- - [ ] add load = true if moved to plugins folder in every spec
+-- - [ ] Create a hook for build events (ex: Treesitter)
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -112,11 +112,11 @@ require('lazy').setup {
   { 'obsidian-nvim/obsidian.nvim', verion = '*', lazy = false },
   -- source control
   { 'lewis6991/gitsigns.nvim', lazy = false },
+  { 'julienvincent/hunk.nvim', lazy = false },
   {
-    'julienvincent/hunk.nvim',
-    cmd = { 'DiffEditor' },
-    config = function()
-      require('hunk').setup()
-    end,
+    'nicolasgb/jj.nvim',
+    version = '*', -- Use latest stable release
+    lazy = false,
   },
+  { 'sindrets/diffview.nvim', lazy = false },
 }
