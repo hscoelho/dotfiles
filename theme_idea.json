@@ -1,0 +1,20 @@
+{
+    "bg": "#F2E8D5"
+    "fg": "#262626"
+    "base00": "#F2E8D5", // Default Background
+    "base01": "#E6DBC5", // Lighter Gray (Status lines/UI)
+    "base02": "#D7CDB6", // Selection Background
+    "base03": "#928374", // Comments (Muted Slate)
+    "base04": "#504945", // Darker Gray
+    "base05": "#262626", // Default Foreground
+    "base06": "#1D2021", // Bold/Extreme Emphasis
+    "base07": "#FBF1C7", // Brightest Background (Popups)
+    "base08": "#8B1A1A", // Burgundy (Keywords/Functions)
+    "base09": "#D65D0E", // Burnt Orange (Constants/Numbers)
+    "base0A": "#B58900", // Muted Gold (Types/Classes)
+    "base0B": "#427B58", // Sage/Teal (Strings)
+    "base0C": "#4F6B58", // Forest Green (Regex/Special)
+    "base0D": "#243E56", // Navy Blue (Methods/Identifiers)
+    "base0E": "#6E517A", // Dusty Plum (Booleans/Tags)
+    "base0F": "#8F3F2D"  // Terracotta (Attributes/Variables)
+}
