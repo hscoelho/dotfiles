@@ -118,5 +118,5 @@ require('lazy').setup {
     version = '*', -- Use latest stable release
     lazy = false,
   },
-  { 'sindrets/diffview.nvim', lazy = false },
+  { 'esmuellert/codediff.nvim', lazy = false },
 }
