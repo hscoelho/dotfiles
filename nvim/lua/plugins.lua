@@ -26,6 +26,8 @@ require('lazy').setup {
   { 'ellisonleao/gruvbox.nvim', lazy = false, priority = 1000 },
   { 'rebelot/kanagawa.nvim', lazy = false, priority = 1000 },
   { 'scottmckendry/cyberdream.nvim', lazy = false, priority = 1000 },
+  { 'mcncl/alabaster.nvim', lazy = false, priority = 1000 },
+  { 'yorickpeterse/vim-paper', lazy = false, priority = 1000 },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },
   {
