@@ -13,10 +13,11 @@ end
 -- ============================================================
 -- Base Palette
 -- ============================================================
-local bg = '#F2E8D5'
-local bg_alt = '#F5F1E6'
+local bg = '#FBF0D9'
+local bg_alt = '#F2EBDC'
 local bg_dim = '#E6DBC5'
 local bg_select = '#D7CDB6'
+local bg_select = '#E0D3AF'
 
 local fg = '#262626'
 local fg_muted = '#928374'
