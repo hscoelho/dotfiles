@@ -13,24 +13,25 @@ end
 -- ============================================================
 -- Base Palette
 -- ============================================================
-local bg = '#FBF0D9'
-local bg_alt = '#F2EBDC'
-local bg_dim = '#E6DBC5'
-local bg_select = '#E0D3AF'
+local palette = require 'book-theme-palette'
+local bg = palette.bg
+local bg_alt = palette.bg_alt
+local bg_dim = palette.bg_dim
+local bg_select = palette.bg_select
 
-local fg = '#000000'
-local fg_muted = '#928374'
-local fg_soft = '#504945'
+local fg = palette.fg
+local fg_muted = palette.fg_muted
+local fg_soft = palette.fg_soft
 
-local burgundy = '#8B1A1A'
-local forest = '#4B7A47'
-local navy = '#2D5B8E'
-local gold = '#996D00'
-local plum = '#7A4A80'
-local clay = '#8F3F2D'
-local sage = '#2A7B7B'
-local rose = '#A0416A'
-local brown = '#6B4226'
+local burgundy = palette.burgundy
+local forest = palette.forest
+local navy = palette.navy
+local gold = palette.gold
+local plum = palette.plum
+local clay = palette.clay
+local sage = palette.sage
+local rose = palette.rose
+local brown = palette.brown
 
 -- ============================================================
 -- Semantic Roles  ← change these to retheme syntax

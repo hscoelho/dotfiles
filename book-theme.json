@@ -1,0 +1,25 @@
+{
+  // other bgs ideas:
+  // HEX,Material / Brand,Grade / Type,CIELAB (L* a* b*),Pantone Reference
+  // #F9F4E5,Arctic Paper,Munken Pure,"96, 0, 5",9161 C
+  // #F2EBDC,Holmen Paper,BOOK Extra Cream,80 (Brightness),7500 C
+  // #F5F0DF,Trade Standard,50# Cream Offset,"88, 1, 6",155 C
+  // #E0D3AF,Antique Stock,Aged Lignin (30yr+),"88, 6, 22",7500 C
+  // #FBF0D9,Kindle Theme,Sepia,N/A,Tan / Pale Gold
+  "bg": "#FBF0D9",
+  "bg_alt": "#F2EBDC",
+  "bg_dim": "#E6DBC5",
+  "bg_select": "#E0D3AF",
+  "fg": "#000000",
+  "fg_muted": "#928374",
+  "fg_soft": "#504945",
+  "burgundy": "#8B1A1A",
+  "forest": "#4B7A47",
+  "navy": "#2D5B8E",
+  "gold": "#996D00",
+  "plum": "#7A4A80",
+  "clay": "#8F3F2D",
+  "sage": "#2A7B7B",
+  "rose": "#A0416A",
+  "brown": "#6B4226"
+}

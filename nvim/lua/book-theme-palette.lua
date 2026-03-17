@@ -1,0 +1,18 @@
+return {
+  bg = '#FBF0D9',
+  bg_alt = '#F2EBDC',
+  bg_dim = '#E6DBC5',
+  bg_select = '#E0D3AF',
+  fg = '#000000',
+  fg_muted = '#928374',
+  fg_soft = '#504945',
+  burgundy = '#8B1A1A',
+  forest = '#4B7A47',
+  navy = '#2D5B8E',
+  gold = '#996D00',
+  plum = '#7A4A80',
+  clay = '#8F3F2D',
+  sage = '#2A7B7B',
+  rose = '#A0416A',
+  brown = '#6B4226',
+}
