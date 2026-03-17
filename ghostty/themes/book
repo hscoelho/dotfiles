@@ -1,5 +1,5 @@
 # book theme — light/paper palette
-palette = 0=#262626
+palette = 0=#000000
 palette = 1=#8B1A1A
 palette = 2=#4B7A47
 palette = 3=#996D00
@@ -18,7 +18,7 @@ palette = 15=#E6DBC5
 
 # background = #F2E8D5
 background = "#FBF0D9"
-foreground = #262626
+foreground = #000000
 cursor-color = #8B1A1A
 selection-background = #D7CDB6
-selection-foreground = #262626
+selection-foreground = #000000

@@ -19,7 +19,7 @@ local bg_dim = '#E6DBC5'
 local bg_select = '#D7CDB6'
 local bg_select = '#E0D3AF'
 
-local fg = '#262626'
+local fg = '#000000'
 local fg_muted = '#928374'
 local fg_soft = '#504945'
 
