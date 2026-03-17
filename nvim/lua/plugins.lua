@@ -28,6 +28,11 @@ require('lazy').setup {
   { 'scottmckendry/cyberdream.nvim', lazy = false, priority = 1000 },
   { 'mcncl/alabaster.nvim', lazy = false, priority = 1000 },
   { 'yorickpeterse/vim-paper', lazy = false, priority = 1000 },
+  {
+    'rktjmp/lush.nvim',
+    -- if you wish to use your own colorscheme:
+    -- { dir = '/absolute/path/to/colorscheme', lazy = true },
+  },
   -- LSP
   { 'neovim/nvim-lspconfig', lazy = false },
   {
