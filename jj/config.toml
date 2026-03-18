@@ -18,7 +18,7 @@ tug = ["bookmark", "advance", "--to", "closest_pushable(@)"]
 "closest_pushable(to)" = "heads(::to & mutable() & ~description(exact:\"\") & (~empty() | merges()))"
 
 [[--scope]]
---when.platforms = ["unix"]  
+--when.platforms = ["unix"]
 [--scope.ui]
 default-command = ["logstatus"]
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
@@ -44,3 +44,28 @@ edit-args = [
     git -C "$right" clean -q -df # remove untracked files
   """
 ]
+
+[[--scope]]
+--when.platforms = ["windows"]
+[--scope.merge-tools.nvim]
+program = "pwsh"
+edit-args = [
+  "-c",
+  """
+    $ErrorActionPreference = 'Stop'
+    Remove-Item -Force -ErrorAction SilentlyContinue "$right/JJ-INSTRUCTIONS"
+    git -C "$left" init -q
+    git -C "$left" add -A
+    git -C "$left" commit -q -m baseline --allow-empty
+    Move-Item "$left/.git" "$right/.git"
+    git -C "$right" add --intent-to-add -A
+    Set-Location "$right"; nvim
+    git -C "$right" diff-index --quiet --cached HEAD
+    if ($LASTEXITCODE -eq 0) { Write-Error 'No changes done, aborting split.'; exit 1 }
+    git -C "$right" commit -q -m split
+    git -C "$right" restore .
+    git -C "$right" reset .
+    git -C "$right" clean -q -df
+  """
+]
+

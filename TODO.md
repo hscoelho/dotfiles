@@ -1,6 +1,10 @@
 - [ ] Create a "theme.nu" nushell script
     - Sets theme or toggle dark and light mode
-    - Should be "installed" in a binaries folder
+    - Should be "installable"(put into path) in a binaries folder with a command in install.nu
+- [ ] Create a "theme-creator.nu" script
+    - Takes an input pallete.json and N .template files and creates theme files for my tools
+    - Probably a good idea to make the templates as simple as possible and make them in .nu
+    - e.g.: theme-colors.lua with local bg = "#FFFFFF" that is imported by the main theme.lua
 - [ ] Install gemini and qwen and whatever other agent in mise with a specific node version
     - Gemini mise config.toml recommendation: 
     ```toml
