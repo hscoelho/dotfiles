@@ -1,5 +1,6 @@
 - [ ] Change jujutsu nushell completion: https://www.jj-vcs.dev/latest/cli-reference/#jj-util-completion
 - [ ] Follow this to refactor the theme: https://www.ditig.com/256-colors-cheat-sheet
+    - https://oklch.com/
 - [ ] Create a "theme.nu" nushell script
     - Sets theme or toggle dark and light mode
     - Should be "installable"(put into path) in a binaries folder with a command in install.nu
