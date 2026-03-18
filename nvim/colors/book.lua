@@ -16,7 +16,6 @@ end
 local bg = '#FBF0D9'
 local bg_alt = '#F2EBDC'
 local bg_dim = '#E6DBC5'
-local bg_select = '#D7CDB6'
 local bg_select = '#E0D3AF'
 
 local fg = '#000000'
@@ -41,10 +40,25 @@ local constants = plum -- numbers, booleans, nil, symbols — statically known v
 local comments = burgundy -- comments
 local definitions = navy -- global definitions: functions, types, classes
 local errors = clay -- errors & diagnostics
+local warn = gold -- warnings
+local info = navy -- info diagnostics
+local hint = sage -- hints
 
 local accent = burgundy -- UI accent (not used for syntax)
 local diff_add = sage -- diff additions
 local diff_del = clay -- diff deletions
+
+local diff_add_bg = '#D4E8D0'
+local diff_del_bg = '#EDD8CF'
+local diff_change_bg = '#D0DCF0'
+local diff_text_bg = '#BDD4F0'
+
+local h1_bg = '#F5E8E8'
+local h2_bg = '#E8EFF8'
+local h3_bg = '#F5F0E0'
+local h4_bg = '#E8F0E8'
+local h5_bg = '#F0E8F5'
+local h6_bg = '#E8F5F5'
 
 -- ============================================================
 -- 1. Core Editor
@@ -93,7 +107,7 @@ hl('TabLineSel', { fg = fg, bg = bg_alt, bold = true })
 hl('Title', { fg = accent, bold = true })
 hl('Visual', { bg = bg_select })
 hl('VisualNOS', { bg = bg_select })
-hl('WarningMsg', { fg = gold, bold = true })
+hl('WarningMsg', { fg = warn, bold = true })
 hl('Whitespace', { fg = bg_dim })
 hl('WildMenu', { fg = fg, bg = bg_select })
 hl('WinSeparator', { fg = bg_dim })
@@ -101,10 +115,10 @@ hl('WinBar', { fg = fg_soft, bg = 'NONE' })
 hl('WinBarNC', { fg = fg_muted, bg = 'NONE' })
 
 -- Diff
-hl('DiffAdd', { fg = diff_add, bg = '#D4E8D0' })
-hl('DiffChange', { fg = navy, bg = '#D0DCF0' })
-hl('DiffDelete', { fg = diff_del, bg = '#EDD8CF' })
-hl('DiffText', { fg = navy, bg = '#BDD4F0', bold = true })
+hl('DiffAdd', { fg = diff_add, bg = diff_add_bg })
+hl('DiffChange', { fg = navy, bg = diff_change_bg })
+hl('DiffDelete', { fg = diff_del, bg = diff_del_bg })
+hl('DiffText', { fg = navy, bg = diff_text_bg, bold = true })
 hl('diffAdded', { fg = diff_add })
 hl('diffRemoved', { fg = diff_del })
 hl('diffChanged', { fg = navy })
@@ -236,7 +250,7 @@ hl('@punctuation.special', { fg = fg_soft })
 hl('@comment', { fg = comments })
 hl('@comment.documentation', { fg = comments })
 hl('@comment.error', { fg = errors })
-hl('@comment.warning', { fg = gold })
+hl('@comment.warning', { fg = warn })
 hl('@comment.todo', { fg = comments, bold = true })
 hl('@comment.note', { fg = comments, bold = true })
 
@@ -277,32 +291,32 @@ hl('@tag.delimiter', { fg = fg_soft })
 -- 4. LSP
 -- ============================================================
 hl('DiagnosticError', { fg = errors })
-hl('DiagnosticWarn', { fg = gold })
-hl('DiagnosticInfo', { fg = navy })
-hl('DiagnosticHint', { fg = sage })
+hl('DiagnosticWarn', { fg = warn })
+hl('DiagnosticInfo', { fg = info })
+hl('DiagnosticHint', { fg = hint })
 hl('DiagnosticOk', { fg = diff_add })
 
 hl('DiagnosticVirtualTextError', { fg = errors })
-hl('DiagnosticVirtualTextWarn', { fg = gold })
-hl('DiagnosticVirtualTextInfo', { fg = navy })
-hl('DiagnosticVirtualTextHint', { fg = sage })
+hl('DiagnosticVirtualTextWarn', { fg = warn })
+hl('DiagnosticVirtualTextInfo', { fg = info })
+hl('DiagnosticVirtualTextHint', { fg = hint })
 hl('DiagnosticVirtualTextOk', { fg = diff_add })
 
 hl('DiagnosticUnderlineError', { undercurl = true, sp = errors })
-hl('DiagnosticUnderlineWarn', { undercurl = true, sp = gold })
-hl('DiagnosticUnderlineInfo', { undercurl = true, sp = navy })
-hl('DiagnosticUnderlineHint', { undercurl = true, sp = sage })
+hl('DiagnosticUnderlineWarn', { undercurl = true, sp = warn })
+hl('DiagnosticUnderlineInfo', { undercurl = true, sp = info })
+hl('DiagnosticUnderlineHint', { undercurl = true, sp = hint })
 hl('DiagnosticUnderlineOk', { undercurl = true, sp = diff_add })
 
 hl('DiagnosticSignError', { fg = errors })
-hl('DiagnosticSignWarn', { fg = gold })
-hl('DiagnosticSignInfo', { fg = navy })
-hl('DiagnosticSignHint', { fg = sage })
+hl('DiagnosticSignWarn', { fg = warn })
+hl('DiagnosticSignInfo', { fg = info })
+hl('DiagnosticSignHint', { fg = hint })
 
 hl('DiagnosticFloatingError', { fg = errors })
-hl('DiagnosticFloatingWarn', { fg = gold })
-hl('DiagnosticFloatingInfo', { fg = navy })
-hl('DiagnosticFloatingHint', { fg = sage })
+hl('DiagnosticFloatingWarn', { fg = warn })
+hl('DiagnosticFloatingInfo', { fg = info })
+hl('DiagnosticFloatingHint', { fg = hint })
 
 hl('LspReferenceText', { bg = bg_select })
 hl('LspReferenceRead', { bg = bg_select })
@@ -320,12 +334,12 @@ hl('GitSignsDelete', { fg = diff_del })
 hl('GitSignsAddNr', { fg = diff_add })
 hl('GitSignsChangeNr', { fg = navy })
 hl('GitSignsDeleteNr', { fg = diff_del })
-hl('GitSignsAddLn', { bg = '#D4E8D0' })
-hl('GitSignsChangeLn', { bg = '#D0DCF0' })
-hl('GitSignsDeleteLn', { bg = '#EDD8CF' })
+hl('GitSignsAddLn', { bg = diff_add_bg })
+hl('GitSignsChangeLn', { bg = diff_change_bg })
+hl('GitSignsDeleteLn', { bg = diff_del_bg })
 hl('GitSignsCurrentLineBlame', { fg = fg_muted })
-hl('GitSignsAddPreview', { bg = '#D4E8D0' })
-hl('GitSignsDeletePreview', { bg = '#EDD8CF' })
+hl('GitSignsAddPreview', { bg = diff_add_bg })
+hl('GitSignsDeletePreview', { bg = diff_del_bg })
 
 -- ============================================================
 -- 6. fzf-lua
@@ -396,10 +410,10 @@ hl('BlinkCmpSignatureHelpActiveParameter', { fg = navy, bold = true })
 -- ============================================================
 -- 8. mini.statusline
 -- ============================================================
-hl('MiniStatuslineModeNormal', { fg = bg_dim, bg = fg_soft, bold = true })
-hl('MiniStatuslineModeInsert', { fg = bg_dim, bg = diff_add, bold = true })
+hl('MiniStatuslineModeNormal', { fg = bg_dim, bg = accent, bold = true })
+hl('MiniStatuslineModeInsert', { fg = bg_dim, bg = sage, bold = true })
 hl('MiniStatuslineModeVisual', { fg = bg_dim, bg = plum, bold = true })
-hl('MiniStatuslineModeReplace', { fg = bg_dim, bg = errors, bold = true })
+hl('MiniStatuslineModeReplace', { fg = bg_dim, bg = clay, bold = true })
 hl('MiniStatuslineModeCommand', { fg = bg_dim, bg = gold, bold = true })
 hl('MiniStatuslineModeOther', { fg = bg_dim, bg = sage, bold = true })
 hl('MiniStatuslineFilename', { fg = fg_soft, bg = bg_dim })
@@ -428,18 +442,18 @@ hl('WhichKeyTitle', { fg = accent, bold = true })
 -- ============================================================
 -- 11. snacks.nvim
 -- ============================================================
-hl('SnacksNotifierInfo', { fg = navy })
-hl('SnacksNotifierWarn', { fg = gold })
+hl('SnacksNotifierInfo', { fg = info })
+hl('SnacksNotifierWarn', { fg = warn })
 hl('SnacksNotifierError', { fg = errors })
 hl('SnacksNotifierDebug', { fg = fg_muted })
 hl('SnacksNotifierTrace', { fg = constants })
-hl('SnacksNotifierBorderInfo', { fg = navy })
-hl('SnacksNotifierBorderWarn', { fg = gold })
+hl('SnacksNotifierBorderInfo', { fg = info })
+hl('SnacksNotifierBorderWarn', { fg = warn })
 hl('SnacksNotifierBorderError', { fg = errors })
 hl('SnacksNotifierBorderDebug', { fg = fg_muted })
 hl('SnacksNotifierBorderTrace', { fg = constants })
-hl('SnacksNotifierTitleInfo', { fg = navy, bold = true })
-hl('SnacksNotifierTitleWarn', { fg = gold, bold = true })
+hl('SnacksNotifierTitleInfo', { fg = info, bold = true })
+hl('SnacksNotifierTitleWarn', { fg = warn, bold = true })
 hl('SnacksNotifierTitleError', { fg = errors, bold = true })
 hl('SnacksNotifierTitleDebug', { fg = fg_muted, bold = true })
 hl('SnacksNotifierTitleTrace', { fg = constants, bold = true })
@@ -454,45 +468,52 @@ hl('SnacksDashboardIcon', { fg = navy })
 -- ============================================================
 -- 12. todo-comments
 -- ============================================================
-hl('TodoFgTODO', { fg = comments })
+-- TODO:
+-- FIXME:
+-- HACK:
+-- WARN:
+-- PERF:
+-- NOTE:
+-- TEST:
+hl('TodoFgTODO', { fg = sage })
 hl('TodoFgFIXME', { fg = errors })
-hl('TodoFgHACK', { fg = diff_del })
-hl('TodoFgWARN', { fg = gold })
+hl('TodoFgHACK', { fg = rose })
+hl('TodoFgWARN', { fg = warn })
 hl('TodoFgPERF', { fg = constants })
-hl('TodoFgNOTE', { fg = diff_add })
+hl('TodoFgNOTE', { fg = info })
 hl('TodoFgTEST', { fg = strings })
 
-hl('TodoBgTODO', { fg = bg_dim, bg = comments, bold = true })
-hl('TodoBgFIXME', { fg = bg_dim, bg = errors, bold = true })
-hl('TodoBgHACK', { fg = bg_dim, bg = diff_del, bold = true })
-hl('TodoBgWARN', { fg = bg_dim, bg = gold, bold = true })
-hl('TodoBgPERF', { fg = bg_dim, bg = constants, bold = true })
-hl('TodoBgNOTE', { fg = bg_dim, bg = diff_add, bold = true })
-hl('TodoBgTEST', { fg = bg_dim, bg = strings, bold = true })
+hl('TodoBgTODO', { fg = bg, bg = sage, bold = true })
+hl('TodoBgFIXME', { fg = bg, bg = errors, bold = true })
+hl('TodoBgHACK', { fg = bg, bg = rose, bold = true })
+hl('TodoBgWARN', { fg = bg, bg = warn, bold = true })
+hl('TodoBgPERF', { fg = bg, bg = constants, bold = true })
+hl('TodoBgNOTE', { fg = bg, bg = info, bold = true })
+hl('TodoBgTEST', { fg = bg, bg = strings, bold = true })
 
-hl('TodoSignTODO', { fg = comments })
+hl('TodoSignTODO', { fg = sage })
 hl('TodoSignFIXME', { fg = errors })
-hl('TodoSignHACK', { fg = diff_del })
-hl('TodoSignWARN', { fg = gold })
+hl('TodoSignHACK', { fg = rose })
+hl('TodoSignWARN', { fg = warn })
 hl('TodoSignPERF', { fg = constants })
-hl('TodoSignNOTE', { fg = diff_add })
+hl('TodoSignNOTE', { fg = info })
 hl('TodoSignTEST', { fg = strings })
 
 -- ============================================================
 -- 13. render-markdown
 -- ============================================================
-hl('RenderMarkdownH1', { fg = accent, bg = '#F5E8E8', bold = true })
-hl('RenderMarkdownH2', { fg = navy, bg = '#E8EFF8', bold = true })
-hl('RenderMarkdownH3', { fg = gold, bg = '#F5F0E0', bold = true })
-hl('RenderMarkdownH4', { fg = diff_add, bg = '#E8F0E8', bold = true })
-hl('RenderMarkdownH5', { fg = constants, bg = '#F0E8F5', bold = true })
-hl('RenderMarkdownH6', { fg = strings, bg = '#E8F5F5', bold = true })
-hl('RenderMarkdownH1Bg', { bg = '#F5E8E8' })
-hl('RenderMarkdownH2Bg', { bg = '#E8EFF8' })
-hl('RenderMarkdownH3Bg', { bg = '#F5F0E0' })
-hl('RenderMarkdownH4Bg', { bg = '#E8F0E8' })
-hl('RenderMarkdownH5Bg', { bg = '#F0E8F5' })
-hl('RenderMarkdownH6Bg', { bg = '#E8F5F5' })
+hl('RenderMarkdownH1', { fg = accent, bg = h1_bg, bold = true })
+hl('RenderMarkdownH2', { fg = navy, bg = h2_bg, bold = true })
+hl('RenderMarkdownH3', { fg = gold, bg = h3_bg, bold = true })
+hl('RenderMarkdownH4', { fg = diff_add, bg = h4_bg, bold = true })
+hl('RenderMarkdownH5', { fg = constants, bg = h5_bg, bold = true })
+hl('RenderMarkdownH6', { fg = strings, bg = h6_bg, bold = true })
+hl('RenderMarkdownH1Bg', { bg = h1_bg })
+hl('RenderMarkdownH2Bg', { bg = h2_bg })
+hl('RenderMarkdownH3Bg', { bg = h3_bg })
+hl('RenderMarkdownH4Bg', { bg = h4_bg })
+hl('RenderMarkdownH5Bg', { bg = h5_bg })
+hl('RenderMarkdownH6Bg', { bg = h6_bg })
 hl('RenderMarkdownCode', { bg = bg_dim })
 hl('RenderMarkdownCodeInline', { fg = diff_del, bg = bg_dim })
 hl('RenderMarkdownBullet', { fg = fg_soft })
@@ -577,6 +598,6 @@ hl('DropBarKindVariable', { fg = fg })
 -- 15. hunk.nvim
 -- ============================================================
 hl('HunkNormal', { fg = fg, bg = bg_alt })
-hl('HunkAdd', { fg = diff_add, bg = '#D4E8D0' })
-hl('HunkDelete', { fg = diff_del, bg = '#EDD8CF' })
+hl('HunkAdd', { fg = diff_add, bg = diff_add_bg })
+hl('HunkDelete', { fg = diff_del, bg = diff_del_bg })
 hl('HunkHeader', { fg = navy, bold = true })
