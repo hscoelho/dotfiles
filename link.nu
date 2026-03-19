@@ -14,6 +14,11 @@ def main [
 # To add a new config to link, simply add a row in this table
 def dotfiles_config [] {
     let jujutsu_config_path = jj config path --user
+    let rio_config_path = if $nu.os-info.name == "windows" {
+      "~/AppData/Local/rio"
+    } else {
+      "~/.config/rio"
+    }
     [
         [name, dot_folder, app_folder];
         [neovim,   "nvim",                   "~/.config/nvim"]
@@ -27,6 +32,7 @@ def dotfiles_config [] {
         [starship, "starship/starship.toml", "~/.config/starship.toml"]
         [XCompose, "misc/XCompose",          "~/.XCompose"]
         [gitignore,"misc/user-gitignore",    "~/.config/git/ignore"]
+        [rio,      "rio",                    $rio_config_path]
     ]
 }
 

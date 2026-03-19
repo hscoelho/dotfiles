@@ -1,0 +1,57 @@
+# book theme — light/paper palette
+
+[colors]
+background = '#FBF0D9'
+foreground = '#000000'
+
+# Selection
+selection-background = '#E0D3AF'
+selection-foreground = '#000000'
+
+# Navigation
+tabs-active = '#E6DBC5'
+tabs-active-foreground = '#000000'
+tabs-active-highlight = '#8B1A1A'
+bar = '#F2EBDC'
+split = '#928374'
+cursor = '#8B1A1A'
+vi-cursor = '#2D5B8E'
+
+# Search
+search-match-background = '#996D00'
+search-match-foreground = '#FBF0D9'
+search-focused-match-background = '#8B1A1A'
+search-focused-match-foreground = '#FBF0D9'
+
+# Regular colors
+black = '#000000'
+blue = '#2D5B8E'
+cyan = '#2A7B7B'
+green = '#4B7A47'
+magenta = '#7A4A80'
+red = '#8B1A1A'
+tabs = '#F2EBDC'
+white = '#928374'
+yellow = '#996D00'
+
+# Dim colors
+dim-black = '#504945'
+dim-blue = '#2D5B8E'
+dim-cyan = '#2A7B7B'
+dim-foreground = '#928374'
+dim-green = '#4B7A47'
+dim-magenta = '#7A4A80'
+dim-red = '#8F3F2D'
+dim-white = '#E6DBC5'
+dim-yellow = '#996D00'
+
+# Light colors
+light-black = '#504945'
+light-blue = '#2D5B8E'
+light-cyan = '#2A7B7B'
+light-foreground = '#504945'
+light-green = '#4B7A47'
+light-magenta = '#A0416A'
+light-red = '#8F3F2D'
+light-white = '#E6DBC5'
+light-yellow = '#996D00'
