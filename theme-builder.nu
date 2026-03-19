@@ -4,7 +4,6 @@ def main [] {
 
   wezterm_theme $palette | save -f ($root | path join "wezterm/book.lua")
   nvim_palette $palette | save -f ($root | path join "nvim/lua/book-theme-palette.lua")
-  ghostty_theme $palette | save -f ($root | path join "ghostty/themes/book")
   rio_theme $palette | save -f ($root | path join "rio/themes/book.toml")
 
   print "Theme files updated."
@@ -113,32 +112,5 @@ light-magenta = '($palette.rose)'
 light-red = '($palette.clay)'
 light-white = '($palette.bg_dim)'
 light-yellow = '($palette.gold)'
-"
-}
-
-def ghostty_theme [palette] {
-$"# book theme — light/paper palette
-palette = 0=($palette.fg)
-palette = 1=($palette.burgundy)
-palette = 2=($palette.forest)
-palette = 3=($palette.gold)
-palette = 4=($palette.navy)
-palette = 5=($palette.plum)
-palette = 6=($palette.sage)
-palette = 7=($palette.fg_muted)
-palette = 8=($palette.fg_soft)
-palette = 9=($palette.clay)
-palette = 10=($palette.forest)
-palette = 11=($palette.gold)
-palette = 12=($palette.navy)
-palette = 13=($palette.rose)
-palette = 14=($palette.sage)
-palette = 15=($palette.bg_dim)
-
-background = ($palette.bg)
-foreground = ($palette.fg)
-cursor-color = ($palette.burgundy)
-selection-background = ($palette.bg_select)
-selection-foreground = ($palette.fg)
 "
 }

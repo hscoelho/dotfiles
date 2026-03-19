@@ -24,7 +24,6 @@ def dotfiles_config [] {
         [neovim,   "nvim",                   "~/.config/nvim"]
         [nushell,  "nushell",                "~/.config/nushell"]
         [wezterm,  "wezterm",                "~/.config/wezterm"]
-        [ghostty,  "ghostty",                "~/.config/ghostty"]
         [fish,     "fish",                   "~/.config/fish"]
         [jujutsu,  "jj",                     $jujutsu_config_path]
         [mise,     "mise",                   "~/.config/mise"]
