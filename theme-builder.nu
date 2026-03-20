@@ -5,6 +5,7 @@ def main [] {
   wezterm_theme $palette | save -f ($root | path join "wezterm/book.lua")
   nvim_palette $palette | save -f ($root | path join "nvim/lua/book-theme-palette.lua")
   rio_theme $palette | save -f ($root | path join "rio/themes/book.toml")
+  kitty_theme $palette | save -f ($root | path join "kitty/theme.conf")
 
   print "Theme files updated."
 }
@@ -51,6 +52,44 @@ $"return {
   rose = '($palette.rose)',
   brown = '($palette.brown)',
 }
+"
+}
+
+def kitty_theme [palette] {
+$"foreground ($palette.fg)
+background ($palette.bg)
+
+color0 ($palette.fg)
+color8 ($palette.fg_soft)
+color1 ($palette.burgundy)
+color9 ($palette.rose)
+color2  ($palette.forest)
+color10 ($palette.forest)
+color3  ($palette.gold)
+color11 ($palette.gold)
+color4  ($palette.navy)
+color12 ($palette.navy)
+color5  ($palette.plum)
+color13 ($palette.rose)
+color6  ($palette.sage)
+color14 ($palette.sage)
+color7  ($palette.bg_dim)
+color15 ($palette.bg)
+mark1_background ($palette.bg_select)
+mark2_foreground ($palette.fg)
+mark2_background ($palette.bg_alt)
+mark3_foreground ($palette.fg)
+mark3_background ($palette.plum)
+selection_foreground ($palette.fg)
+selection_background ($palette.bg_select)
+cursor ($palette.fg_soft)
+cursor_text_color ($palette.bg)
+inactive_border_color ($palette.bg_dim)
+bell_border_color ($palette.burgundy)
+active_tab_foreground   ($palette.fg)
+active_tab_background   ($palette.bg_dim)
+inactive_tab_foreground ($palette.fg_muted)
+inactive_tab_background ($palette.bg_alt)
 "
 }
 
