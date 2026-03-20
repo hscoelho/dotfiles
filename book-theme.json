@@ -15,21 +15,21 @@
   "fg_muted": "#928374",
   "fg_soft": "#504945",
   // color 1 & 9
-  "red": "#8B1A1A",
-  "red_light": "#8F3F2D",
+  "red": "#8a0011",
+  "red_light": "#cf504b",
   // color 2 & 10
-  "green": "#4B7A47",
-  "green_light": "#6B9E66"
+  "green": "#335200",
+  "green_light": "#6a8d45"
   // color 3 & 11
-  "yellow": "#6B4226",
-  "yellow_light": "#996D00",
+  "yellow": "#594500",
+  "yellow_light": "#937e44",
   // color 4 & 12
-  "blue": "#2D5B8E",
-  "blue_light": "#4A7DB5",
+  "blue": "#014983",
+  "blue_light": "#4784c2",
   // color 5 & 13
-  "magenta": "#7A4A80",
-  "magenta_light": "#A0416A"
+  "magenta": "#79076f",
+  "magenta_light": "#ba51ad"
   // color 6 & 14
-  "cyan": "#2A7B7B",
-  "cyan_light": "#3D9E9E"
+  "cyan": "#025449",
+  "cyan_light": "#4b8e82"
 }

@@ -4,9 +4,9 @@ return {
 	foreground = '#000000',
 	background = '#FBF0D9',
 
-	cursor_bg = '#8B1A1A',
+	cursor_bg = '#8a0011',
 	cursor_fg = '#FBF0D9',
-	cursor_border = '#8B1A1A',
+	cursor_border = '#8a0011',
 
 	selection_fg = '#000000',
 	selection_bg = '#E0D3AF',
@@ -14,6 +14,6 @@ return {
 	scrollbar_thumb = '#928374',
 	split = '#928374',
 
-	ansi = { '#000000', '#8B1A1A', '#4B7A47', '#996D00', '#2D5B8E', '#7A4A80', '#2A7B7B', '#928374' },
-	brights = { '#504945', '#8F3F2D', '#4B7A47', '#996D00', '#2D5B8E', '#A0416A', '#2A7B7B', '#E6DBC5' },
+	ansi = { '#000000', '#8a0011', '#335200', '#937e44', '#014983', '#79076f', '#025449', '#928374' },
+	brights = { '#504945', '#cf504b', '#6a8d45', '#937e44', '#4784c2', '#ba51ad', '#4b8e82', '#E6DBC5' },
 }
