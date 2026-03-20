@@ -28,7 +28,7 @@ return {
 	split = '($palette.fg_muted)',
 
 	ansi = { '($palette.fg)', '($palette.red)', '($palette.green)', '($palette.yellow_light)', '($palette.blue)', '($palette.magenta)', '($palette.cyan)', '($palette.fg_muted)' },
-	brights = { '($palette.fg_soft)', '($palette.red_light)', '($palette.green)', '($palette.yellow_light)', '($palette.blue)', '($palette.magenta_light)', '($palette.cyan)', '($palette.bg_dim)' },
+	brights = { '($palette.fg_soft)', '($palette.red_light)', '($palette.green_light)', '($palette.yellow_light)', '($palette.blue_light)', '($palette.magenta_light)', '($palette.cyan_light)', '($palette.bg_dim)' },
 }
 "
 }
@@ -42,15 +42,15 @@ $"return {
   fg = '($palette.fg)',
   fg_muted = '($palette.fg_muted)',
   fg_soft = '($palette.fg_soft)',
-  burgundy = '($palette.red)',
-  forest = '($palette.green)',
-  navy = '($palette.blue)',
-  gold = '($palette.yellow_light)',
-  plum = '($palette.magenta)',
-  clay = '($palette.red_light)',
-  sage = '($palette.cyan)',
-  rose = '($palette.magenta_light)',
-  brown = '($palette.yellow)',
+  red = '($palette.red)',
+  green = '($palette.green)',
+  blue = '($palette.blue)',
+  yellow_light = '($palette.yellow_light)',
+  magenta = '($palette.magenta)',
+  red_light = '($palette.red_light)',
+  cyan = '($palette.cyan)',
+  magenta_light = '($palette.magenta_light)',
+  yellow = '($palette.yellow)',
 }
 "
 }
@@ -64,15 +64,15 @@ color8 ($palette.fg_soft)
 color1 ($palette.red)
 color9 ($palette.magenta_light)
 color2  ($palette.green)
-color10 ($palette.green)
+color10 ($palette.green_light)
 color3  ($palette.yellow_light)
 color11 ($palette.yellow_light)
 color4  ($palette.blue)
-color12 ($palette.blue)
+color12 ($palette.blue_light)
 color5  ($palette.magenta)
 color13 ($palette.magenta_light)
 color6  ($palette.cyan)
-color14 ($palette.cyan)
+color14 ($palette.cyan_light)
 color7  ($palette.bg_dim)
 color15 ($palette.bg)
 mark1_background ($palette.bg_select)

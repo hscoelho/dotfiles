@@ -23,31 +23,34 @@ local fg = palette.fg
 local fg_muted = palette.fg_muted
 local fg_soft = palette.fg_soft
 
-local burgundy = palette.burgundy
-local forest = palette.forest
-local navy = palette.navy
-local gold = palette.gold
-local plum = palette.plum
-local clay = palette.clay
-local sage = palette.sage
-local rose = palette.rose
-local brown = palette.brown
+local red = palette.red
+local green = palette.green
+local blue = palette.blue
+local yellow_light = palette.yellow_light
+local magenta = palette.magenta
+local red_light = palette.red_light
+local cyan = palette.cyan
+local magenta_light = palette.magenta_light
+local yellow = palette.yellow
+local green_light = palette.green_light
+local blue_light = palette.blue_light
+local cyan_light = palette.cyan_light
 
 -- ============================================================
 -- Semantic Roles  ← change these to retheme syntax
 -- ============================================================
-local strings = forest -- string literals
-local constants = plum -- numbers, booleans, nil, symbols — statically known values
-local comments = burgundy -- comments
-local definitions = navy -- global definitions: functions, types, classes
-local errors = clay -- errors & diagnostics
-local warn = gold -- warnings
-local info = navy -- info diagnostics
-local hint = sage -- hints
+local strings = green -- string literals
+local constants = magenta -- numbers, booleans, nil, symbols — statically known values
+local comments = red -- comments
+local definitions = blue -- global definitions: functions, types, classes
+local errors = red_light -- errors & diagnostics
+local warn = yellow_light -- warnings
+local info = blue -- info diagnostics
+local hint = cyan -- hints
 
-local accent = burgundy -- UI accent (not used for syntax)
-local diff_add = sage -- diff additions
-local diff_del = clay -- diff deletions
+local accent = red -- UI accent (not used for syntax)
+local diff_add = cyan -- diff additions
+local diff_del = red_light -- diff deletions
 
 local diff_add_bg = '#D4E8D0'
 local diff_del_bg = '#EDD8CF'
@@ -74,7 +77,7 @@ hl('Conceal', { fg = fg_muted })
 hl('CursorLine', { bg = bg_dim })
 hl('CursorLineNr', { fg = fg_soft, bold = true })
 hl('CursorColumn', { bg = bg_dim })
-hl('Directory', { fg = navy })
+hl('Directory', { fg = blue })
 hl('EndOfBuffer', { fg = bg_dim })
 hl('ErrorMsg', { fg = errors, bold = true })
 hl('Folded', { fg = fg_muted, bg = bg_alt })
@@ -82,23 +85,23 @@ hl('FoldColumn', { fg = fg_muted, bg = 'NONE' })
 hl('LineNr', { fg = fg_muted })
 hl('MatchParen', { fg = accent, bold = true, underline = true })
 hl('ModeMsg', { fg = fg_soft })
-hl('MoreMsg', { fg = forest })
+hl('MoreMsg', { fg = green_light })
 hl('NonText', { fg = bg_dim })
 hl('Pmenu', { fg = fg, bg = bg_alt })
 hl('PmenuSel', { fg = fg, bg = bg_select, bold = true })
 hl('PmenuSbar', { bg = bg_dim })
 hl('PmenuThumb', { bg = fg_muted })
-hl('Question', { fg = forest })
+hl('Question', { fg = green_light })
 hl('QuickFixLine', { bg = bg_select })
 hl('Search', { fg = fg, bg = bg_select, bold = true })
-hl('IncSearch', { fg = fg, bg = gold, bold = true })
-hl('CurSearch', { fg = fg, bg = gold, bold = true })
+hl('IncSearch', { fg = fg, bg = yellow_light, bold = true })
+hl('CurSearch', { fg = fg, bg = yellow_light, bold = true })
 hl('SignColumn', { fg = fg_muted, bg = 'NONE' })
 hl('SpecialKey', { fg = fg_muted })
 hl('SpellBad', { undercurl = true, sp = errors })
-hl('SpellCap', { undercurl = true, sp = navy })
-hl('SpellLocal', { undercurl = true, sp = sage })
-hl('SpellRare', { undercurl = true, sp = plum })
+hl('SpellCap', { undercurl = true, sp = blue })
+hl('SpellLocal', { undercurl = true, sp = cyan })
+hl('SpellRare', { undercurl = true, sp = magenta })
 hl('StatusLine', { fg = fg_soft, bg = bg_dim })
 hl('StatusLineNC', { fg = fg_muted, bg = bg_dim })
 hl('Substitute', { fg = fg, bg = diff_del, bold = true })
@@ -117,13 +120,13 @@ hl('WinBarNC', { fg = fg_muted, bg = 'NONE' })
 
 -- Diff
 hl('DiffAdd', { fg = diff_add, bg = diff_add_bg })
-hl('DiffChange', { fg = navy, bg = diff_change_bg })
+hl('DiffChange', { fg = blue, bg = diff_change_bg })
 hl('DiffDelete', { fg = diff_del, bg = diff_del_bg })
-hl('DiffText', { fg = navy, bg = diff_text_bg, bold = true })
+hl('DiffText', { fg = blue, bg = diff_text_bg, bold = true })
 hl('diffAdded', { fg = diff_add })
 hl('diffRemoved', { fg = diff_del })
-hl('diffChanged', { fg = navy })
-hl('diffFile', { fg = gold, bold = true })
+hl('diffChanged', { fg = blue })
+hl('diffFile', { fg = yellow_light, bold = true })
 hl('diffLine', { fg = fg_muted })
 
 -- ============================================================
@@ -247,7 +250,7 @@ hl('@punctuation.delimiter', { fg = fg_soft })
 hl('@punctuation.bracket', { fg = fg_soft })
 hl('@punctuation.special', { fg = fg_soft })
 
--- Comments → prominent navy
+-- Comments → prominent blue
 hl('@comment', { fg = comments })
 hl('@comment.documentation', { fg = comments })
 hl('@comment.error', { fg = errors })
@@ -262,25 +265,25 @@ hl('@markup.strikethrough', { strikethrough = true })
 hl('@markup.underline', { underline = true })
 hl('@markup.heading', { fg = accent, bold = true })
 hl('@markup.heading.1', { fg = accent, bold = true })
-hl('@markup.heading.2', { fg = navy, bold = true })
-hl('@markup.heading.3', { fg = gold, bold = true })
-hl('@markup.heading.4', { fg = forest, bold = true })
-hl('@markup.heading.5', { fg = plum, bold = true })
-hl('@markup.heading.6', { fg = sage, bold = true })
+hl('@markup.heading.2', { fg = blue, bold = true })
+hl('@markup.heading.3', { fg = yellow_light, bold = true })
+hl('@markup.heading.4', { fg = green, bold = true })
+hl('@markup.heading.5', { fg = magenta, bold = true })
+hl('@markup.heading.6', { fg = cyan, bold = true })
 hl('@markup.quote', { fg = comments })
 hl('@markup.math', { fg = constants })
-hl('@markup.link', { fg = navy, underline = true })
-hl('@markup.link.label', { fg = navy })
+hl('@markup.link', { fg = blue, underline = true })
+hl('@markup.link.label', { fg = blue })
 hl('@markup.link.url', { fg = strings, underline = true })
 hl('@markup.raw', { fg = strings, bg = bg_alt })
 hl('@markup.raw.block', { fg = fg, bg = bg_alt })
 hl('@markup.list', { fg = fg_soft })
-hl('@markup.list.checked', { fg = diff_add })
+hl('@markup.list.checked', { fg = green_light })
 hl('@markup.list.unchecked', { fg = fg_muted })
 
 hl('@diff.plus', { fg = diff_add })
 hl('@diff.minus', { fg = diff_del })
-hl('@diff.delta', { fg = navy })
+hl('@diff.delta', { fg = blue })
 
 -- Tags (HTML/JSX)
 hl('@tag', { fg = fg })
@@ -324,16 +327,16 @@ hl('LspReferenceRead', { bg = bg_select })
 hl('LspReferenceWrite', { bg = bg_select, bold = true })
 hl('LspInlayHint', { fg = fg_muted })
 hl('LspCodeLens', { fg = fg_muted })
-hl('LspSignatureActiveParameter', { fg = navy, bold = true })
+hl('LspSignatureActiveParameter', { fg = blue_light, bold = true })
 
 -- ============================================================
 -- 5. gitsigns.nvim
 -- ============================================================
 hl('GitSignsAdd', { fg = diff_add })
-hl('GitSignsChange', { fg = navy })
+hl('GitSignsChange', { fg = blue })
 hl('GitSignsDelete', { fg = diff_del })
 hl('GitSignsAddNr', { fg = diff_add })
-hl('GitSignsChangeNr', { fg = navy })
+hl('GitSignsChangeNr', { fg = blue })
 hl('GitSignsDeleteNr', { fg = diff_del })
 hl('GitSignsAddLn', { bg = diff_add_bg })
 hl('GitSignsChangeLn', { bg = diff_change_bg })
@@ -352,14 +355,14 @@ hl('FzfLuaPreviewNormal', { fg = fg, bg = bg })
 hl('FzfLuaPreviewBorder', { fg = fg_muted, bg = bg })
 hl('FzfLuaPreviewTitle', { fg = accent, bg = bg, bold = true })
 hl('FzfLuaCursorLine', { bg = bg_select })
-hl('FzfLuaHeaderText', { fg = gold, bold = true })
-hl('FzfLuaHeaderBind', { fg = sage })
+hl('FzfLuaHeaderText', { fg = yellow_light, bold = true })
+hl('FzfLuaHeaderBind', { fg = cyan_light })
 hl('FzfLuaPathColNr', { fg = constants })
 hl('FzfLuaPathLineNr', { fg = diff_add })
 hl('FzfLuaBufFlagCur', { fg = accent })
-hl('FzfLuaBufFlagAlt', { fg = navy })
-hl('FzfLuaTabTitle', { fg = navy, bold = true })
-hl('FzfLuaTabMarker', { fg = gold })
+hl('FzfLuaBufFlagAlt', { fg = blue })
+hl('FzfLuaTabTitle', { fg = blue, bold = true })
+hl('FzfLuaTabMarker', { fg = yellow_light })
 
 -- ============================================================
 -- 7. blink.cmp
@@ -371,7 +374,7 @@ hl('BlinkCmpScrollBarThumb', { bg = fg_muted })
 hl('BlinkCmpScrollBarGutter', { bg = bg_dim })
 hl('BlinkCmpLabel', { fg = fg })
 hl('BlinkCmpLabelDeprecated', { fg = fg_muted, strikethrough = true })
-hl('BlinkCmpLabelMatch', { fg = navy, bold = true })
+hl('BlinkCmpLabelMatch', { fg = blue_light, bold = true })
 hl('BlinkCmpLabelDetail', { fg = fg_muted })
 hl('BlinkCmpLabelDescription', { fg = fg_muted })
 hl('BlinkCmpKind', { fg = fg_soft })
@@ -391,9 +394,9 @@ hl('BlinkCmpKindEnum', { fg = definitions })
 hl('BlinkCmpKindKeyword', { fg = fg })
 hl('BlinkCmpKindSnippet', { fg = diff_add })
 hl('BlinkCmpKindColor', { fg = fg_soft })
-hl('BlinkCmpKindFile', { fg = navy })
-hl('BlinkCmpKindReference', { fg = sage })
-hl('BlinkCmpKindFolder', { fg = navy })
+hl('BlinkCmpKindFile', { fg = blue })
+hl('BlinkCmpKindReference', { fg = cyan_light })
+hl('BlinkCmpKindFolder', { fg = blue })
 hl('BlinkCmpKindEnumMember', { fg = constants })
 hl('BlinkCmpKindConstant', { fg = constants })
 hl('BlinkCmpKindStruct', { fg = definitions })
@@ -406,17 +409,17 @@ hl('BlinkCmpDocSeparator', { fg = fg_muted })
 hl('BlinkCmpDocCursorLine', { bg = bg_select })
 hl('BlinkCmpSignatureHelp', { fg = fg, bg = bg_alt })
 hl('BlinkCmpSignatureHelpBorder', { fg = fg_muted, bg = bg_alt })
-hl('BlinkCmpSignatureHelpActiveParameter', { fg = navy, bold = true })
+hl('BlinkCmpSignatureHelpActiveParameter', { fg = blue_light, bold = true })
 
 -- ============================================================
 -- 8. mini.statusline
 -- ============================================================
 hl('MiniStatuslineModeNormal', { fg = bg_dim, bg = accent, bold = true })
-hl('MiniStatuslineModeInsert', { fg = bg_dim, bg = sage, bold = true })
-hl('MiniStatuslineModeVisual', { fg = bg_dim, bg = plum, bold = true })
-hl('MiniStatuslineModeReplace', { fg = bg_dim, bg = clay, bold = true })
-hl('MiniStatuslineModeCommand', { fg = bg_dim, bg = gold, bold = true })
-hl('MiniStatuslineModeOther', { fg = bg_dim, bg = sage, bold = true })
+hl('MiniStatuslineModeInsert', { fg = bg_dim, bg = cyan, bold = true })
+hl('MiniStatuslineModeVisual', { fg = bg_dim, bg = magenta, bold = true })
+hl('MiniStatuslineModeReplace', { fg = bg_dim, bg = red_light, bold = true })
+hl('MiniStatuslineModeCommand', { fg = bg_dim, bg = yellow_light, bold = true })
+hl('MiniStatuslineModeOther', { fg = bg_dim, bg = cyan_light, bold = true })
 hl('MiniStatuslineFilename', { fg = fg_soft, bg = bg_dim })
 hl('MiniStatuslineFileinfo', { fg = fg_soft, bg = bg_dim })
 hl('MiniStatuslineDevinfo', { fg = fg_soft, bg = bg_dim })
@@ -434,7 +437,7 @@ hl('IblScope', { fg = bg_select })
 hl('WhichKey', { fg = accent, bold = true })
 hl('WhichKeyBorder', { fg = fg_muted, bg = bg_alt })
 hl('WhichKeyNormal', { fg = fg, bg = bg_alt })
-hl('WhichKeyGroup', { fg = navy })
+hl('WhichKeyGroup', { fg = blue_light })
 hl('WhichKeyDesc', { fg = fg })
 hl('WhichKeySeparator', { fg = fg_muted })
 hl('WhichKeyValue', { fg = fg_muted })
@@ -461,10 +464,10 @@ hl('SnacksNotifierTitleTrace', { fg = constants, bold = true })
 hl('SnacksNormal', { fg = fg, bg = bg_alt })
 hl('SnacksDashboardHeader', { fg = accent, bold = true })
 hl('SnacksDashboardFooter', { fg = fg_muted })
-hl('SnacksDashboardTitle', { fg = navy, bold = true })
+hl('SnacksDashboardTitle', { fg = blue_light, bold = true })
 hl('SnacksDashboardDesc', { fg = fg })
-hl('SnacksDashboardKey', { fg = gold, bold = true })
-hl('SnacksDashboardIcon', { fg = navy })
+hl('SnacksDashboardKey', { fg = yellow_light, bold = true })
+hl('SnacksDashboardIcon', { fg = blue_light })
 
 -- ============================================================
 -- 12. todo-comments
@@ -476,25 +479,25 @@ hl('SnacksDashboardIcon', { fg = navy })
 -- PERF:
 -- NOTE:
 -- TEST:
-hl('TodoFgTODO', { fg = sage })
+hl('TodoFgTODO', { fg = cyan })
 hl('TodoFgFIXME', { fg = errors })
-hl('TodoFgHACK', { fg = rose })
+hl('TodoFgHACK', { fg = magenta_light })
 hl('TodoFgWARN', { fg = warn })
 hl('TodoFgPERF', { fg = constants })
 hl('TodoFgNOTE', { fg = info })
 hl('TodoFgTEST', { fg = strings })
 
-hl('TodoBgTODO', { fg = bg, bg = sage, bold = true })
+hl('TodoBgTODO', { fg = bg, bg = cyan, bold = true })
 hl('TodoBgFIXME', { fg = bg, bg = errors, bold = true })
-hl('TodoBgHACK', { fg = bg, bg = rose, bold = true })
+hl('TodoBgHACK', { fg = bg, bg = magenta_light, bold = true })
 hl('TodoBgWARN', { fg = bg, bg = warn, bold = true })
 hl('TodoBgPERF', { fg = bg, bg = constants, bold = true })
 hl('TodoBgNOTE', { fg = bg, bg = info, bold = true })
 hl('TodoBgTEST', { fg = bg, bg = strings, bold = true })
 
-hl('TodoSignTODO', { fg = sage })
+hl('TodoSignTODO', { fg = cyan })
 hl('TodoSignFIXME', { fg = errors })
-hl('TodoSignHACK', { fg = rose })
+hl('TodoSignHACK', { fg = magenta_light })
 hl('TodoSignWARN', { fg = warn })
 hl('TodoSignPERF', { fg = constants })
 hl('TodoSignNOTE', { fg = info })
@@ -504,8 +507,8 @@ hl('TodoSignTEST', { fg = strings })
 -- 13. render-markdown
 -- ============================================================
 hl('RenderMarkdownH1', { fg = accent, bg = h1_bg, bold = true })
-hl('RenderMarkdownH2', { fg = navy, bg = h2_bg, bold = true })
-hl('RenderMarkdownH3', { fg = gold, bg = h3_bg, bold = true })
+hl('RenderMarkdownH2', { fg = blue, bg = h2_bg, bold = true })
+hl('RenderMarkdownH3', { fg = yellow_light, bg = h3_bg, bold = true })
 hl('RenderMarkdownH4', { fg = diff_add, bg = h4_bg, bold = true })
 hl('RenderMarkdownH5', { fg = constants, bg = h5_bg, bold = true })
 hl('RenderMarkdownH6', { fg = strings, bg = h6_bg, bold = true })
@@ -519,8 +522,8 @@ hl('RenderMarkdownCode', { bg = bg_dim })
 hl('RenderMarkdownCodeInline', { fg = diff_del, bg = bg_dim })
 hl('RenderMarkdownBullet', { fg = fg_soft })
 hl('RenderMarkdownQuote', { fg = comments })
-hl('RenderMarkdownLink', { fg = navy, underline = true })
-hl('RenderMarkdownWikiLink', { fg = navy, underline = true })
+hl('RenderMarkdownLink', { fg = blue, underline = true })
+hl('RenderMarkdownWikiLink', { fg = blue, underline = true })
 hl('RenderMarkdownTableHead', { fg = accent, bold = true })
 hl('RenderMarkdownTableRow', { fg = fg })
 hl('RenderMarkdownTableFill', { fg = fg_muted })
@@ -528,7 +531,7 @@ hl('RenderMarkdownMath', { fg = constants })
 hl('RenderMarkdownDash', { fg = bg_select })
 hl('RenderMarkdownSign', { fg = fg_soft })
 hl('RenderMarkdownUnchecked', { fg = fg_muted })
-hl('RenderMarkdownChecked', { fg = diff_add })
+hl('RenderMarkdownChecked', { fg = green_light })
 hl('RenderMarkdownTodo', { fg = comments, bold = true })
 
 -- ============================================================
@@ -543,7 +546,7 @@ hl('DropBarMenuSbar', { bg = bg_dim })
 hl('DropBarMenuThumb', { bg = fg_muted })
 hl('DropBarIconUiSeparator', { fg = fg_muted })
 hl('DropBarIconUiIndicator', { fg = fg_muted })
-hl('DropBarIconUiMenu', { fg = navy })
+hl('DropBarIconUiMenu', { fg = blue })
 hl('DropBarIconUiPickPivot', { fg = accent })
 hl('DropBarKindArray', { fg = definitions })
 hl('DropBarKindBoolean', { fg = constants })
@@ -557,8 +560,8 @@ hl('DropBarKindEnum', { fg = definitions })
 hl('DropBarKindEnumMember', { fg = constants })
 hl('DropBarKindEvent', { fg = fg_soft })
 hl('DropBarKindField', { fg = fg })
-hl('DropBarKindFile', { fg = navy })
-hl('DropBarKindFolder', { fg = navy })
+hl('DropBarKindFile', { fg = blue })
+hl('DropBarKindFolder', { fg = blue })
 hl('DropBarKindFunction', { fg = definitions })
 hl('DropBarKindIdentifier', { fg = fg })
 hl('DropBarKindIfStatement', { fg = fg })
@@ -567,8 +570,8 @@ hl('DropBarKindKeyword', { fg = fg })
 hl('DropBarKindList', { fg = definitions })
 hl('DropBarKindMacro', { fg = fg })
 hl('DropBarKindMarkdownH1', { fg = accent, bold = true })
-hl('DropBarKindMarkdownH2', { fg = navy, bold = true })
-hl('DropBarKindMarkdownH3', { fg = gold, bold = true })
+hl('DropBarKindMarkdownH2', { fg = blue, bold = true })
+hl('DropBarKindMarkdownH3', { fg = yellow_light, bold = true })
 hl('DropBarKindMarkdownH4', { fg = diff_add, bold = true })
 hl('DropBarKindMarkdownH5', { fg = constants, bold = true })
 hl('DropBarKindMarkdownH6', { fg = strings, bold = true })
@@ -581,7 +584,7 @@ hl('DropBarKindObject', { fg = definitions })
 hl('DropBarKindOperator', { fg = fg })
 hl('DropBarKindPackage', { fg = definitions })
 hl('DropBarKindProperty', { fg = fg })
-hl('DropBarKindReference', { fg = sage })
+hl('DropBarKindReference', { fg = cyan_light })
 hl('DropBarKindRepeatStatement', { fg = fg })
 hl('DropBarKindScope', { fg = fg_soft })
 hl('DropBarKindSpecifier', { fg = fg })
@@ -601,4 +604,4 @@ hl('DropBarKindVariable', { fg = fg })
 hl('HunkNormal', { fg = fg, bg = bg_alt })
 hl('HunkAdd', { fg = diff_add, bg = diff_add_bg })
 hl('HunkDelete', { fg = diff_del, bg = diff_del_bg })
-hl('HunkHeader', { fg = navy, bold = true })
+hl('HunkHeader', { fg = blue, bold = true })
