@@ -32,6 +32,7 @@ def dotfiles_config [] {
         [XCompose, "misc/XCompose",          "~/.XCompose"]
         [gitignore,"misc/user-gitignore",    "~/.config/git/ignore"]
         [rio,      "rio",                    $rio_config_path]
+        [kitty,      "kitty",                    "~/.config/kitty"]
     ]
 }
 
