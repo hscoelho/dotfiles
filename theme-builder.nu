@@ -72,8 +72,8 @@ def zellij_theme [palette] {
 $"themes {
     book {
         text_unselected {
-            base ($p.fg)
-            background 0
+            base ($p.bg)
+            background ($p.fg)
             emphasis_0 ($p.blue_light)
             emphasis_1 ($p.cyan_light)
             emphasis_2 ($p.green_light)
@@ -105,7 +105,7 @@ $"themes {
         }
         table_title {
             base ($p.red)
-            background 0
+            background ($p.bg_alt)
             emphasis_0 ($p.blue_light)
             emphasis_1 ($p.cyan_light)
             emphasis_2 ($p.green_light)
@@ -121,7 +121,7 @@ $"themes {
         }
         table_cell_unselected {
             base ($p.fg)
-            background 0
+            background ($p.bg)
             emphasis_0 ($p.blue_light)
             emphasis_1 ($p.cyan_light)
             emphasis_2 ($p.green_light)
@@ -137,7 +137,7 @@ $"themes {
         }
         list_unselected {
             base ($p.fg)
-            background 0
+            background ($p.bg)
             emphasis_0 ($p.blue_light)
             emphasis_1 ($p.cyan_light)
             emphasis_2 ($p.green_light)
@@ -145,7 +145,7 @@ $"themes {
         }
         frame_selected {
             base ($p.red)
-            background 0
+            background ($p.bg_select)
             emphasis_0 ($p.blue_light)
             emphasis_1 ($p.cyan_light)
             emphasis_2 ($p.magenta_light)
@@ -163,7 +163,7 @@ $"themes {
             base ($p.green)
             background 0
             emphasis_0 ($p.cyan_light)
-            emphasis_1 ($p.bg)
+            emphasis_1 ($p.red)
             emphasis_2 ($p.magenta_light)
             emphasis_3 ($p.fg_muted)
         }
@@ -178,11 +178,11 @@ $"themes {
         multiplayer_user_colors {
             player_1 ($p.magenta_light)
             player_2 ($p.red)
-            player_3 0
+            player_3 ($p.blue)
             player_4 ($p.yellow_light)
             player_5 ($p.cyan_light)
             player_6 0
-            player_7 ($p.blue)
+            player_7 0
             player_8 0
             player_9 0
             player_10 0
