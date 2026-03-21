@@ -35,49 +35,76 @@ end
 -- js debugging
 local dap = require 'dap'
 
--- Chrome debugging
-dap.adapters['chrome'] = {
-  type = 'executable',
-  command = vim.fn.exepath 'chrome-debug-adapter',
-}
-
 -- Firefox debugging
 dap.adapters['firefox'] = {
   type = 'executable',
   command = vim.fn.exepath 'firefox-debug-adapter',
 }
 
--- Node debugging
--- I don't actually use the 'pwa-node' type, but for some reason the debugging doesn't work
--- if I use the 'pwa-node' table in the 'node' adapter directly, so I using the same method lazy.vim is using
-local js_debug_adapter_path = vim.fn.expand '$MASON/packages/js-debug-adapter/js-debug/src/dapDebugServer.js'
-dap.adapters['pwa-node'] = {
-  type = 'server',
-  host = 'localhost',
-  port = '${port}',
-  executable = {
-    command = 'node',
-    args = { js_debug_adapter_path, '${port}' },
-  },
-}
-dap.adapters['node'] = function(cb, config)
-  config.type = 'pwa-node'
-  local adapter = dap.adapters['pwa-node']
-  if type(adapter) == 'function' then
-    adapter(cb, config)
-  else
-    cb(adapter)
+-- node and chrome
+-- code modified from lazyvim
+for _, adapterType in ipairs { 'node', 'chrome' } do
+  local pwaType = 'pwa-' .. adapterType
+  dap.adapters[pwaType] = {
+    type = 'server',
+    host = 'localhost',
+    port = '${port}',
+    executable = {
+      command = 'js-debug-adapter',
+      args = { '${port}' },
+    },
+  }
+
+  -- Define adapters without the "pwa-" prefix for VSCode compatibility
+  dap.adapters[adapterType] = function(cb, config)
+    local nativeAdapter = dap.adapters[pwaType]
+
+    config.type = pwaType
+
+    if type(nativeAdapter) == 'function' then
+      nativeAdapter(cb, config)
+    else
+      cb(nativeAdapter)
+    end
   end
 end
 
-local node_config = {
-  {
-    type = 'pwa-node',
-    request = 'launch',
-    name = 'Launch file',
-    program = '${file}',
-    cwd = '${workspaceFolder}',
+local js_filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' }
+local vscode = require 'dap.ext.vscode'
+vscode.json_decode = require('json5').parse
+vscode.type_to_filetypes['node'] = js_filetypes
+vscode.type_to_filetypes['pwa-node'] = js_filetypes
+
+dap.configurations.javascript = {
+  type = 'pwa-node',
+  request = 'launch',
+  name = 'Launch file',
+  program = '${file}',
+  cwd = '${workspaceFolder}',
+  sourceMaps = true,
+  skipFiles = {
+    '<node_internals>/**',
+    'node_modules/**',
+  },
+  resolveSourceMapLocations = {
+    '${workspaceFolder}/**',
+    '!**/node_modules/**',
   },
 }
-dap.configurations.javascript = node_config
-dap.configurations.typescript = node_config
+dap.configurations.typescript = {
+  type = 'pwa-node',
+  request = 'launch',
+  name = 'Launch file',
+  program = '${file}',
+  cwd = '${workspaceFolder}',
+  sourceMaps = true,
+  runtimeExecutable = vim.fn.executable 'tsx' == 1 and 'tsx' or 'ts-node',
+  skipFiles = {
+    '<node_internals>/**',
+    'node_modules/**',
+  },
+  resolveSourceMapLocations = {
+    '${workspaceFolder}/**',
+    '!**/node_modules/**',
+  },
+}

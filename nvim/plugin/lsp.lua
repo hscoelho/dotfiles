@@ -4,22 +4,23 @@ end
 
 -- web (typescript + html)
 vim.lsp.enable 'html'
-vim.lsp.config('vtsls', {
-  settings = {
-    vtsls = {
-      tsserver = {
-        globalPlugins = {
-          {
-            name = '@angular/language-server',
-            location = vim.fn.expand '$MASON/packages/angular-language-server/node_modules/@angular/language-server',
-            enableForWorkspaceTypeScriptVersions = false,
-          },
-        },
-      },
-    },
-  },
-})
-vim.lsp.enable 'vtsls'
+-- vim.lsp.config('vtsls', {
+--   settings = {
+--     vtsls = {
+--       tsserver = {
+--         globalPlugins = {
+--           {
+--             name = '@angular/language-server',
+--             location = vim.fn.expand '$MASON/packages/angular-language-server/node_modules/@angular/language-server',
+--             enableForWorkspaceTypeScriptVersions = false,
+--           },
+--         },
+--       },
+--     },
+--   },
+-- })
+-- vim.lsp.enable 'vtsls'
+vim.lsp.enable 'tsgo'
 vim.lsp.config('angularls', {
   root_dir = function(fname)
     return vim.fs.root(fname, { 'angular.json' })
@@ -36,15 +37,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     -- If angularls is attached, it handles references and definitions across TS and HTML.
-    -- We disable vtsls providers in this case to avoid duplicates and ensure HTML references are shown.
+    -- We disable tsgo providers in this case to avoid duplicates and ensure HTML references are shown.
     if client.name == 'angularls' then
-      local vtsls = vim.lsp.get_clients({ bufnr = args.buf, name = 'vtsls' })[1]
-      if vtsls then
-        vtsls.server_capabilities.referencesProvider = false
-        vtsls.server_capabilities.definitionProvider = false
-        vtsls.server_capabilities.renameProvider = false
+      local tsgo = vim.lsp.get_clients({ bufnr = args.buf, name = 'tsgo' })[1]
+      if tsgo then
+        tsgo.server_capabilities.referencesProvider = false
+        tsgo.server_capabilities.definitionProvider = false
+        tsgo.server_capabilities.renameProvider = false
       end
-    elseif client.name == 'vtsls' then
+    elseif client.name == 'tsgo' then
       local angularls = vim.lsp.get_clients({ bufnr = args.buf, name = 'angularls' })[1]
       if angularls then
         client.server_capabilities.referencesProvider = false
@@ -66,7 +67,8 @@ vim.lsp.config('jsonls', {
   },
 })
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = { '.vscode/*.json', '.vscode/**/*.json' },
+  -- pattern = { '.vscode/*.json', '.vscode/**/*.json' },
+  pattern = { '*.json' },
   callback = function()
     vim.bo.filetype = 'json5'
   end,
@@ -75,9 +77,6 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 -- lua
 vim.lsp.enable 'lua_ls'
 vim.lsp.config('lua_ls', {
-  -- cmd = { ... },
-  -- filetypes = { ... },
-  -- capabilities = {},
   settings = {
     Lua = {
       completion = {

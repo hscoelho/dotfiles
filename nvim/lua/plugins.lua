@@ -85,6 +85,8 @@ require('lazy').setup {
   { 'stevearc/conform.nvim', lazy = false },
   -- Debugging
   { 'mfussenegger/nvim-dap', lazy = false },
+  -- needed to parse launch.json for nvim dap
+  { 'Joakker/lua-json5', build = './install.sh', lazy = false },
   { 'miroshQa/debugmaster.nvim', lazy = false },
   { 'jbyuki/one-small-step-for-vimkind', lazy = false },
   { 'stevearc/overseer.nvim', lazy = false },
