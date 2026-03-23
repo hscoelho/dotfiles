@@ -24,7 +24,7 @@ default-command = ["logstatus"]
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
 [--scope.aliases]
 logstatus = ["util", "exec", "--", "sh", "-c", "jj status && jj log -n 10"]
-[--scope.merge-tools.neovim]
+[--scope.merge-tools.nvim]
 program = "sh"
 edit-args = [
   "-c",
