@@ -75,36 +75,36 @@ vscode.json_decode = require('json5').parse
 vscode.type_to_filetypes['node'] = js_filetypes
 vscode.type_to_filetypes['pwa-node'] = js_filetypes
 
-dap.configurations.javascript = {
-  type = 'pwa-node',
-  request = 'launch',
-  name = 'Launch file',
-  program = '${file}',
-  cwd = '${workspaceFolder}',
-  sourceMaps = true,
-  skipFiles = {
-    '<node_internals>/**',
-    'node_modules/**',
-  },
-  resolveSourceMapLocations = {
-    '${workspaceFolder}/**',
-    '!**/node_modules/**',
-  },
-}
-dap.configurations.typescript = {
-  type = 'pwa-node',
-  request = 'launch',
-  name = 'Launch file',
-  program = '${file}',
-  cwd = '${workspaceFolder}',
-  sourceMaps = true,
-  runtimeExecutable = vim.fn.executable 'tsx' == 1 and 'tsx' or 'ts-node',
-  skipFiles = {
-    '<node_internals>/**',
-    'node_modules/**',
-  },
-  resolveSourceMapLocations = {
-    '${workspaceFolder}/**',
-    '!**/node_modules/**',
-  },
-}
+-- dap.configurations.javascript = {
+--   type = 'pwa-node',
+--   request = 'launch',
+--   name = 'Launch file',
+--   program = '${file}',
+--   cwd = '${workspaceFolder}',
+--   sourceMaps = true,
+--   skipFiles = {
+--     '<node_internals>/**',
+--     'node_modules/**',
+--   },
+--   resolveSourceMapLocations = {
+--     '${workspaceFolder}/**',
+--     '!**/node_modules/**',
+--   },
+-- }
+-- dap.configurations.typescript = {
+--   type = 'pwa-node',
+--   request = 'launch',
+--   name = 'Launch file',
+--   program = '${file}',
+--   cwd = '${workspaceFolder}',
+--   sourceMaps = true,
+--   runtimeExecutable = vim.fn.executable 'tsx' == 1 and 'tsx' or 'ts-node',
+--   skipFiles = {
+--     '<node_internals>/**',
+--     'node_modules/**',
+--   },
+--   resolveSourceMapLocations = {
+--     '${workspaceFolder}/**',
+--     '!**/node_modules/**',
+--   },
+-- }
