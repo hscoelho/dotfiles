@@ -16,6 +16,10 @@ map({ 'n', 'x', 'o' }, 'S', function()
   require('leap').leap { backward = true }
 end)
 
+-- Tabs
+map('n', '<leader>tn', 'tabnext', { desc = '[T]ab [n]ext' })
+map('n', '<leader>tp', 'tabnext', { desc = '[T]ab [p]revious' })
+map('n', '<leader>tc', 'tabnext', { desc = '[T]ab [c]lose' })
 -- Finder (fzf-lua)
 -- Pickers
 map('n', '<leader>ff', cmd 'FzfLua files', { desc = '[F]ind Files' })
@@ -32,6 +36,7 @@ map('n', '<leader>fe', cmd 'FzfLua diagnostic', { desc = '[F]ind [E]rror Diagnos
 map('n', '<leader>fr', cmd 'FzfLua resume', { desc = '[F]ind Resume' })
 map('n', '<leader>fb', cmd 'FzfLua buffers', { desc = '[F]ind Buffers' })
 map('n', '<leader>fn', cmd 'FzfSnacksNotifications', { desc = '[F]ind notifications' })
+map('n', '<leader>fsn', require('snacks').notifier.show_history, { desc = '[F]ind: [S]nacks [N]otifications' })
 -- LSP Pickers
 map('n', 'grr', cmd 'FzfLua lsp_references', { desc = '[G]oto [R]eferences' })
 map('n', 'gi', cmd 'FzfLua lsp_implementations', { desc = '[G]oto [I]mplementation' })
@@ -45,9 +50,6 @@ map('n', 'gt', cmd 'FzfLua lsp_typedefs', { desc = '[G]oto [T]ype Definition' })
 map('n', ']c', cmd 'Gitsigns nav_hunk next', { desc = 'Next diff change (hunk)' })
 map('n', '[c', cmd 'Gitsigns nav_hunk prev', { desc = 'Previous diff change (hunk)' })
 
--- Notifications
-map('n', '<leader>n', require('snacks').notifier.show_history, { desc = '[H]istory: [N]otifications' })
-
 -- LSP Actions
 map('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'LSP: Code rename' })
 map({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP: Code action' })
@@ -56,33 +58,49 @@ map('n', '<leader>ch', function()
 end, { desc = '[T]oggle Inlay [H]ints' })
 
 -- Obsidian
-map('n', '<leader>oc', cmd 'Obsidian', { desc = '[O]bsidian: [C]ommands' })
-map('n', '<leader>off', cmd 'Obsidian quick_switch', { desc = '[O]bsidian: [F]ind [f]iles' })
-map('n', '<leader>on', cmd 'Obsidian new', { desc = '[O]bsidian: [N]ew' })
-map('n', '<leader>oft', cmd 'Obsidian tags', { desc = '[O]bsidian: [F]ind [T]ags' })
-map('n', '<leader>ot', cmd 'Obsidian today', { desc = "[O]bsidian: [T]oday's daily note" })
-map('n', '<leader>oy', cmd 'Obsidian yesterday', { desc = "[O]bsidian: [Y]esterday's daily note" })
-map('n', '<leader>ofd', cmd 'Obsidian dailies', { desc = '[O]bsidian: [F]ind [D]ailies' })
-map('n', '<leader>oo', cmd 'Obsidian open', { desc = '[O]bsidian: [O]pen Obsidian app' })
+map('n', '<leader>nc', cmd 'Obsidian', { desc = 'Obsidian [n]otes:: [C]ommands' })
+map('n', '<leader>nff', cmd 'Obsidian quick_switch', { desc = 'Obsidian [n]otes:: [F]ind [f]iles' })
+map('n', '<leader>nn', cmd 'Obsidian new', { desc = 'Obsidian [n]otes:: [N]ew' })
+map('n', '<leader>nft', cmd 'Obsidian tags', { desc = 'Obsidian [n]otes:: [F]ind [T]ags' })
+map('n', '<leader>nt', cmd 'Obsidian today', { desc = "Obsidian [n]otes:: [T]oday's daily note" })
+map('n', '<leader>ny', cmd 'Obsidian yesterday', { desc = "Obsidian [n]otes:: [Y]esterday's daily note" })
+map('n', '<leader>nfd', cmd 'Obsidian dailies', { desc = 'Obsidian [n]otes:: [F]ind [D]ailies' })
+map('n', '<leader>no', cmd 'Obsidian open', { desc = 'Obsidian [n]otes:: [O]pen Obsidian app' })
 
 map('n', '<leader>io', function()
   require('snacks').image.hover()
 end, { desc = '[I]mage [O]pen' })
 
--- Task runner (Overseer)
-map('n', '<Leader>rt', cmd 'OverseerRun', {
-  desc = 'Task [R]unner(overseer): Run',
+-- Overseer tasks
+map('n', '<Leader>ot', cmd 'OverseerTaskAction', {
+  desc = '[O]verseer: [t]ask action',
 })
-map('n', '<Leader>rr', cmd 'OverseerToggle', {
-  desc = 'Task [R]unner(overseer): Toggle',
+map('n', '<Leader>oo', cmd 'OverseerToggle', {
+  desc = '[O]verseer: toggle [o]verseer window',
+})
+map('n', '<Leader>or', cmd 'OverseerRun', {
+  desc = '[O]verseer: [R]un task',
 })
 
 -- Neotest
-map('n', '<Leader>xt', function()
+map('n', '<Leader>tr', function()
   require('neotest').run.run()
-end, {
-  desc = '[E]xecute [t]est',
-})
+end, { desc = '[T]est: run (nearest)' })
+map('n', '<leader>tf', function()
+  require('neotest').run.run(vim.fn.expand '%')
+end, { desc = '[T]est: run [f]ile' })
+map('n', '<leader>tl', function()
+  require('neotest').run.run_last()
+end, { desc = '[T]est: run [l]ast' })
+map('n', '<leader>ts', function()
+  require('neotest').summary.toggle()
+end, { desc = '[T]est: [s]ummary (Neotest)' })
+map('n', '<leader>to', function()
+  require('neotest').output_panel.toggle()
+end, { desc = '[T]est: [o]utput toggle' })
+map('n', '<leader>tw', function()
+  require('neotest').watch.toggle(vim.fn.expand '%')
+end, { desc = '[T]est: toggle [w]atch' })
 
 -- File explorer
 map('n', '<Leader>e', function()
