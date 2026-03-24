@@ -53,4 +53,11 @@ vim.o.foldlevelstart = 99
 
 vim.o.swapfile = false
 
+local is_windows = vim.uv.os_uname().sysname:find 'Windows'
+if is_windows then
+  vim.opt.shell = 'cmd.exe'
+else
+  -- vim.opt.shell = 'nu'
+end
+
 require 'plugins'
