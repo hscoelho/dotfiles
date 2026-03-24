@@ -53,3 +53,4 @@ source ./nu_scripts/custom-completions/zellij/zellij-completions.nu
 ## Custom commands
 use ./code_review.nu *
 
+$env.path ++= ["~/.opencode/bin"]
