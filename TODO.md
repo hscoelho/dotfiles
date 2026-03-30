@@ -1,6 +1,6 @@
 - [ ] Ć
 - [ ] Sync obsidian in background instead of using app in linux
-- [ ] Change jujutsu nushell completion: https://www.jj-vcs.dev/latest/cli-reference/#jj-util-completion
+- [x] Change jujutsu nushell completion: https://www.jj-vcs.dev/latest/cli-reference/#jj-util-completion
 - [ ] Theme improvements
     - [ ] kitty: gray terminal color is hard to read in terminal
     - [ ] nvim: Add color to decorators (blue)

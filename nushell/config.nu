@@ -39,10 +39,13 @@ use ($nu.default-config-dir | path join mise.nu)
 
 ## Completions
 source ./nu_scripts/custom-completions/bat/bat-completions.nu
-source ./nu_scripts/custom-completions/jj/jj-completions.nu
 source ./nu_scripts/custom-completions/just/just-completions.nu
 source ./nu_scripts/custom-completions/zoxide/zoxide-completions.nu
 source ./nu_scripts/custom-completions/zellij/zellij-completions.nu
+
+## Jujutsu completions
+jj util completion nushell | save -f "completions-jj.nu"
+use "completions-jj.nu" *  # Or `source "completions-jj.nu"`
 
 ## Theming
 # I think not setting the theme and letting it use default term colors is better for now
