@@ -44,7 +44,7 @@ source ./nu_scripts/custom-completions/zoxide/zoxide-completions.nu
 source ./nu_scripts/custom-completions/zellij/zellij-completions.nu
 
 ## Jujutsu completions
-jj util completion nushell | save -f "completions-jj.nu"
+# jj util completion nushell | save -f "completions-jj.nu"
 use "completions-jj.nu" *  # Or `source "completions-jj.nu"`
 
 ## Theming
