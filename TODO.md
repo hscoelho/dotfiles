@@ -4,7 +4,7 @@
 - [ ] Theme improvements
     - [ ] kitty: gray terminal color is hard to read in terminal
     - [ ] nvim: Add color to decorators (blue)
-    - [ ] nvim: Add color to the breakpoint decorators (red when set, gray when not set)
+    - [x] nvim: Add color to the breakpoint decorators (red when set, gray when not set)
     - [ ] nvim: Add color to html tags
     - [x] nvim: Change color from gitsigns (added/modified: navy -> green (if possible, make added and modified different))
 - [ ] Create a "theme.nu" nushell script

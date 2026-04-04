@@ -168,8 +168,8 @@ hl('Macro', { fg = fg })
 hl('PreCondit', { fg = fg })
 hl('Special', { fg = fg })
 hl('SpecialChar', { fg = fg })
-hl('Tag', { fg = fg })
 hl('Delimiter', { fg = fg_soft })
+hl('Tag', { fg = definitions })
 hl('SpecialComment', { fg = comments })
 hl('Debug', { fg = errors })
 hl('Underlined', { underline = true })
@@ -289,10 +289,10 @@ hl('@diff.minus', { fg = diff_del })
 hl('@diff.delta', { fg = blue })
 
 -- Tags (HTML/JSX)
-hl('@tag', { fg = fg })
+hl('@tag', { fg = definitions })
 hl('@tag.builtin', { fg = fg })
 hl('@tag.attribute', { fg = fg })
-hl('@tag.delimiter', { fg = fg_soft })
+hl('@tag.delimiter', { fg = fg })
 
 -- ============================================================
 -- 4. LSP
