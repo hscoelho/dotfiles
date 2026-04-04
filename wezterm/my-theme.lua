@@ -1,4 +1,3 @@
--- book theme for wezterm — light/paper palette
 
 return {
 	foreground = '#000000',

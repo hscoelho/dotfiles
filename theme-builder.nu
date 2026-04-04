@@ -1,19 +1,18 @@
 def main [] {
   let root = ($env.CURRENT_FILE | path dirname)
-  let palette = open ($root | path join "book-theme.json")
+  let palette = open ($root | path join "my-theme.json")
 
-  wezterm_theme $palette | save -f ($root | path join "wezterm/book.lua")
-  nvim_palette $palette | save -f ($root | path join "nvim/lua/book-theme-palette.lua")
-  kitty_theme $palette | save -f ($root | path join "kitty/theme.conf")
-  zellij_theme $palette | save -f ($root | path join "zellij/themes/book.kdl")
-  obsidian_minimal_settings_theme $palette | save -f ($root | path join "misc/obsidian-minimal-book-colors.json")
+  wezterm_theme $palette | save -f ($root | path join "wezterm/my-theme.lua")
+  nvim_palette $palette | save -f ($root | path join "nvim/lua/my-theme-palette.lua")
+  kitty_theme $palette | save -f ($root | path join "kitty/my-theme.conf")
+  zellij_theme $palette | save -f ($root | path join "zellij/themes/my-theme.kdl")
+  obsidian_minimal_settings_theme $palette | save -f ($root | path join "misc/obsidian-minimal-my-colors.json")
 
   print "Theme files updated."
 }
 
 def wezterm_theme [palette] {
-$"-- book theme for wezterm — light/paper palette
-
+$"
 return {
 	foreground = '($palette.fg)',
 	background = '($palette.bg)',

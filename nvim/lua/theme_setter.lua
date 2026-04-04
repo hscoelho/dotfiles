@@ -1,1 +1,1 @@
-vim.cmd.colorscheme 'book'
+vim.cmd.colorscheme 'my'
