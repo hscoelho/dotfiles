@@ -1,0 +1,14 @@
+[Unit]
+Description=Sync obsidian
+
+[Service]
+Type=simple
+WorkingDirectory=/home/hcoelho/Obsidian
+StandardOutput=journal
+StandardError=journal
+ExecStart=mise x -- ob sync --continuous
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

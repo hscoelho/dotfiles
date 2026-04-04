@@ -26,7 +26,8 @@ def dotfiles_config [] {
         [starship, "starship/starship.toml", "~/.config/starship.toml"]
         [XCompose, "misc/XCompose",          "~/.XCompose"]
         [gitignore,"misc/user-gitignore",    "~/.config/git/ignore"]
-        [kitty,      "kitty",                    "~/.config/kitty"]
+        [kitty,    "kitty",                "~/.config/kitty"]
+        [obsidian-sync, "misc/obsidian-sync.service", "~/.config/systemd/user/obsidian-sync.service"]
     ]
 }
 
@@ -54,12 +55,20 @@ def "nu-complete dotfiles" [] {
 def create_link [dot_rel_path: string, app_path: string, dry_run: bool] {
   let target = $env.FILE_PWD | path join $dot_rel_path
   let link = $app_path | path expand -n
+  let parent = $link | path dirname
+
+  if ($parent | path type) != "dir" {
+    mkdir $parent
+  }
+
   let backup_path = ($link)_bkup
   print $"Backup: ($backup_path)"
   print $"Link:   ($link) -> ($target)"
   if $dry_run == false {
-    rm -rf ($backup_path)
-    mv $link $backup_path
+    if ($link | path type) != null {
+      rm -rf ($backup_path)
+      mv $link $backup_path
+    }
     link $target $link
   } 
 }
