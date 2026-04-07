@@ -5,7 +5,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "nu" }
 end
 
-config.font = wezterm.font_with_fallback({ "Maple Mono NF CN", "GoMono Nerd Font" })
+config.font = wezterm.font_with_fallback({ "Monaspace Xenon", "Maple Mono NF CN" })
 
 config.font_size = 12
 
