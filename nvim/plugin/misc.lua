@@ -30,6 +30,9 @@ require('ibl').setup { indent = {
   highlight = highlight,
 } }
 
+require('gitsigns').setup {
+  numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+}
 require('guess-indent').setup {}
 require('nvim-autopairs').setup()
 require('nvim-ts-autotag').setup()

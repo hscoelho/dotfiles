@@ -1,5 +1,4 @@
 # IBus has rewritten this file to add the line:
-
 include "%L"
 
 # This is necessary to add your own Compose sequences

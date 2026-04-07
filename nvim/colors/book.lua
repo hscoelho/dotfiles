@@ -51,8 +51,9 @@ local hint = cyan -- hints
 local keywords = definitions -- testing this for now
 
 local accent = red -- UI accent (not used for syntax)
-local diff_add = cyan -- diff additions
-local diff_del = red_light -- diff deletions
+local diff_add = green
+local diff_del = red_light
+local diff_change = yellow_light
 
 local diff_add_bg = '#D4E8D0'
 local diff_del_bg = '#EDD8CF'
@@ -122,9 +123,9 @@ hl('WinBarNC', { fg = fg_muted, bg = 'NONE' })
 
 -- Diff
 hl('DiffAdd', { fg = diff_add, bg = diff_add_bg })
-hl('DiffChange', { fg = blue, bg = diff_change_bg })
+hl('DiffChange', { fg = diff_change, bg = diff_change_bg })
 hl('DiffDelete', { fg = diff_del, bg = diff_del_bg })
-hl('DiffText', { fg = blue, bg = diff_text_bg, bold = true })
+hl('DiffText', { fg = diff_change, bg = diff_text_bg, bold = true })
 hl('diffAdded', { fg = diff_add })
 hl('diffRemoved', { fg = diff_del })
 hl('diffChanged', { fg = blue })
@@ -335,14 +336,14 @@ hl('LspSignatureActiveParameter', { fg = blue_light, bold = true })
 -- 5. gitsigns.nvim
 -- ============================================================
 hl('GitSignsAdd', { fg = diff_add })
-hl('GitSignsChange', { fg = blue })
+hl('GitSignsChange', { fg = diff_change })
 hl('GitSignsDelete', { fg = diff_del })
 hl('GitSignsAddNr', { fg = diff_add })
-hl('GitSignsChangeNr', { fg = blue })
+hl('GitSignsChangeNr', { fg = diff_change })
 hl('GitSignsDeleteNr', { fg = diff_del })
-hl('GitSignsAddLn', { bg = diff_add_bg })
-hl('GitSignsChangeLn', { bg = diff_change_bg })
-hl('GitSignsDeleteLn', { bg = diff_del_bg })
+hl('GitSignsAddLn', { bg = diff_add })
+hl('GitSignsChangeLn', { bg = diff_change })
+hl('GitSignsDeleteLn', { bg = diff_del })
 hl('GitSignsCurrentLineBlame', { fg = fg_muted })
 hl('GitSignsAddPreview', { bg = diff_add_bg })
 hl('GitSignsDeletePreview', { bg = diff_del_bg })

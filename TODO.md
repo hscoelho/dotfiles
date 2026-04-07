@@ -6,7 +6,7 @@
     - [ ] nvim: Add color to decorators (blue)
     - [ ] nvim: Add color to the breakpoint decorators (red when set, gray when not set)
     - [ ] nvim: Add color to html tags
-    - [ ] nvim: Change color from gitsigns (added/modified: navy -> green (if possible, make added and modified different))
+    - [x] nvim: Change color from gitsigns (added/modified: navy -> green (if possible, make added and modified different))
 - [ ] Create a "theme.nu" nushell script
     - Sets theme or toggle dark and light mode
     - Should be "installable"(put into path) in a binaries folder with a command in install.nu
@@ -17,7 +17,6 @@
         # This locks the name "node_dev_tools" to a specific, 
         # never-changing version string.
         node_dev_tools = "22.14.0"
-
         [tools]
         # This ensures that this specific version is 
         # always installed on your system.
