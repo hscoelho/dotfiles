@@ -4,9 +4,9 @@ def main [] {
 
   wezterm_theme $palette | save -f ($root | path join "wezterm/book.lua")
   nvim_palette $palette | save -f ($root | path join "nvim/lua/book-theme-palette.lua")
-  rio_theme $palette | save -f ($root | path join "rio/themes/book.toml")
   kitty_theme $palette | save -f ($root | path join "kitty/theme.conf")
   zellij_theme $palette | save -f ($root | path join "zellij/themes/book.kdl")
+  obsidian_minimal_settings_theme $palette | save -f ($root | path join "misc/obsidian-minimal-book-colors.json")
 
   print "Theme files updated."
 }
@@ -230,63 +230,27 @@ inactive_tab_background ($palette.bg_alt)
 "
 }
 
-def rio_theme [palette] {
-$"# book theme — light/paper palette
-
-[colors]
-background = '($palette.bg)'
-foreground = '($palette.fg)'
-
-# Selection
-selection-background = '($palette.bg_select)'
-selection-foreground = '($palette.fg)'
-
-# Navigation
-tabs-active = '($palette.bg_dim)'
-tabs-active-foreground = '($palette.fg)'
-tabs-active-highlight = '($palette.red)'
-bar = '($palette.bg_alt)'
-split = '($palette.fg_muted)'
-cursor = '($palette.red)'
-vi-cursor = '($palette.blue)'
-
-# Search
-search-match-background = '($palette.yellow_light)'
-search-match-foreground = '($palette.bg)'
-search-focused-match-background = '($palette.red)'
-search-focused-match-foreground = '($palette.bg)'
-
-# Regular colors
-black = '($palette.fg)'
-blue = '($palette.blue)'
-cyan = '($palette.cyan)'
-green = '($palette.green)'
-magenta = '($palette.magenta)'
-red = '($palette.red)'
-tabs = '($palette.bg_alt)'
-white = '($palette.fg_muted)'
-yellow = '($palette.yellow_light)'
-
-# Dim colors
-dim-black = '($palette.fg_soft)'
-dim-blue = '($palette.blue)'
-dim-cyan = '($palette.cyan)'
-dim-foreground = '($palette.fg_muted)'
-dim-green = '($palette.green)'
-dim-magenta = '($palette.magenta)'
-dim-red = '($palette.red_light)'
-dim-white = '($palette.bg_dim)'
-dim-yellow = '($palette.yellow_light)'
-
-# Light colors
-light-black = '($palette.fg_soft)'
-light-blue = '($palette.blue)'
-light-cyan = '($palette.cyan)'
-light-foreground = '($palette.fg_soft)'
-light-green = '($palette.green)'
-light-magenta = '($palette.magenta_light)'
-light-red = '($palette.red_light)'
-light-white = '($palette.bg_dim)'
-light-yellow = '($palette.yellow_light)'
+def obsidian_minimal_settings_theme [palette] {
+$"{
+  "minimal-style@@base@@light": "($palette.bg_alt)",
+  "minimal-style@@bg1@@light": "($palette.bg)",
+  "minimal-style@@bg2@@light": "($palette.bg_alt)",
+  "minimal-style@@bg3@@light": "($palette.bg_select)",
+  "minimal-style@@ui1@@light": "($palette.bg_dim)",
+  "minimal-style@@ui2@@light": "($palette.bg_select)",
+  "minimal-style@@ui3@@light": "($palette.bg_alt)",
+  "minimal-style@@ax1@@light": "($palette.blue)",
+  "minimal-style@@ax2@@light": "($palette.blue_light)",
+  "minimal-style@@ax3@@light": "($palette.red)",
+  "minimal-style@@sp1@@light": "($palette.fg)",
+  "minimal-style@@color-red@@light": "($palette.red)",
+  "minimal-style@@color-orange@@light": "($palette.red_light)",
+  "minimal-style@@color-yellow@@light": "($palette.yellow)",
+  "minimal-style@@color-green@@light": "($palette.green)",
+  "minimal-style@@color-cyan@@light": "($palette.cyan)",
+  "minimal-style@@color-blue@@light": "($palette.blue)",
+  "minimal-style@@color-purple@@light": "($palette.magenta)",
+  "minimal-style@@color-pink@@light": "($palette.magenta_light)"
+}
 "
 }
