@@ -13,28 +13,32 @@ end
 -- ============================================================
 -- Base Palette
 -- ============================================================
-local palette = require 'book-theme-palette'
+local palette = require 'flexoki-light-palette'
 local bg = palette.bg
-local bg_alt = palette.bg_alt
-local bg_dim = palette.bg_dim
-local bg_select = palette.bg_select
+local bg_alt = palette.bg2
+local bg_dim = palette.bg3
+local bg_select = palette.bg4
 
 local fg = palette.fg
-local fg_muted = palette.fg_muted
-local fg_soft = palette.fg_soft
+local fg_muted = palette.fg2
+local fg_soft = palette.fg3
 
 local red = palette.red
-local green = palette.green
-local blue = palette.blue
-local yellow_light = palette.yellow_light
-local magenta = palette.magenta
 local red_light = palette.red_light
-local cyan = palette.cyan
-local magenta_light = palette.magenta_light
 local yellow = palette.yellow
+local yellow_light = palette.yellow_light
+local orange = palette.orange
+local orange_light = palette.orange_light
+local green = palette.green
 local green_light = palette.green_light
-local blue_light = palette.blue_light
+local cyan = palette.cyan
 local cyan_light = palette.cyan_light
+local blue = palette.blue
+local blue_light = palette.blue_light
+local purple = palette.purple
+local purple_light = palette.purple_light
+local magenta = palette.magenta
+local magenta_light = palette.magenta_light
 
 -- ============================================================
 -- Semantic Roles  ← change these to retheme syntax
@@ -44,7 +48,7 @@ local constants = magenta -- numbers, booleans, nil, symbols — statically know
 local comments = red -- comments
 local definitions = blue -- global definitions: functions, types, classes
 local errors = red_light -- errors & diagnostics
-local warn = yellow_light -- warnings
+local warn = yellow -- warnings
 local info = blue -- info diagnostics
 local hint = cyan -- hints
 
@@ -52,8 +56,8 @@ local keywords = definitions -- testing this for now
 
 local accent = red -- UI accent (not used for syntax)
 local diff_add = green
-local diff_del = red_light
-local diff_change = yellow_light
+local diff_del = red
+local diff_change = yellow
 
 local diff_add_bg = '#D4E8D0'
 local diff_del_bg = '#EDD8CF'
