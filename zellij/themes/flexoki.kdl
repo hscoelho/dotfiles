@@ -1,3 +1,4 @@
+// "official" flexoki zellij theme but with green and red swapped
 themes {
     flexoki-light {
         text_unselected {
@@ -5,7 +6,7 @@ themes {
             background 255 252 240
             emphasis_0 218 112 44
             emphasis_1 36 131 123
-            emphasis_2 102 128 11
+            emphasis_2 175 48 41
             emphasis_3 206 93 151
         }
         text_selected {
@@ -13,12 +14,12 @@ themes {
             background 206 205 195
             emphasis_0 218 112 44
             emphasis_1 36 131 123
-            emphasis_2 102 128 11
+            emphasis_2 175 48 41
             emphasis_3 206 93 151
         }
         ribbon_selected {
             base 255 252 240
-            background 102 128 11
+            background 175 48 41
             emphasis_0 209 77 65
             emphasis_1 218 112 44
             emphasis_2 160 47 111
@@ -29,15 +30,15 @@ themes {
             background 230 228 217
             emphasis_0 218 112 44
             emphasis_1 183 181 172
-            emphasis_2 102 128 11
+            emphasis_2 175 48 41
             emphasis_3 206 93 151
         }
         table_title {
-            base 102 128 11
+            base 175 48 41
             background 52 51 49
             emphasis_0 218 112 44
             emphasis_1 36 131 123
-            emphasis_2 102 128 11
+            emphasis_2 175 48 41
             emphasis_3 206 93 151
         }
         table_cell_selected {
@@ -45,7 +46,7 @@ themes {
             background 206 205 195
             emphasis_0 218 112 44
             emphasis_1 36 131 123
-            emphasis_2 102 128 11
+            emphasis_2 175 48 41
             emphasis_3 206 93 151
         }
         table_cell_unselected {
@@ -53,13 +54,13 @@ themes {
             background 255 252 240
             emphasis_0 218 112 44
             emphasis_1 36 131 123
-            emphasis_2 102 128 11
+            emphasis_2 175 48 41
             emphasis_3 206 93 151
         }
         list_selected {
             base 28 27 26
             background 206 205 195
-            emphasis_0 175 48 41
+            emphasis_0 102 128 11
             emphasis_1 188 82 21
             emphasis_2 36 131 123
             emphasis_3 160 47 111
@@ -67,15 +68,15 @@ themes {
         list_unselected {
             base 28 27 26
             background 255 252 240
-            emphasis_0 175 48 41
+            emphasis_0 102 128 11
             emphasis_1 188 82 21
             emphasis_2 36 131 123
             emphasis_3 160 47 111
         }
         frame_selected {
-            base 102 128 11
+            base 175 48 41
             background 255 252 240
-            emphasis_0 175 48 41
+            emphasis_0 102 128 11
             emphasis_1 188 82 21
             emphasis_2 36 131 123
             emphasis_3 0 0 0
@@ -83,7 +84,7 @@ themes {
         frame_highlight {
             base 188 82 21
             background 255 252 240
-            emphasis_0 175 48 41
+            emphasis_0 102 128 11
             emphasis_1 160 47 111
             emphasis_2 36 131 123
             emphasis_3 32 94 166
@@ -97,7 +98,7 @@ themes {
             emphasis_3 0
         }
         exit_code_success {
-            base 102 128 11
+            base 175 48 41
             background 255 252 240
             emphasis_0 36 131 123
             emphasis_1 255 252 240
@@ -105,7 +106,7 @@ themes {
             emphasis_3 32 94 166
         }
         exit_code_error {
-            base 175 48 41
+            base 102 128 11
             background 255 252 240
             emphasis_0 188 82 21
             emphasis_1 0 0 0
@@ -117,9 +118,9 @@ themes {
             player_2 32 94 166
             player_3 36 131 123
             player_4 188 82 21
-            player_5 102 128 11
+            player_5 175 48 41
             player_6 94 64 157
-            player_7 175 48 41
+            player_7 102 128 11
             player_8 173 131 1
             player_9 0 0 0
             player_10 0 0 0
@@ -145,7 +146,7 @@ themes {
         ribbon_selected {
             base 28 27 26
             background 135 154 57
-            emphasis_0 175 48 41
+            emphasis_0 102 128 11
             emphasis_1 32 94 166
             emphasis_2 160 47 111
             emphasis_3 16 15 15
