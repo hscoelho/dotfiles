@@ -13,7 +13,7 @@ require('obsidian').setup {
     enabled = false,
   },
   daily_notes = {
-    folder = 'Daily Notes',
+    folder = '4Daily Notes',
     workdays_only = false,
   },
   legacy_commands = false,
