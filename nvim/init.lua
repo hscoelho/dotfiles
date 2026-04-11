@@ -55,7 +55,7 @@ vim.o.foldlevelstart = 99
 vim.o.swapfile = false
 
 vim.opt.spell = true
-vim.opt.spelllang = { 'en_us', 'pt' }
+vim.opt.spelllang = { 'en_us', 'pt_br' }
 vim.opt.spelloptions = { 'camel' }
 
 local is_windows = vim.uv.os_uname().sysname:find 'Windows'
