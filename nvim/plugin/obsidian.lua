@@ -9,6 +9,9 @@ require('obsidian').setup {
       path = '~/Obsidian',
     },
   },
+  sync = {
+    enabled = true,
+  },
   footer = {
     enabled = false,
   },
