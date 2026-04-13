@@ -130,3 +130,6 @@ vim.lsp.enable 'nushell'
 require('lean').setup {
   mappings = true,
 }
+
+-- This is a grammar check (that only works in english)
+-- vim.lsp.enable 'harper_ls'

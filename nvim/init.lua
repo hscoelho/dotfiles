@@ -53,6 +53,10 @@ vim.o.foldlevelstart = 99
 
 vim.o.swapfile = false
 
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us', 'pt' }
+vim.opt.spelloptions = { 'camel' }
+
 local is_windows = vim.uv.os_uname().sysname:find 'Windows'
 if is_windows then
   vim.opt.shell = 'cmd.exe'

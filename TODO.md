@@ -1,4 +1,5 @@
-- [ ] Ć
+- [x] nvim: Add spell checking
+- [x] ç
 - [x] Sync obsidian in background instead of using app in linux
     - [ ] Consider removing this and adding the obsidian.nvim sync (it's useful to consider whether conflicts will happen in this case)
 - [x] Change jujutsu nushell completion: https://www.jj-vcs.dev/latest/cli-reference/#jj-util-completion
