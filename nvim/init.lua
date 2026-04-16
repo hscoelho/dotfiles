@@ -21,6 +21,7 @@ vim.o.number = true
 vim.o.mouse = 'a'
 vim.o.showmode = true
 vim.o.clipboard = 'unnamedplus'
+vim.g.clipboard = 'osc52'
 vim.o.breakindent = true
 vim.o.preserveindent = true
 vim.o.undofile = true
