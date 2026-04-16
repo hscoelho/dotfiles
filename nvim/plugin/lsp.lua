@@ -132,4 +132,4 @@ require('lean').setup {
 }
 
 -- This is a grammar check (that only works in english)
--- vim.lsp.enable 'harper_ls'
+vim.lsp.enable 'harper_ls'
