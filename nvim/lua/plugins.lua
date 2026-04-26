@@ -57,6 +57,10 @@ require('lazy').setup {
     lazy = false,
   },
   {
+    'avm99963/vim-jjdescription',
+    lazy = false
+  },
+  {
     'mistweaverco/kulala.nvim',
     ft = { 'http', 'rest' },
   },
