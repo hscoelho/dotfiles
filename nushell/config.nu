@@ -10,6 +10,7 @@
 alias cat = bat
 alias zellij = zellij -l welcome
 alias jl = just --justfile justfile.local
+alias e = emacs -nw
 
 # RDP (microsoft remote machine)
 alias rdp-local = xfreerdp /network:lan /gfx:avc444 /dynamic-resolution +clipboard
