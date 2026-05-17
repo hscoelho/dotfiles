@@ -28,6 +28,7 @@ def dotfiles_config [] {
         [gitignore,"misc/user-gitignore",    "~/.config/git/ignore"]
         [kitty,    "kitty",                "~/.config/kitty"]
         [obsidian-sync, "misc/obsidian-sync.service", "~/.config/systemd/user/obsidian-sync.service"]
+        [emacs, "emacs", "~/.emacs.d"]
     ]
 }
 

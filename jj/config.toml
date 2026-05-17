@@ -23,7 +23,7 @@ tug = ["bookmark", "advance", "--to", "closest_pushable(@)"]
 default-command = ["logstatus"]
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
 [--scope.aliases]
-logstatus = ["util", "exec", "--", "sh", "-c", "jj status && jj log -n 10"]
+logstatus = ["util", "exec", "--", "sh", "-c", "jj status && jj log"]
 [--scope.merge-tools.nvim]
 program = "sh"
 edit-args = [
