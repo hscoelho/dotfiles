@@ -22,3 +22,8 @@ configuration.
 **NOTE**: During the initial setup, you'll be prompted to install Tree-sitter
 grammars and download some fonts. This configuration uses **Nerd Fonts** by
 default, so installing them now is highly recommended for the best experience.
+
+TODO: 
+- [x] Configure folding
+- [ ] Configure chinese reading (epub + chinese dictionary)
+- [ ] Learn and configure org-mode

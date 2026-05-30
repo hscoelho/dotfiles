@@ -45,7 +45,7 @@
   (lsp-enable-links nil)                                ;; Disable links.
   (lsp-eldoc-enable-hover t)                            ;; Enable ElDoc hover.
   (lsp-enable-file-watchers nil)                        ;; Disable file watchers.
-  (lsp-enable-folding nil)                              ;; Disable folding.
+  (lsp-enable-folding t)                              ;; Disable folding.
   (lsp-enable-imenu t)                                  ;; Enable Imenu support.
   (lsp-enable-indentation nil)                          ;; Disable indentation.
   (lsp-enable-on-type-formatting nil)                   ;; Disable on-type formatting.

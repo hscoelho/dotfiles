@@ -65,6 +65,7 @@
 (require 'init-eldoc)
 (require 'init-embark)
 (require 'init-evil)
+(require 'init-folding)
 (require 'init-indent)
 (require 'init-lsp)
 (require 'init-marginalia)
