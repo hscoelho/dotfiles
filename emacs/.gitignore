@@ -4,6 +4,8 @@
 # CC-CEDICT dictionary
 cedict_ts.u8
 
+nov-places
+
 !/tree-sitter/bin/
 #  Emacs tmp files & Misc
 # Emacs packages

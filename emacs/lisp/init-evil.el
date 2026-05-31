@@ -3,6 +3,14 @@
   (interactive)
   (consult-fd "~/.emacs.d"))
 
+;; (defun ek/lsp-describe-and-jump ()
+;; "Show hover documentation and jump to *lsp-help* buffer."
+;; (interactive)
+;; (lsp-describe-thing-at-point)
+;; (let ((help-buffer "*lsp-help*"))
+;;     (when (get-buffer help-buffer)
+;;     (switch-to-buffer-other-window help-buffer))))
+
 ;; (require 'jieba)
 (defun zh-utils--chinese-word-at-point ()
   "Return the most likely Chinese word at point."
@@ -13,15 +21,24 @@
 			      seg))))
     word))
 
-;; TODO: use symbol at point maybe
-;; TODO: open help buffer
+
+(defun open-and-focus-help (content)
+  "Open a help buffer containing CONTENT and focus to it."
+  (let ((buf (get-buffer-create "*cc-cedict*")))
+    (with-current-buffer buf
+      (let ((inhibit-read-only t))
+        (erase-buffer)
+        (insert content)
+        (goto-char (point-min))
+        (setq buffer-read-only t)))
+    (pop-to-buffer buf)))
+
 (defun cc-edict-at-point ()
   "Look up Chinese word at cursor in CC-CEDICT."
   (interactive)
-  (let ((word (word-at-point)))
+  (let ((word (zh-utils--chinese-word-at-point)))
     (if word
-      ;; (message (format "%s"(cc-cedict word)))
-      (message (zh-utils--chinese-word-at-point))
+      (with-help-window "*cc-cedict*" (princ (cc-cedict word)))
       (message "No word at point")
     )
   )
@@ -49,6 +66,8 @@
   ;; Define the leader key as Space
   (evil-set-leader 'normal (kbd "SPC"))
   (evil-set-leader 'visual (kbd "SPC"))
+
+  (evil-define-key 'normal 'global (kbd "<leader> c") 'cc-edict-at-point)
 
   ;; Keybindings for searching and finding files.
   ;; Replace space f f with something like project-find-file but in command-line-default-directory
