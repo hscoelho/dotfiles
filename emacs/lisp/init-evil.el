@@ -56,6 +56,7 @@
   (setq evil-want-keybinding nil)     ;; Disable default keybinding to set custom ones.
   (setq evil-want-C-u-scroll t)       ;; Makes C-u scroll
   (setq evil-want-C-u-delete t)       ;; Makes C-u delete on insert mode
+  (setq evil-shift-width 2)
   :config
   (evil-set-undo-system 'undo-tree)   ;; Uses the undo-tree package as the default undo system
 
@@ -68,6 +69,7 @@
   (evil-set-leader 'visual (kbd "SPC"))
 
   (evil-define-key 'normal 'global (kbd "<leader> c") 'cc-edict-at-point)
+  (evil-define-key 'normal 'global (kbd "C-P") 'evil-jump-forward)
 
   ;; Keybindings for searching and finding files.
   ;; Replace space f f with something like project-find-file but in command-line-default-directory

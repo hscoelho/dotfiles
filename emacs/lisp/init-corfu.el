@@ -4,11 +4,13 @@
   :straight t
   :defer t
   :custom
-  (corfu-auto nil)
-  (corfu-auto-delay 0.1)
+  (corfu-auto t)
+  (corfu-auto-delay 0.4)
   (corfu-auto-trigger ".")
   (corfu-auto-prefix 1)
+  (corfu-cycle t)
   (corfu-quit-no-match t)
+  (global-corfu-minibuffer nil)
   (corfu-scroll-margin 5)
   (corfu-max-width 50)
   (corfu-min-width 50)
