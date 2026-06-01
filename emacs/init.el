@@ -50,6 +50,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 (require 'init-emacs)
+(require 'init-treesitter) ;; should go before LSP
 
 
 (require 'init-jieba)
@@ -68,6 +69,7 @@
 (require 'init-folding)
 (require 'init-indent)
 (require 'init-lsp)
+
 (require 'init-marginalia)
 (require 'init-markdown)
 (require 'init-modeline)
@@ -78,7 +80,6 @@
 ;; (require 'init-paw)
 (require 'init-pulsar)
 (require 'init-theme)
-(require 'init-treesitter)
 (require 'init-undo)
 (require 'init-vc)
 (require 'init-vertico)

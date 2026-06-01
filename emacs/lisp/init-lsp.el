@@ -12,6 +12,7 @@
 ;;       (e.g., asdf or nvm) or other issues.
 ;;       Fortunately, `lsp-mode` has a great resource site:
 ;;       https://emacs-lsp.github.io/lsp-mode/
+
 (use-package lsp-mode
   :ensure t
   :straight t
@@ -22,14 +23,15 @@
            tsx-ts-mode                                  ;; Enable LSP for TSX
            typescript-ts-base-mode                      ;; Enable LSP for TypeScript
            css-mode                                     ;; Enable LSP for CSS
-           html-mode
            go-ts-mode                                   ;; Enable LSP for Go
            js-ts-mode                                   ;; Enable LSP for JavaScript (TS mode)
            prisma-mode                                  ;; Enable LSP for Prisma
            python-base-mode                             ;; Enable LSP for Python
            ruby-base-mode                               ;; Enable LSP for Ruby
            rust-ts-mode                                 ;; Enable LSP for Rust
-           web-mode) . lsp-deferred))                   ;; Enable LSP for Web (HTML)
+           ;; html-ts-mode
+           web-mode                                     ;; Enable LSP for Web (HTML)
+           ) . lsp-deferred))                   
   :commands lsp
   :custom
   (lsp-keymap-prefix "C-c l")                           ;; Set the prefix for LSP commands.
@@ -120,5 +122,17 @@
 (use-package consult-flycheck
   :straight t)
 
-(provide 'init-lsp)
+(use-package web-mode
+  :straight t
+  :mode
+  (("\\.phtml\\'" . web-mode)
+   ("\\.php\\'" . web-mode)
+   ("\\.html?\\'" . web-mode)
+   ("\\.tpl\\'" . web-mode)
+   ("\\.[agj]sp\\'" . web-mode)
+   ("\\.as[cp]x\\'" . web-mode)
+   ("\\.erb\\'" . web-mode)
+   ("\\.mustache\\'" . web-mode)
+   ("\\.djhtml\\'" . web-mode)))
 
+(provide 'init-lsp)
