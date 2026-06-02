@@ -1,11 +1,10 @@
 ;;; CORFU
 (use-package corfu
-  :ensure t
   :straight t
   :defer t
   :custom
   (corfu-auto t)
-  (corfu-auto-delay 0.4)
+  (corfu-auto-delay 1.0)
   (corfu-auto-trigger ".")
   (corfu-auto-prefix 1)
   (corfu-cycle t)
