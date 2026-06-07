@@ -1,26 +1,12 @@
-(defun search-config()
-  "Find file in config folder"
-  (interactive)
-  (consult-fd "~/.emacs.d"))
 
-;; (defun ek/lsp-describe-and-jump ()
-;; "Show hover documentation and jump to *lsp-help* buffer."
-;; (interactive)
-;; (lsp-describe-thing-at-point)
-;; (let ((help-buffer "*lsp-help*"))
-;;     (when (get-buffer help-buffer)
-;;     (switch-to-buffer-other-window help-buffer))))
-
-;; (require 'jieba)
 (defun zh-utils--chinese-word-at-point ()
   "Return the most likely Chinese word at point."
-  (let* ((p (point))
+  (let* (
+         (p (point))
 	     (seg (jieba-tokenize (buffer-substring-no-properties (point-min) (point-max))))
-	     (word (car (seq-find (lambda (w)
-				                (> (car (last w)) (1- p)))
-			                  seg))))
-    word))
-
+	     (word (car (seq-find (lambda (w) (> (car (last w)) (1- p))) seg))))
+    word)
+  )
 
 (defun open-and-focus-help (content)
   "Open a help buffer containing CONTENT and focus to it."
@@ -31,7 +17,8 @@
         (insert content)
         (goto-char (point-min))
         (setq buffer-read-only t)))
-    (pop-to-buffer buf)))
+    (pop-to-buffer buf))
+  )
 
 (defun cc-edict-at-point ()
   "Look up Chinese word at cursor in CC-CEDICT."
@@ -43,7 +30,6 @@
       )
     )
   )
-
 
 (use-package evil
   :ensure t
@@ -70,11 +56,6 @@
 
   (evil-define-key 'insert 'global (kbd "C-n") 'completion-at-point) ;; Consult buffer
 
-  (evil-define-key 'normal 'global (kbd "<leader> j t")
-    (lambda () (interactive) (org-journal-new-entry "" nil t)))
-  (evil-define-key 'normal 'global (kbd "<leader> j b") 'org-journal-previous-entry)
-  (evil-define-key 'normal 'global (kbd "<leader> j n") 'org-journal-next-entry)
-
   ;; Tasks
   (evil-define-key 'normal 'global (kbd "<leader> t t")
     (lambda() (interactive) (find-file "~/org/tasks.org")))
@@ -84,21 +65,31 @@
     (lambda() (interactive) (org-capture nil "t")))
 
   ;; Org mode
+  (evil-define-key 'normal 'global (kbd "<leader> o t")
+    (lambda () (interactive) (org-journal-new-entry "" nil t)))
+  (evil-define-key 'normal 'global (kbd "<leader> o y") 'org-journal-previous-entry)
+  (evil-define-key 'normal 'global (kbd "<leader> o f") 'org-journal-next-entry)
   (evil-define-key 'normal 'global (kbd "<leader> o a") 'org-agenda)
   (evil-define-key 'normal 'global (kbd "<leader> o c") 'org-capture)
 
+  ;; Chinese dictionary
   (evil-define-key 'normal 'global (kbd "<leader> c") 'cc-edict-at-point)
-  (evil-define-key 'normal 'global (kbd "C-P") 'evil-jump-forward)
+  (evil-define-key 'normal 'global (kbd "C-O") 'other-window)
+
+  ;; History jump
+  (evil-define-key 'normal 'global (kbd "M-<left>") 'evil-jump-backward)
+  (evil-define-key 'normal 'global (kbd "M-<right>") 'evil-jump-forward)
 
   ;; Keybindings for searching and finding files.
-  ;; Replace space f f with something like project-find-file but in command-line-default-directory
   (evil-define-key 'normal 'global (kbd "<leader> f f")
-    (lambda () (interactive) (consult-fd command-line-default-directory)))
+    (lambda () (interactive) (consult-fd command-line-default-directory ".#")))
+  (evil-define-key 'normal 'global (kbd "<leader> f F") 'project-find-file)
   (evil-define-key 'normal 'global (kbd "<leader> f d") 'find-file)
   (evil-define-key 'normal 'global (kbd "<leader> f g") 'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader> f G") 'consult-grep)
   (evil-define-key 'normal 'global (kbd "<leader> f h") 'consult-info)
-  (evil-define-key 'normal 'global (kbd "<leader> f c") 'search-config)
+  (evil-define-key 'normal 'global (kbd "<leader> f c")
+    (lambda() (interactive) (consult-fd "~/.emacs.d" ".#")))
   (evil-define-key 'normal 'global (kbd "<leader> /") 'consult-line)
 
   (evil-define-key 'normal 'global (kbd "<leader> x l") 'eval-last-sexp)
@@ -120,6 +111,7 @@
   (evil-define-key 'normal 'global (kbd "[ c") 'diff-hl-previous-hunk) ;; Previous diff hunk
 
   ;; Magit keybindings for Git integration
+  (evil-define-key 'normal 'global (kbd "<leader> j j") 'majutsu)      ;; Open Magit status
   (evil-define-key 'normal 'global (kbd "<leader> g g") 'magit-status)      ;; Open Magit status
   (evil-define-key 'normal 'global (kbd "<leader> g l") 'magit-log-current) ;; Show current log
   (evil-define-key 'normal 'global (kbd "<leader> g d") 'magit-diff-buffer-file) ;; Show diff for the current file
@@ -162,7 +154,7 @@
   (evil-define-key 'normal 'global (kbd "<leader> h m") 'helpful-mode) ;; Describe current mode
   (evil-define-key 'normal 'global (kbd "<leader> h f") 'helpful-function) ;; Describe function
   (evil-define-key 'normal 'global (kbd "<leader> h v") 'helpful-variable) ;; Describe variable
-  (evil-define-key 'normal 'global (kbd "<leader> h k") 'helpful-key) ;; Describe key
+  (evil-define-key 'normal 'global (kbd "<leader> h k") 'describe-key) ;; Describe key
 
   ;; Tab navigation
   (evil-define-key 'normal 'global (kbd "] t") 'tab-next) ;; Go to next tab

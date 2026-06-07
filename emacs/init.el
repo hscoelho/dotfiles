@@ -54,10 +54,12 @@
 (require 'init-treesitter) ;; should go before LSP
 
 
+
 (require 'init-jieba)
 (require 'init-cc-cedict)
 (require 'init-centered-line)
 (require 'init-clipboard)
+(require 'init-orderless)
 (require 'init-consult)
 (require 'init-corfu)
 (require 'init-delimiters)
@@ -69,6 +71,7 @@
 (require 'init-evil)
 (require 'init-folding)
 (require 'init-formatting)
+(require 'init-fussy)
 (require 'init-helpful)
 (require 'init-indent)
 (require 'init-lsp)
@@ -77,7 +80,6 @@
 (require 'init-modeline)
 (require 'init-nerd-icons)
 (require 'init-node-modules)
-(require 'init-orderless)
 ;; (require 'init-paw)
 (require 'init-pulsar)
 (require 'init-theme)

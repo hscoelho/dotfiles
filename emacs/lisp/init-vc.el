@@ -1,12 +1,3 @@
-;;; VC
-;; The VC (Version Control) package is included here for awareness and completeness.
-;; While its support for Git is limited and generally considered subpar, it is good to know
-;; that it exists and can be used for other version control systems like Mercurial,
-;; Subversion, and Bazaar.
-;; Magit, which is often regarded as the "father" of Neogit, will be configured later
-;; for an enhanced Git experience.
-;; The keybindings below serve as a reminder of some common VC commands.
-;; But don't worry, you can always use `M-x command' :)
 (use-package vc
   :ensure nil                        ;; This is built-in, no need to fetch it.
   :defer t
@@ -68,18 +59,16 @@
 
 
 ;;; MAGIT
-;; `magit' is a powerful Git interface for Emacs that provides a complete
-;; set of features to manage Git repositories. With its intuitive interface,
-;; you can easily stage, commit, branch, merge, and perform other Git
-;; operations directly from Emacs. Magit’s powerful UI allows for a seamless
-;; workflow, enabling you to visualize your repository's history and manage
-;; changes efficiently.
 (use-package magit
-  :ensure t
   :straight t
   :config
   (setopt magit-format-file-function #'magit-format-file-nerd-icons) ;; Turns on magit nerd-icons
   :defer t)
+
+;;; Majutsu (magit equivalent to jujutsu)
+;;; It needs magit to work
+(use-package majutsu
+  :straight (:host github :repo "0WD0/majutsu"))
 
 
 (provide 'init-vc)
