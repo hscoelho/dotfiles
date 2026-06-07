@@ -4,7 +4,7 @@
   :defer t
   :custom
   (corfu-auto t)
-  (corfu-auto-delay 1.0)
+  (corfu-auto-delay 0.2)
   (corfu-auto-trigger ".")
   (corfu-auto-prefix 1)
   (corfu-cycle t)

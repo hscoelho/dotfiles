@@ -49,6 +49,7 @@
 ;; Add MELPA (Milkypostman's Emacs Lisp Package Archive) to the list of package archives.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+(require 'init-org)
 (require 'init-emacs)
 (require 'init-treesitter) ;; should go before LSP
 
@@ -68,6 +69,7 @@
 (require 'init-evil)
 (require 'init-folding)
 (require 'init-formatting)
+(require 'init-helpful)
 (require 'init-indent)
 (require 'init-lsp)
 (require 'init-marginalia)
@@ -76,7 +78,6 @@
 (require 'init-nerd-icons)
 (require 'init-node-modules)
 (require 'init-orderless)
-(require 'init-org)
 ;; (require 'init-paw)
 (require 'init-pulsar)
 (require 'init-theme)

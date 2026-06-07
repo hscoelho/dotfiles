@@ -15,10 +15,10 @@
 (defun zh-utils--chinese-word-at-point ()
   "Return the most likely Chinese word at point."
   (let* ((p (point))
-	 (seg (jieba-tokenize (buffer-substring-no-properties (point-min) (point-max))))
-	 (word (car (seq-find (lambda (w)
-				(> (car (last w)) (1- p)))
-			      seg))))
+	     (seg (jieba-tokenize (buffer-substring-no-properties (point-min) (point-max))))
+	     (word (car (seq-find (lambda (w)
+				                (> (car (last w)) (1- p)))
+			                  seg))))
     word))
 
 
@@ -38,11 +38,11 @@
   (interactive)
   (let ((word (zh-utils--chinese-word-at-point)))
     (if word
-      (with-help-window "*cc-cedict*" (princ (cc-cedict word)))
+        (with-help-window "*cc-cedict*" (princ (cc-cedict word)))
       (message "No word at point")
+      )
     )
   )
-)
 
 
 (use-package evil
@@ -68,6 +68,25 @@
   (evil-set-leader 'normal (kbd "SPC"))
   (evil-set-leader 'visual (kbd "SPC"))
 
+  (evil-define-key 'insert 'global (kbd "C-n") 'completion-at-point) ;; Consult buffer
+
+  (evil-define-key 'normal 'global (kbd "<leader> j t")
+    (lambda () (interactive) (org-journal-new-entry "" nil t)))
+  (evil-define-key 'normal 'global (kbd "<leader> j b") 'org-journal-previous-entry)
+  (evil-define-key 'normal 'global (kbd "<leader> j n") 'org-journal-next-entry)
+
+  ;; Tasks
+  (evil-define-key 'normal 'global (kbd "<leader> t t")
+    (lambda() (interactive) (find-file "~/org/tasks.org")))
+  (evil-define-key 'normal 'global (kbd "<leader> t p") 'org-todo)
+  (evil-define-key 'normal 'global (kbd "<leader> t s") 'org-schedule)
+  (evil-define-key 'normal 'global (kbd "<leader> t n")
+    (lambda() (interactive) (org-capture nil "t")))
+
+  ;; Org mode
+  (evil-define-key 'normal 'global (kbd "<leader> o a") 'org-agenda)
+  (evil-define-key 'normal 'global (kbd "<leader> o c") 'org-capture)
+
   (evil-define-key 'normal 'global (kbd "<leader> c") 'cc-edict-at-point)
   (evil-define-key 'normal 'global (kbd "C-P") 'evil-jump-forward)
 
@@ -82,17 +101,17 @@
   (evil-define-key 'normal 'global (kbd "<leader> f c") 'search-config)
   (evil-define-key 'normal 'global (kbd "<leader> /") 'consult-line)
 
-  (evil-define-key 'normal 'global (kbd "<leader> j b") 'evil-jump-backward)
-  (evil-define-key 'normal 'global (kbd "<leader> j f") 'evil-jump-forward)
+  (evil-define-key 'normal 'global (kbd "<leader> x l") 'eval-last-sexp)
+  (evil-define-key 'normal 'global (kbd "<leader> x b") 'eval-buffer)
 
   ;; Flymake navigation
-  (evil-define-key 'normal 'global (kbd "<leader> x x") 'consult-flycheck);; Gives you something like `trouble.nvim'
+  (evil-define-key 'normal 'global (kbd "<leader> l e") 'consult-flycheck);; Gives you something like `trouble.nvim'
   (evil-define-key 'normal 'global (kbd "] d") 'flymake-goto-next-error) ;; Go to next Flymake error
   (evil-define-key 'normal 'global (kbd "[ d") 'flymake-goto-prev-error) ;; Go to previous Flymake error
 
   ;; Dired commands for file management
   (evil-define-key 'normal 'global (kbd "<leader> e e") (lambda () (interactive) (dired command-line-default-directory)))
-  (evil-define-key 'normal 'global (kbd "<leader> e j") 'dired-jump)
+  (evil-define-key 'normal 'global (kbd "<leader> e h") 'dired-jump)
   (evil-define-key 'normal 'global (kbd "<leader> e f") 'find-file)
   (evil-define-key 'normal dired-mode-map "f" 'find-file)
 
@@ -140,10 +159,10 @@
   (evil-define-key 'normal 'global (kbd "<leader> u") 'undo-tree-visualize)
 
   ;; Help keybindings
-  (evil-define-key 'normal 'global (kbd "<leader> h m") 'describe-mode) ;; Describe current mode
-  (evil-define-key 'normal 'global (kbd "<leader> h f") 'describe-function) ;; Describe function
-  (evil-define-key 'normal 'global (kbd "<leader> h v") 'describe-variable) ;; Describe variable
-  (evil-define-key 'normal 'global (kbd "<leader> h k") 'describe-key) ;; Describe key
+  (evil-define-key 'normal 'global (kbd "<leader> h m") 'helpful-mode) ;; Describe current mode
+  (evil-define-key 'normal 'global (kbd "<leader> h f") 'helpful-function) ;; Describe function
+  (evil-define-key 'normal 'global (kbd "<leader> h v") 'helpful-variable) ;; Describe variable
+  (evil-define-key 'normal 'global (kbd "<leader> h k") 'helpful-key) ;; Describe key
 
   ;; Tab navigation
   (evil-define-key 'normal 'global (kbd "] t") 'tab-next) ;; Go to next tab
@@ -152,19 +171,19 @@
 
   ;; Custom example. Formatting with prettier tool.
   (evil-define-key 'normal 'global (kbd "<leader> m p")
-                   (lambda ()
-                     (interactive)
-                     (shell-command (concat "prettier --write " (shell-quote-argument (buffer-file-name))))
-                     (revert-buffer t t t)))
+    (lambda ()
+      (interactive)
+      (shell-command (concat "prettier --write " (shell-quote-argument (buffer-file-name))))
+      (revert-buffer t t t)))
 
   ;; LSP commands keybindings
   (evil-define-key 'normal lsp-mode-map
-                   ;; (kbd "gd") 'lsp-find-definition                ;; evil-collection already provides gd
-                   (kbd "grr") 'lsp-find-references                   ;; Finds LSP references
-                   (kbd "<leader> c a") 'lsp-execute-code-action     ;; Execute code actions
-                   (kbd "<leader> c r") 'lsp-rename                  ;; Rename symbol
-                   (kbd "gI") 'lsp-find-implementation               ;; Find implementation
-                   (kbd "<leader> l f") 'lsp-format-buffer)          ;; Format buffer via lsp
+    ;; (kbd "gd") 'lsp-find-definition                ;; evil-collection already provides gd
+    (kbd "grr") 'lsp-find-references                   ;; Finds LSP references
+    (kbd "<leader> c a") 'lsp-execute-code-action     ;; Execute code actions
+    (kbd "<leader> c r") 'lsp-rename                  ;; Rename symbol
+    (kbd "gI") 'lsp-find-implementation               ;; Find implementation
+    (kbd "<leader> l f") 'lsp-format-buffer)          ;; Format buffer via lsp
 
   (defun ek/lsp-describe-and-jump ()
     "Show hover documentation and jump to *lsp-help* buffer."
@@ -180,20 +199,20 @@
   (evil-define-key 'normal 'global (kbd "K")
     (if (>= emacs-major-version 31)
         #'eldoc-box-help-at-point
-        #'ek/lsp-describe-and-jump))
+      #'ek/lsp-describe-and-jump))
 
   ;; Commenting functionality for single and multiple lines
   (evil-define-key 'normal 'global (kbd "gcc")
-                   (lambda ()
-                     (interactive)
-                     (if (not (use-region-p))
-                         (comment-or-uncomment-region (line-beginning-position) (line-end-position)))))
+    (lambda ()
+      (interactive)
+      (if (not (use-region-p))
+          (comment-or-uncomment-region (line-beginning-position) (line-end-position)))))
 
   (evil-define-key 'visual 'global (kbd "gc")
-                   (lambda ()
-                     (interactive)
-                     (if (use-region-p)
-                         (comment-or-uncomment-region (region-beginning) (region-end)))))
+    (lambda ()
+      (interactive)
+      (if (use-region-p)
+          (comment-or-uncomment-region (region-beginning) (region-end)))))
 
   ;; Enable evil mode
   (evil-mode 1))

@@ -1,15 +1,3 @@
-;;; DIRED
-;; In Emacs, the `dired' package provides a powerful and built-in file manager
-;; that allows you to navigate and manipulate files and directories directly
-;; within the editor. If you're familiar with `oil.nvim', you'll find that
-;; `dired' offers similar functionality natively in Emacs, making file
-;; management seamless without needing external plugins.
-
-;; This configuration customizes `dired' to enhance its usability. The settings
-;; below specify how file listings are displayed, the target for file operations,
-;; and associations for opening various file types with their respective applications.
-;; For example, image files will open with `feh', while audio and video files
-;; will utilize `mpv'.
 (use-package dired
   :ensure nil                                                ;; This is built-in, no need to fetch it.
   :custom
