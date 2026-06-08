@@ -29,6 +29,7 @@ def dotfiles_config [] {
         [kitty,    "kitty",                "~/.config/kitty"]
         [obsidian-sync, "misc/obsidian-sync.service", "~/.config/systemd/user/obsidian-sync.service"]
         [emacs, "emacs", "~/.emacs.d"]
+        [topgrade, "misc/topgrade.toml", "~/.config/topgrade.toml"]
     ]
 }
 
