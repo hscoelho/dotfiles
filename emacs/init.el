@@ -49,11 +49,10 @@
 ;; Add MELPA (Milkypostman's Emacs Lisp Package Archive) to the list of package archives.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+
 (require 'init-org)
 (require 'init-emacs)
 (require 'init-treesitter) ;; should go before LSP
-
-
 
 (require 'init-jieba)
 (require 'init-cc-cedict)
