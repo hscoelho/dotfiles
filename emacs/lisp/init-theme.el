@@ -14,8 +14,20 @@
   :vc (:url "https://github.com/dpassen/modus-flexoki"
             :rev :newest)
   :custom
-  (modus-themes-common-palette-overrides '((comment red-intense)))
+  (modus-themes-common-palette-overrides
+   '((comment red-intense)
+     (variable-use fg)
+     (variable fg)
+     (property fg)
+     (type pink)
+     (fnname-call blue)
+     (number constant)
+     ))
   :config
   (load-theme 'modus-flexoki-light :no-confirm))
+
+;; (use-package modus-themes
+;;   :straight t
+;;   )
 
 (provide 'init-theme)

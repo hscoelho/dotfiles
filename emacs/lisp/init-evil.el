@@ -31,6 +31,11 @@
     )
   )
 
+(defun todays-journal()
+  (interactive)
+  (org-journal-new-entry nil nil t)
+  )
+
 (use-package evil
   :ensure t
   :straight t
@@ -44,6 +49,9 @@
   (setq evil-want-C-u-delete t)       ;; Makes C-u delete on insert mode
   (setq evil-shift-width 2)
   :config
+  ;; TAB is set to evil-jump-forward by default (which breaks TAB visibility cycling in org-mode and other commands)
+  ;; I already have my own keymap for that, so that's what I'm going to use.
+  (unbind-key "TAB" evil-motion-state-map)
   (evil-set-undo-system 'undo-tree)   ;; Uses the undo-tree package as the default undo system
 
   ;; Set the leader key to space for easier access to custom commands. (setq evil-want-leader t)
@@ -65,15 +73,20 @@
     (lambda() (interactive) (org-capture nil "t")))
 
   ;; Org mode
-  (evil-define-key 'normal 'global (kbd "<leader> o t")
-    (lambda () (interactive) (org-journal-new-entry "" nil t)))
-  (evil-define-key 'normal 'global (kbd "<leader> o y") 'org-journal-previous-entry)
-  (evil-define-key 'normal 'global (kbd "<leader> o f") 'org-journal-next-entry)
+  ;; (evil-define-key 'normal 'global (kbd "<leader> o t") 'todays-journal)
+  (evil-define-key 'normal 'global (kbd "<leader> o j") 'org-journal-new-entry)
+  (evil-define-key 'normal 'global (kbd "<leader> o h") 'org-journal-previous-entry)
+  (evil-define-key 'normal 'global (kbd "<leader> o l") 'org-journal-next-entry)
   (evil-define-key 'normal 'global (kbd "<leader> o a") 'org-agenda)
   (evil-define-key 'normal 'global (kbd "<leader> o c") 'org-capture)
+  ;; This should get better keybindings
+  (evil-define-key 'normal 'global (kbd "<leader> o r") 'org-fold-reveal)
+  (evil-define-key 'normal 'global (kbd "<leader> o s") 'org-fold-show-all)
 
   ;; Chinese dictionary
-  (evil-define-key 'normal 'global (kbd "<leader> c") 'cc-edict-at-point)
+  (evil-define-key 'normal 'global (kbd "<leader> d c") 'cc-edict-at-point)
+
+  ;; Window management
   (evil-define-key 'normal 'global (kbd "C-O") 'other-window)
 
   ;; History jump
@@ -168,10 +181,13 @@
       (shell-command (concat "prettier --write " (shell-quote-argument (buffer-file-name))))
       (revert-buffer t t t)))
 
+  (evil-define-key 'normal 'global (kbd "<leader> c f") 'apheleia-format-buffer) ;; Run formatter (prettier)
+  (evil-define-key 'normal 'global (kbd "grr") 'lsp-find-references) ;; Run formatter (prettier)
+
   ;; LSP commands keybindings
   (evil-define-key 'normal lsp-mode-map
     ;; (kbd "gd") 'lsp-find-definition                ;; evil-collection already provides gd
-    (kbd "grr") 'lsp-find-references                   ;; Finds LSP references
+    ;; (kbd "grr") 'lsp-find-references                   ;; Finds LSP references (changed to global, I think I should do this to the others as well)
     (kbd "<leader> c a") 'lsp-execute-code-action     ;; Execute code actions
     (kbd "<leader> c r") 'lsp-rename                  ;; Rename symbol
     (kbd "gI") 'lsp-find-implementation               ;; Find implementation
