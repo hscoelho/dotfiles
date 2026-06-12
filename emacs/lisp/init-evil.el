@@ -33,8 +33,14 @@
 
 (defun todays-journal()
   (interactive)
-  (org-journal-new-entry nil nil t)
+  (org-journal-new-entry nil)
   )
+
+(defun yesterdays-journal ()
+  "Open the org-journal entry for yesterday."
+  (interactive)
+  (let ((yesterday (time-subtract (current-time) (days-to-time 1))))
+    (org-journal-new-entry t yesterday t)))
 
 (use-package evil
   :ensure t
@@ -73,7 +79,8 @@
     (lambda() (interactive) (org-capture nil "t")))
 
   ;; Org mode
-  ;; (evil-define-key 'normal 'global (kbd "<leader> o t") 'todays-journal)
+  (evil-define-key 'normal 'global (kbd "<leader> o t") 'todays-journal)
+  (evil-define-key 'normal 'global (kbd "<leader> o y") 'yesterdays-journal)
   (evil-define-key 'normal 'global (kbd "<leader> o j") 'org-journal-new-entry)
   (evil-define-key 'normal 'global (kbd "<leader> o h") 'org-journal-previous-entry)
   (evil-define-key 'normal 'global (kbd "<leader> o l") 'org-journal-next-entry)
