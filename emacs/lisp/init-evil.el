@@ -182,6 +182,7 @@
 
   ;; Embark actions for contextual commands
   (evil-define-key 'normal 'global (kbd "<leader> .") 'embark-act)
+  (global-set-key (kbd "C-e") 'embark-act)
 
   ;; Undo tree visualization
   (evil-define-key 'normal 'global (kbd "<leader> u") 'undo-tree-visualize)
