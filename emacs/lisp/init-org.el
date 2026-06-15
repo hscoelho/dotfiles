@@ -10,6 +10,7 @@
   (org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "WAIT(w)" "|" "DONE(d)" "CANCELED(c)")))
   (org-return-follows-link t)
   (org-log-done 'time)
+  (org-startup-folded 'content)
   (org-default-notes-file (concat org-directory "notes.org"))
   (org-capture-templates
    '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
