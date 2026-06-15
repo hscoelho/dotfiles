@@ -42,6 +42,20 @@
   (let ((yesterday (time-subtract (current-time) (days-to-time 1))))
     (org-journal-new-entry t yesterday t)))
 
+(defun tasks-file ()
+  "Open the org-journal entry for yesterday."
+  (interactive)
+  (find-file "~/org/tasks.org"))
+
+(defun tasks-archive-file ()
+  "Open the org-journal entry for yesterday."
+  (interactive)
+  (find-file "~/org/tasks.org_archive"))
+
+(defun new-task()
+  (interactive)
+  (org-capture nil "t"))
+
 (use-package evil
   :ensure t
   :straight t
@@ -55,6 +69,7 @@
   (setq evil-want-C-u-delete t)       ;; Makes C-u delete on insert mode
   (setq evil-shift-width 2)
   :config
+
   ;; TAB is set to evil-jump-forward by default (which breaks TAB visibility cycling in org-mode and other commands)
   ;; I already have my own keymap for that, so that's what I'm going to use.
   (unbind-key "TAB" evil-motion-state-map)
@@ -71,12 +86,13 @@
   (evil-define-key 'insert 'global (kbd "C-n") 'completion-at-point) ;; Consult buffer
 
   ;; Tasks
-  (evil-define-key 'normal 'global (kbd "<leader> t t")
-    (lambda() (interactive) (find-file "~/org/tasks.org")))
-  (evil-define-key 'normal 'global (kbd "<leader> t p") 'org-todo)
+  (evil-define-key 'normal 'global (kbd "<leader> t f") 'tasks-file)
+  (evil-define-key 'normal 'global (kbd "<leader> t A") 'tasks-file-archive)
+  (evil-define-key 'normal 'global (kbd "<leader> t a") 'org-archive-subtree)
+  (evil-define-key 'normal 'global (kbd "<leader> t t") 'org-todo)
   (evil-define-key 'normal 'global (kbd "<leader> t s") 'org-schedule)
-  (evil-define-key 'normal 'global (kbd "<leader> t n")
-    (lambda() (interactive) (org-capture nil "t")))
+  (evil-define-key 'normal 'global (kbd "<leader> t S") 'org-sort)
+  (evil-define-key 'normal 'global (kbd "<leader> t n") 'new-task)
 
   ;; Org mode
   (evil-define-key 'normal 'global (kbd "<leader> o t") 'todays-journal)
