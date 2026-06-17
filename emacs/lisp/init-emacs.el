@@ -1,6 +1,7 @@
 (use-package emacs
   :ensure nil
   :custom                                         ;; Set custom variables to configure Emacs behavior.
+  (treesit-enabled-modes t)
   (help-window-select t)
   (auto-save-default nil)                         ;; Disable automatic saving of buffers.
   (column-number-mode t)                          ;; Display the column number in the mode line.

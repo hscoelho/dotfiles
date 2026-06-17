@@ -56,6 +56,30 @@
   (interactive)
   (org-capture nil "t"))
 
+
+(defun open-in-right-window(buf)
+  (display-buffer-in-side-window buf `((side . right)))
+  )
+
+(defun send-buffer-to-right-window()
+  (interactive)
+  (open-in-right-window (current-buffer))
+  )
+
+(defun open-scratch-in-right-window()
+  (interactive)
+  (open-in-right-window (get-buffer "*scratch*"))
+  )
+
+(defun window-increase-width()
+  (interactive)
+  (enlarge-window 5 t))
+
+(defun window-decrease-width()
+  (interactive)
+  (enlarge-window -5 t))
+
+
 (use-package evil
   :ensure t
   :straight t
@@ -89,17 +113,25 @@
   (evil-define-key 'normal 'global (kbd "<leader> t f") 'tasks-file)
   (evil-define-key 'normal 'global (kbd "<leader> t A") 'tasks-file-archive)
   (evil-define-key 'normal 'global (kbd "<leader> t a") 'org-archive-subtree)
-  (evil-define-key 'normal 'global (kbd "<leader> t t") 'org-todo)
-  (evil-define-key 'normal 'global (kbd "<leader> t s") 'org-schedule)
-  (evil-define-key 'normal 'global (kbd "<leader> t S") 'org-sort)
+  (evil-define-key 'normal 'global (kbd "<leader> t s") 'org-sort)
   (evil-define-key 'normal 'global (kbd "<leader> t n") 'new-task)
+  ;; Commented out to force me to use embark on this
+  ;; (evil-define-key 'normal 'global (kbd "<leader> t t") 'org-todo)
+  ;; (evil-define-key 'normal 'global (kbd "<leader> t s") 'org-schedule)
+
+  ;; Jujutsu (Majutsu)
+  (evil-define-key 'normal 'global (kbd "<leader> j j") 'majutsu)
+
+  ;; Journaling
+  ;; jj is majutsu! 
+  (evil-define-key 'normal 'global (kbd "<leader> j t") 'todays-journal)
+  (evil-define-key 'normal 'global (kbd "<leader> j y") 'yesterdays-journal)
+  ;; I should probably create org captures for creating tasks
+  (evil-define-key 'normal 'global (kbd "<leader> j f") 'org-journal-new-scheduled-entry)
+  ;; Embark would be great for this, but I would need to create a new action
+  (evil-define-key 'normal 'global (kbd "<leader> j s") 'org-journal-reschedule-scheduled-entry)
 
   ;; Org mode
-  (evil-define-key 'normal 'global (kbd "<leader> o t") 'todays-journal)
-  (evil-define-key 'normal 'global (kbd "<leader> o y") 'yesterdays-journal)
-  (evil-define-key 'normal 'global (kbd "<leader> o j") 'org-journal-new-entry)
-  (evil-define-key 'normal 'global (kbd "<leader> o h") 'org-journal-previous-entry)
-  (evil-define-key 'normal 'global (kbd "<leader> o l") 'org-journal-next-entry)
   (evil-define-key 'normal 'global (kbd "<leader> o a") 'org-agenda)
   (evil-define-key 'normal 'global (kbd "<leader> o c") 'org-capture)
   ;; This should get better keybindings
@@ -111,6 +143,11 @@
 
   ;; Window management
   (evil-define-key 'normal 'global (kbd "C-O") 'other-window)
+  (evil-define-key 'normal 'global (kbd "M-=") 'window-increase-width)
+  (evil-define-key 'normal 'global (kbd "M--") 'window-decrease-width)
+  ;; This is more of a draft, I should improve this
+  (evil-define-key 'normal 'global (kbd "<leader> w r") 'send-buffer-to-right-window)
+  (evil-define-key 'normal 'global (kbd "<leader> w s") 'open-scratch-right)
 
   ;; History jump
   (evil-define-key 'normal 'global (kbd "M-<left>") 'evil-jump-backward)
@@ -147,7 +184,6 @@
   (evil-define-key 'normal 'global (kbd "[ c") 'diff-hl-previous-hunk) ;; Previous diff hunk
 
   ;; Magit keybindings for Git integration
-  (evil-define-key 'normal 'global (kbd "<leader> j j") 'majutsu)      ;; Open Magit status
   (evil-define-key 'normal 'global (kbd "<leader> g g") 'magit-status)      ;; Open Magit status
   (evil-define-key 'normal 'global (kbd "<leader> g l") 'magit-log-current) ;; Show current log
   (evil-define-key 'normal 'global (kbd "<leader> g d") 'magit-diff-buffer-file) ;; Show diff for the current file
@@ -182,7 +218,10 @@
 
   ;; Embark actions for contextual commands
   (evil-define-key 'normal 'global (kbd "<leader> .") 'embark-act)
+  (unbind-key "C-e" evil-motion-state-map)
   (global-set-key (kbd "C-e") 'embark-act)
+  (unbind-key "C-." evil-normal-state-map)
+  (global-set-key (kbd "C-.") 'embark-act)
 
   ;; Undo tree visualization
   (evil-define-key 'normal 'global (kbd "<leader> u") 'undo-tree-visualize)
@@ -206,7 +245,7 @@
       (revert-buffer t t t)))
 
   (evil-define-key 'normal 'global (kbd "<leader> c f") 'apheleia-format-buffer) ;; Run formatter (prettier)
-  (evil-define-key 'normal 'global (kbd "grr") 'lsp-find-references) ;; Run formatter (prettier)
+  (evil-define-key 'normal 'global (kbd "grr") 'lsp-find-references)
 
   ;; LSP commands keybindings
   (evil-define-key 'normal lsp-mode-map

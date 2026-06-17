@@ -52,7 +52,6 @@
 
 (require 'init-org)
 (require 'init-emacs)
-(require 'init-treesitter) ;; should go before LSP
 
 (require 'init-jieba)
 (require 'init-cc-cedict)
@@ -73,6 +72,7 @@
 (require 'init-fussy)
 (require 'init-helpful)
 (require 'init-indent)
+(require 'init-kitty)
 (require 'init-lsp)
 (require 'init-marginalia)
 (require 'init-markdown)
@@ -99,8 +99,8 @@
   (message ">>> All required packages installed.")
   (message ">>> Configuring Emacs-Kick...")
   (message ">>> Configuring Tree Sitter parsers...")
-  (require 'treesit-auto)
-  (treesit-auto-install-all)                         ;; Install all available Tree Sitter grammars.
+  ;; (require 'treesit-auto)
+  ;; (treesit-auto-install-all)                         ;; Install all available Tree Sitter grammars.
   (message ">>> Configuring Nerd Fonts...")
   (require 'nerd-icons)
   (nerd-icons-install-fonts)                         ;; Install all available nerd-fonts
