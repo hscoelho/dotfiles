@@ -5,7 +5,7 @@ name = "hcoelho"
 email = "henriquescharlaucoelho@gmail.com"
 
 [ui]
-editor = "nvim"
+editor = "e"
 
 [merge-tools.hunk]
 program = "nvim"

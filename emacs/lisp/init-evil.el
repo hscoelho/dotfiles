@@ -1,4 +1,3 @@
-
 (defun zh-utils--chinese-word-at-point ()
   "Return the most likely Chinese word at point."
   (let* (
@@ -55,7 +54,6 @@
 (defun new-task()
   (interactive)
   (org-capture nil "t"))
-
 
 (defun open-in-right-window(buf)
   (display-buffer-in-side-window buf `((side . right)))
@@ -139,7 +137,10 @@
   (evil-define-key 'normal 'global (kbd "<leader> o s") 'org-fold-show-all)
 
   ;; Chinese dictionary
-  (evil-define-key 'normal 'global (kbd "<leader> d c") 'cc-edict-at-point)
+  (evil-define-key 'normal 'global (kbd "<leader> c c") 'cc-edict-at-point)
+
+  ;; Jinx (spell checker)
+  (evil-define-key 'normal 'global (kbd "<leader> j a") 'jinx-correct)
 
   ;; Window management
   (evil-define-key 'normal 'global (kbd "C-O") 'other-window)
@@ -174,9 +175,10 @@
   (evil-define-key 'normal 'global (kbd "[ d") 'flymake-goto-prev-error) ;; Go to previous Flymake error
 
   ;; Dired commands for file management
-  (evil-define-key 'normal 'global (kbd "<leader> e e") (lambda () (interactive) (dired command-line-default-directory)))
-  (evil-define-key 'normal 'global (kbd "<leader> e h") 'dired-jump)
-  (evil-define-key 'normal 'global (kbd "<leader> e f") 'find-file)
+  (evil-define-key 'normal 'global (kbd "<leader> d d") 'project-dired)
+  (evil-define-key 'normal 'global (kbd "<leader> d e") (lambda () (interactive) (dired command-line-default-directory)))
+  (evil-define-key 'normal 'global (kbd "<leader> d h") 'dired-jump)
+  (evil-define-key 'normal 'global (kbd "<leader> d f") 'dired-jump)
   (evil-define-key 'normal dired-mode-map "f" 'find-file)
 
   ;; Diff-HL navigation for version control
@@ -190,6 +192,14 @@
   (evil-define-key 'normal 'global (kbd "<leader> g D") 'diff-hl-show-hunk) ;; Show diff for a hunk
   (evil-define-key 'normal 'global (kbd "<leader> g b") 'vc-annotate)       ;; Annotate buffer with version control info
 
+  ;; Agent shell
+  (evil-define-key 'normal 'global (kbd "<leader> a a") 'agent-shell) 
+  (evil-define-key 'normal 'global (kbd "<leader> a m") 'agent-shell-set-session-mode) 
+  (evil-define-key 'normal 'global (kbd "<leader> a c") 'agent-shell-set-session-model) 
+  (evil-define-key 'normal 'global (kbd "<leader> a n") 'agent-shell-new-shell) 
+  (evil-define-key 'normal 'global (kbd "<leader> a r") 'agent-shell-restart) 
+  (evil-define-key 'normal 'global (kbd "<leader> a R") 'agent-shell-resume-session) 
+
   ;; Buffer management keybindings
   (evil-define-key 'normal 'global (kbd "] b") 'switch-to-next-buffer) ;; Switch to next buffer
   (evil-define-key 'normal 'global (kbd "[ b") 'switch-to-prev-buffer) ;; Switch to previous buffer
@@ -202,7 +212,8 @@
   (evil-define-key 'normal 'global (kbd "<leader> b l") 'consult-buffer) ;; Consult buffer
   (evil-define-key 'normal 'global (kbd "<leader>SPC") 'consult-buffer) ;; Consult buffer
   (evil-define-key 'normal 'global (kbd "<leader>SPC") 'consult-buffer) ;; Consult buffer
-  (evil-define-key 'normal 'global (kbd "C-n") 'consult-buffer) ;; Consult buffer
+  ;; (evil-define-key 'normal 'global (kbd "C-n") 'consult-buffer) ;; Consult buffer
+  (evil-define-key 'normal 'global (kbd "C-n") 'consult-project-buffer) ;; Consult project buffer
 
   ;; Project management keybindings
   (evil-define-key 'normal 'global (kbd "<leader> p b") 'consult-project-buffer) ;; Consult project buffer

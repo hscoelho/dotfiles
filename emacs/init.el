@@ -52,9 +52,11 @@
 
 (require 'init-org)
 (require 'init-emacs)
+(require 'init-window)
 
-(require 'init-jieba)
-(require 'init-cc-cedict)
+(require 'init-auto-tab-groups)
+(require 'init-chinese)
+(require 'init-agent)
 (require 'init-centered-line)
 (require 'init-clipboard)
 (require 'init-orderless)
@@ -72,6 +74,7 @@
 (require 'init-fussy)
 (require 'init-helpful)
 (require 'init-indent)
+(require 'init-jinx)
 (require 'init-kitty)
 (require 'init-lsp)
 (require 'init-marginalia)
@@ -80,6 +83,7 @@
 (require 'init-nerd-icons)
 (require 'init-node-modules)
 ;; (require 'init-paw)
+(require 'init-project)
 (require 'init-pulsar)
 (require 'init-theme)
 (require 'init-todo)
@@ -89,7 +93,9 @@
 (require 'init-vterm)
 (require 'init-wakatime)
 (require 'init-which-key)
-(require 'init-window)
+
+(use-package perspective
+  :straight t)
 
 ;;; UTILITARY FUNCTION TO INSTALL EMACS-KICK
 (defun ek/first-install ()

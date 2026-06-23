@@ -14,6 +14,8 @@ alias jl = just --justfile justfile.local
 alias e = emacsclient -t -a "" .
 alias pi = mise x node@24.11.1 -- pi
 
+alias j = jj
+
 # RDP (microsoft remote machine)
 alias rdp-local = xfreerdp /network:lan /gfx:avc444 /dynamic-resolution +clipboard
 alias rdp-net = xfreerdp /network:auto /gfx:avc420 +compression /dynamic-resolution +clipboard
