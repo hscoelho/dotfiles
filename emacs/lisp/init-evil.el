@@ -154,9 +154,9 @@
   (evil-define-key 'normal 'global (kbd "M-<right>") 'evil-jump-forward)
 
   ;; Keybindings for searching and finding files.
-  (evil-define-key 'normal 'global (kbd "<leader> f f")
+  (evil-define-key 'normal 'global (kbd "<leader> f F")
     (lambda () (interactive) (consult-fd command-line-default-directory ".#")))
-  (evil-define-key 'normal 'global (kbd "<leader> f F") 'project-find-file)
+  (evil-define-key 'normal 'global (kbd "<leader> f f") 'project-find-file)
   (evil-define-key 'normal 'global (kbd "<leader> f d") 'find-file)
   (evil-define-key 'normal 'global (kbd "<leader> f g") 'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader> f G") 'consult-grep)
@@ -236,6 +236,9 @@
   (evil-define-key 'normal 'global (kbd "] t") 'tab-next) ;; Go to next tab
   (evil-define-key 'normal 'global (kbd "[ t") 'tab-previous) ;; Go to previous tab
 
+  (with-eval-after-load 'dired
+  (evil-define-key 'normal dired-mode-map (kbd "SPC") nil))
+
 
   ;; Custom example. Formatting with prettier tool.
   (evil-define-key 'normal 'global (kbd "<leader> m p")
@@ -304,9 +307,14 @@
 ;; provides a better modal experience by remapping keybindings and
 ;; commands to fit the `evil' style.
 (use-package evil-collection
-  :defer t
   :straight t
-  :ensure t
+  :after evil
+  :init
+  ;; This hook fires immediately AFTER evil-collection finishes injecting its own keys
+  (add-hook 'evil-collection-setup-hook
+            (lambda (mode mode-keymaps &rest _args)
+              (when (eq mode 'dired)
+                (evil-collection-define-key 'normal 'dired-mode-map " " nil))))
   :custom
   (evil-collection-want-find-usages-bindings t)
   ;; Hook to initialize `evil-collection' when `evil-mode' is activated.

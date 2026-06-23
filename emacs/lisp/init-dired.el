@@ -9,6 +9,7 @@
      (".*" "open" "xdg-open")))                              ;; Default opening command for other files.
   (dired-kill-when-opening-new-dired-buffer t)               ;; Close the previous buffer when opening a new `dired' instance.
   :config
+
   (when (eq system-type 'darwin)
     (let ((gls (executable-find "gls")))                     ;; Use GNU ls on macOS if available.
       (when gls

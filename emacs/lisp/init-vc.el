@@ -24,6 +24,8 @@
           (260 . "#89b4fa")
           (280 . "#b4befe"))))
 
+(use-package vc-jj
+  :straight t)
 
 ;;; SMERGE
 ;; Smerge is included for resolving merge conflicts in files. It provides a simple interface
@@ -41,21 +43,22 @@
               ("C-c ^ p" . smerge-previous)))  ;; Move to the previous conflict.
 
 (use-package diff-hl
-  :defer t
   :straight t
-  :ensure t
   :hook
-  (find-file . (lambda ()
-                 (global-diff-hl-mode)           ;; Enable Diff-HL mode for all files.
-                 (diff-hl-flydiff-mode)          ;; Automatically refresh diffs.
-                 (diff-hl-margin-mode)))         ;; Show diff indicators in the margin.
+  ;; (find-file . (lambda ()
+  ;;                (global-diff-hl-mode)           ;; Enable Diff-HL mode for all files.
+  ;;                (diff-hl-flydiff-mode)          ;; Automatically refresh diffs.
+  ;;                (diff-hl-margin-mode)))         ;; Show diff indicators in the margin.
   :custom
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode)
   (diff-hl-side 'left)                           ;; Set the side for diff indicators.
-  (diff-hl-margin-symbols-alist '((insert . "┃") ;; Customize symbols for each change type.
-                                  (delete . "-")
-                                  (change . "┃")
-                                  (unknown . "┆")
-                                  (ignored . "i"))))
+  ;; (diff-hl-margin-symbols-alist '((insert . "┃") ;; Customize symbols for each change type.
+  ;;                                 (delete . "-")
+  ;;                                 (change . "┃")
+  ;;                                 (unknown . "┆")
+  ;;                                 (ignored . "i")))
+  )
 
 
 ;;; MAGIT
