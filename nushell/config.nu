@@ -10,12 +10,17 @@
 alias cat = bat
 alias zellij = zellij -l welcome
 alias jl = just --justfile justfile.local
-alias e = emacs -nw
+# alias e = emacs -nw
+alias e = emacsclient -t -a ""
+alias pi = mise x node@24.11.1 -- pi
 
 # RDP (microsoft remote machine)
 alias rdp-local = xfreerdp /network:lan /gfx:avc444 /dynamic-resolution +clipboard
 alias rdp-net = xfreerdp /network:auto /gfx:avc420 +compression /dynamic-resolution +clipboard
 alias rdp-vm = rdp-local /v:127.0.0.1:3389 /u:hcoelho /d:
+
+alias webcam-phone-back = scrcpy --video-source=camera --camera-size=1080x1920 --orientation=90 --camera-id=0 --v4l2-sink=/dev/video2 --no-audio
+
 
 ## Env 
 $env.SHELL = 'nu'
