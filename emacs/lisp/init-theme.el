@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 (use-package doom-themes
-  :ensure t
+  :straight t
   :custom
   (doom-themes-enable-bold nil)   ; if nil, bold is universally disabled
   (doom-themes-enable-italic nil) ; if nil, italics is universally disabled
@@ -11,9 +11,9 @@
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
+
 (use-package modus-flexoki
-  :vc (:url "https://github.com/dpassen/modus-flexoki"
-            :rev :newest)
+  :straight (:host github :repo "dpassen/modus-flexoki")
   :custom
   (modus-themes-common-palette-overrides
    '((comment red-intense)

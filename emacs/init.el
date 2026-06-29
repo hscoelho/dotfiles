@@ -4,6 +4,7 @@
 ;;; and modified according to my personal taste
 ;;; Code:
 
+
 ;; This config is separated in multiple files. The other files are located in the lisp folder
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
@@ -23,6 +24,7 @@
 ;; reproducible, especially for newcomers and shareable configs like emacs-kick.
 ;; So we bootstrap it here.
 (setq package-enable-at-startup nil) ;; Disables the default package manager.
+
 
 ;; Bootstraps `straight.el'
 (setq straight-check-for-modifications nil)
@@ -44,12 +46,8 @@
 (straight-use-package '(project :type built-in))
 (straight-use-package 'use-package)
 
-(require 'package)
 
-;; Add MELPA (Milkypostman's Emacs Lisp Package Archive) to the list of package archives.
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
-
+(require 'init-evil)
 (require 'init-org)
 (require 'init-emacs)
 (require 'init-window)
@@ -68,10 +66,8 @@
 (require 'init-epub)
 (require 'init-eldoc)
 (require 'init-embark)
-(require 'init-evil)
 (require 'init-folding)
 (require 'init-formatting)
-(require 'init-fussy)
 (require 'init-helpful)
 (require 'init-indent)
 (require 'init-jinx)
