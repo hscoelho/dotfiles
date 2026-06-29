@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; https://jiewawa.me/2025/11/tools-for-studying-chinese-with-emacs/
 
 (use-package cc-cedict

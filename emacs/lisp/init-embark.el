@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; EMBARK
 ;; Just `<leader> .' over any text, explore it :)
 (use-package embark

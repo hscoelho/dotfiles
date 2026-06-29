@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (use-package vc
   :ensure nil                        ;; This is built-in, no need to fetch it.
   :defer t

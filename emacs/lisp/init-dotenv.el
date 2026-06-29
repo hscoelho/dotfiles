@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (use-package dotenv-mode
   :defer t
   :straight t

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; TODO: Add modern org package
 (use-package org
   :straight t     ;; This is built-in, no need to fetch it.

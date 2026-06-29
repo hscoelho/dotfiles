@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (use-package lsp-origami
   :straight t
   :hook (lsp-after-open . lsp-origami-try-enable))

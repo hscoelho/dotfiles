@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (use-package pulsar
   :defer t
   :straight t

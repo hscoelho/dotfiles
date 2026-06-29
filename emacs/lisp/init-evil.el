@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (defun zh-utils--chinese-word-at-point ()
   "Return the most likely Chinese word at point."
   (let* (

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; TODO: Add consult-todo?
 ;; ERROR: 
 (use-package hl-todo

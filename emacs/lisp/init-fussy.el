@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; `fzf`
 (use-package fzf-native
   :vc (:url "https://github.com/dangduc/fzf-native" :rev :newest))

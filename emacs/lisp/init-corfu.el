@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; CORFU
 (use-package corfu
   :straight t

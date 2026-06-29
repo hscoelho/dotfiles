@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (use-package emacs
   :ensure nil
   :custom                                         ;; Set custom variables to configure Emacs behavior.

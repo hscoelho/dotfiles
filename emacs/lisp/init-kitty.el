@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 
 ;; For some reason, these packages conflict with eachother.
 ;; It may exist a way to make them work together, but I prefer having images

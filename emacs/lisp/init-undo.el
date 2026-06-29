@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; UNDO TREE
 ;; The `undo-tree' package provides an advanced and visual way to
 ;; manage undo history. It allows you to navigate and visualize your

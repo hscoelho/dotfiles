@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; MARKDOWN-MODE
 ;; Markdown Mode provides support for editing Markdown files in Emacs,
 ;; enabling features like syntax highlighting, previews, and more.

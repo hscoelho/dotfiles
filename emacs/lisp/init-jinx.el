@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; For this config to work:
 ;; install dependency first: emacs-jinx in fedora
 ;; install hunspell pt br as well (hunspell-pt-BR in fedora)

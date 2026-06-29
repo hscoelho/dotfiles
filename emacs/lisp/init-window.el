@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; WINDOW
 ;; This section configures window management in Emacs, enhancing the way buffers
 ;; are displayed for a more efficient workflow. The `window' use-package helps

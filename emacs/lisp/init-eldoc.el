@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; ELDOC
 ;; Eldoc provides helpful inline documentation for functions and variables
 ;; in the minibuffer, enhancing the development experience. It can be particularly useful

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (use-package orderless
   :straight t
   :defer t                                    ;; Load Orderless on demand.

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; LSP
 ;; Emacs comes with an integrated LSP client called `eglot', which offers basic LSP functionality.
 ;; However, `eglot' has limitations, such as not supporting multiple language servers

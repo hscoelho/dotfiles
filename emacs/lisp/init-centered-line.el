@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; Keep the selected line always centered
 (setq scroll-preserve-screen-position t
       scroll-conservatively 0

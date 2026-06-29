@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (use-package dired
   :ensure nil                                                ;; This is built-in, no need to fetch it.
   :custom

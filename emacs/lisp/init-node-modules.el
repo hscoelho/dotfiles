@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; ADD-NODE-MODULES-PATH
 ;; The `add-node-modules-path' package ensures that Emacs uses the local
 ;; `node_modules/.bin' for a project rather than globally installed binaries.
