@@ -52,7 +52,8 @@
 (require 'init-emacs)
 (require 'init-window)
 
-(require 'init-auto-tab-groups)
+;; (require 'init-auto-tab-groups)
+(require 'init-centaur-tabs)
 (require 'init-chinese)
 (require 'init-agent)
 (require 'init-centered-line)
@@ -81,6 +82,7 @@
 ;; (require 'init-paw)
 (require 'init-project)
 (require 'init-pulsar)
+;; (require 'init-reader)
 (require 'init-theme)
 (require 'init-todo)
 (require 'init-undo)
