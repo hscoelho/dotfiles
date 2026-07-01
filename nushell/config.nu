@@ -40,7 +40,7 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 # zoxide config
 source ~/.zoxide.nu
 # mise
-use ($nu.default-config-dir | path join mise.nu)
+# use ($nu.default-config-dir | path join mise.nu)
 # TODO: zellij (zri for example)
 
 ## Completions
