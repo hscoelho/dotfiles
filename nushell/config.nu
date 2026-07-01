@@ -11,7 +11,7 @@ alias cat = bat
 alias zellij = zellij -l welcome
 alias jl = just --justfile justfile.local
 # alias e = emacs -nw
-alias e = emacsclient -t -a "" .
+alias e = emacsclient -t -a ""
 alias pi = mise x node@24.11.1 -- pi
 
 alias j = jj
