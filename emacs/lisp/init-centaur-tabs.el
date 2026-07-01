@@ -1,3 +1,7 @@
+;; Here are a few ideas to actually select tabs:
+;; 1. Ace jump(centaur-tabs-ace-jump) - 1 keybinding plus a number
+;; 2. Alt+n (centaur-tabs-select-visible-nth-tab)
+;; 3. Select first tab then use next-tab
 (use-package centaur-tabs
   :straight t
   :after evil
@@ -35,8 +39,10 @@
     (if centaur-tabs-projectile-buffer-group-calc
         (symbol-value 'centaur-tabs-projectile-buffer-group-calc)
       (set (make-local-variable 'centaur-tabs-projectile-buffer-group-calc)
-           
            (cond
+            ;; I'm sending the minibuffers to misc, because I'd like them hidden
+            ((string-equal " *" (substring (buffer-name) 0 2)) '("Misc"))
+            ((string-equal "*Help*" (substring (buffer-name) 0 6)) '("Misc"))
             ((condition-case _err
                  (projectile-project-root)
                (error nil))
@@ -55,34 +61,14 @@
             ((memq major-mode '(dired-mode)) '("Dir"))
             (t '("Other"))))
       (symbol-value 'centaur-tabs-projectile-buffer-group-calc)))
-  (defun centaur-tabs-hide-tab (x)
-  "Do no to show buffer X in tabs."
-  (let ((name (format "%s" x)))
-    (or
-     ;; Current window is not dedicated window.
-     (window-dedicated-p (selected-window))
 
-     ;; Buffer name not match below blacklist.
-     (string-prefix-p " *Mini" name)
-     ;; (string-prefix-p "*epc" name)
-     ;; (string-prefix-p "*helm" name)
-     ;; (string-prefix-p "*Helm" name)
-     ;; (string-prefix-p "*Compile-Log*" name)
-     ;; (string-prefix-p "*lsp" name)
-     ;; (string-prefix-p "*company" name)
-     ;; (string-prefix-p "*Flycheck" name)
-     ;; (string-prefix-p "*tramp" name)
-     ;; (string-prefix-p "*help" name)
-     ;; (string-prefix-p "*straight" name)
-     ;; (string-prefix-p " *temp" name)
-     ;; (string-prefix-p "*Help" name)
-     ;; (string-prefix-p "*mybuf" name)
-
-     ;; Is not magit buffer.
-     (and (string-prefix-p "magit" name)
-          (not (file-name-extension name)))
-     )))
-
+  (evil-define-key 'normal org-journal-mode-map
+    (kbd "M-j") nil
+    (kbd "M-k") nil
+    (kbd "M-J") nil
+    (kbd "M-K") nil
+    (kbd "M-h") nil
+    (kbd "M-l") nil)
   ;; :hook
   ;; (dashboard-mode . centaur-tabs-local-mode)
   ;; (term-mode . centaur-tabs-local-mode)
@@ -94,14 +80,17 @@
   ("C-S-<prior>" . centaur-tabs-move-current-tab-to-left)
   ("C-S-<next>" . centaur-tabs-move-current-tab-to-right)
   (:map evil-normal-state-map
-      ("<leader> y y" . centaur-tabs-toggle-groups)
-      ("M-j" . centaur-tabs-forward)
-      ("M-k" . centaur-tabs-backward)
-      ("M-J" . centaur-tabs-move-current-tab-to-right)
-      ("M-K" . centaur-tabs-move-current-tab-to-left)
-      ("M-h" . centaur-tabs-backward-group)
-      ("M-l" . centaur-tabs-forward-group)
-      ("g t" . centaur-tabs-forward)
-      ("g T" . centaur-tabs-backward)))
+        ("<leader> y y" . centaur-tabs-toggle-groups)
+        ("<leader> t t" . centaur-tabs-ace-jump)
+        ("M-l" . centaur-tabs-forward)
+        ("M-h" . centaur-tabs-backward)
+        ("M-L" . centaur-tabs-move-current-tab-to-right)
+        ("M-H" . centaur-tabs-move-current-tab-to-left)
+        ("M-k" . centaur-tabs-backward-group)
+        ("M-j" . centaur-tabs-forward-group)
+        ("g t" . centaur-tabs-forward)
+        ("g T" . centaur-tabs-backward)
+        )
+  )
 
 (provide 'init-centaur-tabs)

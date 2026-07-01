@@ -158,7 +158,7 @@
   ;; Keybindings for searching and finding files.
   (evil-define-key 'normal 'global (kbd "<leader> f F")
     (lambda () (interactive) (consult-fd command-line-default-directory ".#")))
-  (evil-define-key 'normal 'global (kbd "<leader> f f") 'project-find-file)
+  (evil-define-key 'normal 'global (kbd "<leader> f f") 'projectile-find-file)
   (evil-define-key 'normal 'global (kbd "<leader> f d") 'find-file)
   (evil-define-key 'normal 'global (kbd "<leader> f g") 'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader> f G") 'consult-grep)
@@ -195,8 +195,9 @@
 
   ;; Agent shell
   (evil-define-key 'normal 'global (kbd "<leader> a a") 'agent-shell) 
-  (evil-define-key 'normal 'global (kbd "<leader> a m") 'agent-shell-set-session-mode) 
-  (evil-define-key 'normal 'global (kbd "<leader> a c") 'agent-shell-set-session-model) 
+  ;; mode and model can be selected with (gs, gm and gv)
+  ;; (evil-define-key 'normal 'global (kbd "<leader> a m") 'agent-shell-set-session-mode) 
+  ;; (evil-define-key 'normal 'global (kbd "<leader> a c") 'agent-shell-set-session-model) 
   (evil-define-key 'normal 'global (kbd "<leader> a n") 'agent-shell-new-shell) 
   (evil-define-key 'normal 'global (kbd "<leader> a r") 'agent-shell-restart) 
   (evil-define-key 'normal 'global (kbd "<leader> a R") 'agent-shell-resume-session) 
@@ -211,10 +212,8 @@
   (evil-define-key 'normal 'global (kbd "<leader> b x") 'kill-current-buffer) ;; Kill current buffer
   (evil-define-key 'normal 'global (kbd "<leader> b s") 'save-buffer) ;; Save buffer
   (evil-define-key 'normal 'global (kbd "<leader> b l") 'consult-buffer) ;; Consult buffer
-  (evil-define-key 'normal 'global (kbd "<leader>SPC") 'consult-buffer) ;; Consult buffer
-  (evil-define-key 'normal 'global (kbd "<leader>SPC") 'consult-buffer) ;; Consult buffer
-  ;; (evil-define-key 'normal 'global (kbd "C-n") 'consult-buffer) ;; Consult buffer
-  (evil-define-key 'normal 'global (kbd "C-n") 'consult-project-buffer) ;; Consult project buffer
+  (evil-define-key 'normal 'global (kbd "C-n") 'consult-buffer) ;; Consult buffer
+  (evil-define-key 'normal 'global (kbd "<leader> SPC") 'consult-project-buffer) ;; Consult project buffer
 
   ;; Project management keybindings
   (evil-define-key 'normal 'global (kbd "<leader> p b") 'consult-project-buffer) ;; Consult project buffer

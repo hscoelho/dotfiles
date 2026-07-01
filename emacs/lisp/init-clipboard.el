@@ -7,6 +7,6 @@
 
 (setq select-enable-primary t)
 (setq select-enable-clipboard t)
-;; (setq xterm-extra-capabilities '(getSelection setSelection))
+(setq xterm-extra-capabilities '(getSelection setSelection))
 
 (provide 'init-clipboard)

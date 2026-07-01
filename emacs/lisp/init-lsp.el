@@ -104,7 +104,9 @@
 ;; Angular LSP Configuration
 (defun ng-server-command ()
   "Return the Angular language server command using mise node path."
-  (let* ((node-root (string-trim (shell-command-to-string "mise where node")))
+  ;; I really should make this use the node from the project instead of the version 18.10.0
+  ;; However, I only have a single angular project(that uses v18.10.0, so this works for now :)
+  (let* ((node-root (string-trim (shell-command-to-string "mise where node@18.10.0")))
          (ngserver (expand-file-name "lib/node_modules/@angular/language-server" node-root))
          (ngprobe  (expand-file-name "lib/node_modules" node-root)))
     `("node"
