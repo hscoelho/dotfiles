@@ -218,11 +218,11 @@
 
   ;; Project management keybindings
   (evil-define-key 'normal 'global (kbd "<leader> p b") 'consult-project-buffer) ;; Consult project buffer
-  (evil-define-key 'normal 'global (kbd "<leader> p p") 'project-switch-project) ;; Switch project
-  (evil-define-key 'normal 'global (kbd "<leader> p f") 'project-find-file) ;; Find file in project
-  (evil-define-key 'normal 'global (kbd "<leader> p g") 'project-find-regexp) ;; Find regexp in project
-  (evil-define-key 'normal 'global (kbd "<leader> p k") 'project-kill-buffers) ;; Kill project buffers
-  (evil-define-key 'normal 'global (kbd "<leader> p D") 'project-dired) ;; Dired for project
+  (evil-define-key 'normal 'global (kbd "<leader> p p") 'projectile-switch-project) ;; Switch project
+  (evil-define-key 'normal 'global (kbd "<leader> p f") 'projectile-find-file) ;; Find file in project
+  (evil-define-key 'normal 'global (kbd "<leader> p g") 'projectile-find-regexp) ;; Find regexp in project
+  (evil-define-key 'normal 'global (kbd "<leader> p k") 'projectile-kill-buffers) ;; Kill project buffers
+  (evil-define-key 'normal 'global (kbd "<leader> p D") 'projectile-dired) ;; Dired for project
 
   ;; Yank from kill ring
   ;; (evil-define-key 'normal 'global (kbd "P") 'consult-yank-from-kill-ring)

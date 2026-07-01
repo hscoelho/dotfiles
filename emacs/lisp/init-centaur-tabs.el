@@ -5,6 +5,7 @@
   :config
   (centaur-tabs-mode t)
   (setq centaur-tabs-cycle-scope 'tabs)
+  (centaur-tabs-group-by-projectile-project)
   :bind
   ("C-<prior>" . centaur-tabs-backward)
   ("C-<next>" . centaur-tabs-forward)
