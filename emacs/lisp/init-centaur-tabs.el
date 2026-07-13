@@ -80,8 +80,8 @@
   ("C-S-<prior>" . centaur-tabs-move-current-tab-to-left)
   ("C-S-<next>" . centaur-tabs-move-current-tab-to-right)
   (:map evil-normal-state-map
-        ("<leader> y y" . centaur-tabs-toggle-groups)
-        ("<leader> t t" . centaur-tabs-ace-jump)
+        ("<leader> y t" . centaur-tabs-toggle-groups)
+        ("<leader> y y" . centaur-tabs-ace-jump)
         ("M-l" . centaur-tabs-forward)
         ("M-h" . centaur-tabs-backward)
         ("M-L" . centaur-tabs-move-current-tab-to-right)

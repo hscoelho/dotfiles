@@ -78,6 +78,9 @@
   (interactive)
   (enlarge-window -5 t))
 
+(defun new-ghostel-terminal-in-project()
+  (interactive)
+  (ghostel-project t))
 
 (use-package evil
   :ensure t
@@ -108,21 +111,18 @@
 
   (evil-define-key 'insert 'global (kbd "C-n") 'completion-at-point) ;; Consult buffer
 
-  ;; Tasks
-  (evil-define-key 'normal 'global (kbd "<leader> t f") 'tasks-file)
-  (evil-define-key 'normal 'global (kbd "<leader> t A") 'tasks-file-archive)
-  (evil-define-key 'normal 'global (kbd "<leader> t a") 'org-archive-subtree)
-  (evil-define-key 'normal 'global (kbd "<leader> t s") 'org-sort)
-  (evil-define-key 'normal 'global (kbd "<leader> t n") 'new-task)
-  ;; Commented out to force me to use embark on this
-  ;; (evil-define-key 'normal 'global (kbd "<leader> t t") 'org-todo)
-  ;; (evil-define-key 'normal 'global (kbd "<leader> t s") 'org-schedule)
-
   ;; Jujutsu (Majutsu)
   (evil-define-key 'normal 'global (kbd "<leader> j j") 'majutsu)
 
+  ;; Terminal
+  (evil-define-key 'normal 'global (kbd "<leader> t t") 'ghostel-project)
+  (evil-define-key 'normal 'global (kbd "<leader> t n") 'new-ghostel-terminal-in-project)
+  (evil-define-key 'normal 'global (kbd "<leader> t l") 'ghostel-project-list-buffers)
+  (evil-define-key 'normal 'global (kbd "<leader> t ]") 'ghostel-project-next)
+  (evil-define-key 'normal 'global (kbd "<leader> t [") 'ghostel-project-previous)
+
   ;; Journaling
-  ;; jj is majutsu! 
+  ;; <leader> j j is majutsu! 
   (evil-define-key 'normal 'global (kbd "<leader> j t") 'todays-journal)
   (evil-define-key 'normal 'global (kbd "<leader> j y") 'yesterdays-journal)
   ;; I should probably create org captures for creating tasks
@@ -133,6 +133,7 @@
   ;; Org mode
   (evil-define-key 'normal 'global (kbd "<leader> o a") 'org-agenda)
   (evil-define-key 'normal 'global (kbd "<leader> o c") 'org-capture)
+  (evil-define-key 'normal 'global (kbd "<leader> o t") 'tasks-file)
   ;; This should get better keybindings
   (evil-define-key 'normal 'global (kbd "<leader> o r") 'org-fold-reveal)
   (evil-define-key 'normal 'global (kbd "<leader> o s") 'org-fold-show-all)

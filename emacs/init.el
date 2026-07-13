@@ -69,6 +69,7 @@
 (require 'init-embark)
 (require 'init-folding)
 (require 'init-formatting)
+(require 'init-ghostel)
 (require 'init-helpful)
 (require 'init-indent)
 (require 'init-jinx)

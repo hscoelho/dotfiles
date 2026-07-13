@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-(use-package vterm
-  :straight t)
+;; (use-package vterm
+;;   :straight t)
 
 (provide 'init-vterm)
