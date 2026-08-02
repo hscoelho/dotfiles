@@ -1,7 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
 ;;; If nerd-icons are not appearing in the GUI, run 'M-x nerd-icons-install-fonts'!
-
 (use-package nerd-icons
   :straight t
   :defer t)

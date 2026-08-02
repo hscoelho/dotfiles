@@ -1,9 +1,13 @@
 ;;; -*- lexical-binding: t -*-
-;; TODO: Add modern org package
 (use-package org
   :straight t     ;; This is built-in, no need to fetch it.
+  :config
+  (if (android)
+      (setq org-directory "/content/storage/com.android.externalstorage.documents/primary:org/")
+    (setq org-directory "~/org/")
+    )
   :custom
-  (org-directory "~/org/")
+  ;; (org-directory "~/org/")
   (org-agenda-files org-directory)
   ;; (org-agenda-files (list (concat org-directory "tasks.org")
   ;;                         (concat org-directory "notes.org")
@@ -19,13 +23,15 @@
   )
 
 (use-package org-journal
+  :after org
   :straight t
   :init
   ;; Change default prefix key; needs to be set before loading org-journal
   (setq org-journal-prefix-key "C-c j ")
   :custom
   (org-journal-file-format "%Y%m%d.org")
-  (org-journal-dir "~/org/journal/")
+  ;; (org-journal-dir "~/org/journal/")
+  (org-journal-dir (concat org-directory "journal/"))
   (org-journal-find-file 'find-file)
   (org-journal-enable-agenda-integration t)
   )
