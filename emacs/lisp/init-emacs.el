@@ -56,15 +56,15 @@
 
   (let ((font-height (if (android) 180 130)))
     (set-face-attribute 'default nil
-                        :font "FiraCode Nerd Font"
+                        :font "Iosevka Term Curly"
                         :height font-height
                         :weight 'normal))
 
 
   ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
   (if (android)
-      (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-18"))
-    (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13")))
+      (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly"))
+    (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly")))
   
 
   ;; Save manual customizations to a separate file instead of cluttering `init.el'.
