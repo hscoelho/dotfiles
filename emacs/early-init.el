@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun not-android ()
   (not (eq system-type 'android)))
 
