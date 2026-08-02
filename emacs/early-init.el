@@ -1,7 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 
+(defun android ()
+  (eq system-type 'android))
+
 (defun not-android ()
-  (not (eq system-type 'android)))
+  (not (android)))
 
 (when (string-equal system-type "android")
   ;; Add Termux binaries to PATH environment

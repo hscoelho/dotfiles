@@ -51,7 +51,10 @@
   ;;                   :weight 'light  ; or 'light if it's still too bold
   ;;                   )
   ;;  )
-  (let ((font-height (if (eq system-type 'android) 200 130)))
+  (if (android)
+      (setq with-editor-emacsclient-executable nil))
+
+  (let ((font-height (if (android) 180 130)))
     (set-face-attribute 'default nil
                         :font "FiraCode Nerd Font"
                         :height font-height
@@ -59,7 +62,10 @@
 
 
   ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
-  (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13"))
+  (if (android)
+      (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-18"))
+    (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13")))
+  
 
   ;; Save manual customizations to a separate file instead of cluttering `init.el'.
   ;; You can M-x customize, M-x customize-group, or M-x customize-themes, etc.
