@@ -43,14 +43,6 @@
     (string-match "\\*[^*]+\\*" (buffer-name buffer)))
   (setq switch-to-prev-buffer-skip 'skip-these-buffers)
 
-  ;; This works in the scratch buffer but not in the config
-  ;; (set-face-attribute
-  ;;  'default nil
-  ;;  :font (font-spec :family "Monaspace Xenon Var"
-  ;;                   :size 17
-  ;;                   :weight 'light  ; or 'light if it's still too bold
-  ;;                   )
-  ;;  )
   (if (android)
       (setq with-editor-emacsclient-executable nil))
 
@@ -63,8 +55,8 @@
 
   ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
   (if (android)
-      (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly"))
-    (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly")))
+      (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-18"))
+    (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-13")))
   
 
   ;; Save manual customizations to a separate file instead of cluttering `init.el'.
