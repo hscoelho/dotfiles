@@ -11,7 +11,5 @@
      ;; conversion-style set to nil for evil integration
     (setq overriding-text-conversion-style nil))
 
-  ;; Global frame font scaling (scales everything proportionally)
-  (set-face-attribute 'default nil :height 220) ; Base font size
   )
 

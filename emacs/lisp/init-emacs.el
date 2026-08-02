@@ -51,10 +51,12 @@
   ;;                   :weight 'light  ; or 'light if it's still too bold
   ;;                   )
   ;;  )
-  (set-face-attribute 'default nil
-                      :font "FiraCode Nerd Font"
-                      :height 130
-                      :weight 'normal)
+  (let ((font-height (if (eq system-type 'android) 200 130)))
+    (set-face-attribute 'default nil
+                        :font "FiraCode Nerd Font"
+                        :height font-height
+                        :weight 'normal))
+
 
   ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
   (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13"))
