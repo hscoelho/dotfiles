@@ -51,8 +51,13 @@
   ;;                   :weight 'light  ; or 'light if it's still too bold
   ;;                   )
   ;;  )
-  (add-to-list 'default-frame-alist
-               '(font . "Monaspace Xenon Var-13:weight=light"))
+  (set-face-attribute 'default nil
+                      :font "FiraCode Nerd Font"
+                      :height 130
+                      :weight 'normal)
+
+  ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
+  (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13"))
 
   ;; Save manual customizations to a separate file instead of cluttering `init.el'.
   ;; You can M-x customize, M-x customize-group, or M-x customize-themes, etc.

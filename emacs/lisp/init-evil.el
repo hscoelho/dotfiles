@@ -311,6 +311,7 @@
   (setq evil-escape-key-sequence "jj")
   (setq evil-escape-delay 0.2)
   (push 'visual evil-escape-excluded-states)
+  (push 'ghostel-mode evil-escape-excluded-major-modes)
   (evil-escape-mode 1))
 
 ;; EVIL COLLECTION
