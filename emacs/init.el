@@ -53,7 +53,6 @@
 (require 'init-window)
 
 ;; (require 'init-auto-tab-groups)
-(require 'init-centaur-tabs)
 (require 'init-chinese)
 (require 'init-agent)
 (require 'init-centered-line)
