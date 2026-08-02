@@ -1,6 +1,5 @@
 [tools]
 dotenvx = "latest"
-jj = "latest"
 node = ["24.11.1", "dev_tools"]
 rust = "latest"
 usage = "latest"
@@ -8,4 +7,7 @@ usage = "latest"
 
 [tool_alias.node.versions]
 dev_tools = "24.14.1"
+
+[settings]
+experimental = true
 
