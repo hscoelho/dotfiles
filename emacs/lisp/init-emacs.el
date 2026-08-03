@@ -46,18 +46,16 @@
   (if (android)
       (setq with-editor-emacsclient-executable nil))
 
-  (let ((font-height (if (android) 180 130)))
+  ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
+  (if (android)
+      (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-18"))
+    (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-14")))
+
+  (let ((font-height (if (android) 180 140)))
     (set-face-attribute 'default nil
                         :font "Iosevka Term Curly"
                         :height font-height
                         :weight 'normal))
-
-
-  ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
-  (if (android)
-      (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-18"))
-    (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-13")))
-  
 
   ;; Save manual customizations to a separate file instead of cluttering `init.el'.
   ;; You can M-x customize, M-x customize-group, or M-x customize-themes, etc.
@@ -70,6 +68,7 @@
   (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
 
   :init                        ;; Initialization settings that apply before the package is loaded.
+  
   (tool-bar-mode -1)           ;; Disable the tool bar for a cleaner interface.
   (menu-bar-mode -1)           ;; Disable the menu bar for a more streamlined look.
 
