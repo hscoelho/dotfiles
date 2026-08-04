@@ -24,7 +24,10 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-# If the shell is interactive and nu exists, switch to it
-if [[ $- == *i* ]] && command -v nu > /dev/null; then
-    exec nu
+# If the shell is interactive and not dumb and nu exists, switch to it
+if [[ $- == *i* ]] && [ -z "$NU_VERSION" ] && [ "$TERM" != "dumb" ]; then
+    # Ensure nu is in the PATH before trying to exec
+    if command -v nu >/dev/null 2>&1; then
+        exec nu
+    fi
 fi
