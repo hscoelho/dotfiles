@@ -48,10 +48,10 @@
 
   ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
   (if (android)
-      (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-18"))
+      (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-22"))
     (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-14")))
 
-  (let ((font-height (if (android) 180 140)))
+  (let ((font-height (if (android) 220 140)))
     (set-face-attribute 'default nil
                         :font "Iosevka Term Curly"
                         :height font-height
