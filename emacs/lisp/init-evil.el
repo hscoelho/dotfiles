@@ -117,6 +117,7 @@
   ;; Terminal
   (evil-define-key 'normal 'global (kbd "<leader> t t") 'ghostel-project)
   (evil-define-key 'normal 'global (kbd "<leader> t n") 'new-ghostel-terminal-in-project)
+  (evil-define-key 'normal 'global (kbd "<leader> t h") 'ghostel)
   (evil-define-key 'normal 'global (kbd "<leader> t l") 'ghostel-project-list-buffers)
   (evil-define-key 'normal 'global (kbd "<leader> t ]") 'ghostel-project-next)
   (evil-define-key 'normal 'global (kbd "<leader> t [") 'ghostel-project-previous)

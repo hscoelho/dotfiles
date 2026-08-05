@@ -63,3 +63,5 @@ use "completions-jj.nu" *  # Or `source "completions-jj.nu"`
 use ./code_review.nu *
 
 $env.path ++= ["~/.opencode/bin"]
+$env.path ++= ["~/.kimi-code/bin"]
+$env.path ++= ["~/.local/share/coursier/bin"]
