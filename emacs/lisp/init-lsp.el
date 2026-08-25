@@ -32,6 +32,7 @@
            rust-ts-mode                                 ;; Enable LSP for Rust
            ;; html-ts-mode
            web-mode                                     ;; Enable LSP for Web (HTML)
+           scala-mode
            ) . lsp-deferred))                   
   :commands lsp
   :custom
