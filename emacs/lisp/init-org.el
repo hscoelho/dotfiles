@@ -3,8 +3,8 @@
   :straight t     ;; This is built-in, no need to fetch it.
   :config
   (if (android)
-      (setq org-directory "/content/storage/com.android.externalstorage.documents/primary:org/")
-    (setq org-directory "~/org/")
+      (setq org-directory "/content/storage/com.android.externalstorage.documents/primary:org")
+    (setq org-directory "~/org")
     )
   :custom
   ;; (org-directory "~/org/")
@@ -16,9 +16,9 @@
   (org-return-follows-link t)
   (org-log-done 'time)
   (org-startup-folded 'content)
-  (org-default-notes-file (concat org-directory "notes.org"))
+  (org-default-notes-file (concat org-directory "/notes.org"))
   (org-capture-templates
-   '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
+   '(("t" "Todo" entry (file+headline (concat org-directory "/tasks.org") "Tasks")
       "* TODO %?\n %T")))
   )
 
@@ -30,8 +30,7 @@
   (setq org-journal-prefix-key "C-c j ")
   :custom
   (org-journal-file-format "%Y%m%d.org")
-  ;; (org-journal-dir "~/org/journal/")
-  (org-journal-dir (concat org-directory "journal/"))
+  (org-journal-dir (concat org-directory "/journal/"))
   (org-journal-find-file 'find-file)
   (org-journal-enable-agenda-integration t)
   )

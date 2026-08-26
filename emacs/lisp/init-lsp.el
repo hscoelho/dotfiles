@@ -123,4 +123,12 @@
    ("\\.mustache\\'" . web-mode)
    ("\\.djhtml\\'" . web-mode)))
 
+;; nushell ts
+(add-to-list 'treesit-language-source-alist
+             '(nu "https://github.com/nushell/tree-sitter-nu"))
+
+(use-package nushell-ts-mode
+  :straight (nushell-ts-mode :type git :host github :repo "herbertjones/nushell-ts-mode")
+)
+
 (provide 'init-lsp)

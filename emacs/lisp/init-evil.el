@@ -45,7 +45,7 @@
 (defun tasks-file ()
   "Open the org-journal entry for yesterday."
   (interactive)
-  (find-file (concat org-directory "tasks.org")))
+  (find-file (concat org-directory "/tasks.org")))
 
 (defun tasks-archive-file ()
   "Open the org-journal entry for yesterday."
