@@ -86,22 +86,6 @@
          )
   )
 
-;;; LSP Additional Servers
-;; You can extend `lsp-mode' by integrating additional language servers for specific
-;; technologies. For example, `lsp-tailwindcss' provides support for Tailwind CSS
-;; classes within your HTML files. By using various LSP packages, you can connect
-;; multiple LSP servers simultaneously, enhancing your coding experience across
-;; different languages and frameworks.
-(use-package lsp-tailwindcss
-  :ensure t
-  :straight t
-  :defer t
-  :config
-  (add-to-list 'lsp-language-id-configuration '(".*\\.erb$" . "html")) ;; Associate ERB files with HTML.
-  :init
-  (setq lsp-tailwindcss-add-on-mode t))
-
-
 ;; Angular LSP Configuration
 (defun ng-server-command ()
   "Return the Angular language server command using mise node path."
