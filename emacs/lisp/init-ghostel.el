@@ -7,7 +7,7 @@
 
 (use-package evil-ghostel
   :straight t
-  :after (ghostel evil)
+  :after (ghostel evil evil-escape)
   :hook (ghostel-mode . evil-ghostel-mode))
 
 (provide 'init-ghostel)
