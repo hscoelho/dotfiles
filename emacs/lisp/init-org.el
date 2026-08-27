@@ -30,6 +30,9 @@
   (setq org-journal-prefix-key "C-c j ")
   :custom
   (org-journal-file-format "%Y%m%d.org")
+  ;; The %x was change to a explicit date format because android and linux emacs were producing different formats for %x 
+  ;; this way, I can also use day, month, year, which I prefer
+  (org-journal-date-format "%A, %d/%m/%Y")
   (org-journal-dir (concat org-directory "/journal/"))
   (org-journal-find-file 'find-file)
   (org-journal-enable-agenda-integration t)
