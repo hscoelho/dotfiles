@@ -15,3 +15,8 @@
     (setq overriding-text-conversion-style nil))
   )
 
+(setq load-prefer-newer t)
+(setq native-comp-jit-compilation t)
+
+;; Disables the package.el because straight.el is used
+(setq package-enable-at-startup nil) 
