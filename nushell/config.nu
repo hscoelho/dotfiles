@@ -65,3 +65,4 @@ use ./code_review.nu *
 $env.path ++= ["~/.opencode/bin"]
 $env.path ++= ["~/.kimi-code/bin"]
 $env.path ++= ["~/.local/share/coursier/bin"]
+source "~/.cargo/env.nu"

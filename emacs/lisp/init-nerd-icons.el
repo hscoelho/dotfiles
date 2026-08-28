@@ -1,9 +1,25 @@
 ;;; -*- lexical-binding: t -*-
 
-;;; If nerd-icons are not appearing in the GUI, run 'M-x nerd-icons-install-fonts'!
+;; (when (member system-type '(gnu gnu/linux gnu/kfreebsd darwin))
+;;   (unless (find-font (font-spec :name "Symbols Nerd Font Mono"))
+;;     (nerd-icons-install-fonts t)))
+
+;; (when (android)
+  ;; TODO: Add the correct path here...
+  ;; (unless (find-font (font-spec :name "Symbols Nerd Font Mono"))
+  ;; (nerd-icons-install-fonts "c:/Users/username/Desktop/"))
+;; )
+
 (use-package nerd-icons
   :straight t
-  :defer t)
+  :custom
+  (nerd-icons-font-family "Symbols Nerd Font Mono")
+  :config
+  ;; Fallback font to properly show nerd-icons!
+  (if (android)
+      (set-fontset-font t nil  "Symbols Nerd Font Mono-22" nil 'append)
+    (set-fontset-font t nil  "Symbols Nerd Font Mono-14" nil 'append))
+  )
 
 (use-package nerd-icons-dired
   :straight t

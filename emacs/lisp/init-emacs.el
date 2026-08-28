@@ -57,13 +57,6 @@
                         :height font-height
                         :weight 'normal))
 
-  ;; Save manual customizations to a separate file instead of cluttering `init.el'.
-  ;; You can M-x customize, M-x customize-group, or M-x customize-themes, etc.
-  ;; The saves you do manually using the Emacs interface would overwrite this file.
-  ;; The following makes sure those customizations are in a separate file.
-  (setq custom-file (locate-user-emacs-file "custom-vars.el")) ;; Specify the custom file path.
-  (load custom-file 'noerror 'nomessage)                       ;; Load the custom file quietly, ignoring errors.
-
   ;; Makes Emacs vertical divisor the symbol │ instead of |.
   (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
 

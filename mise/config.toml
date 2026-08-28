@@ -1,7 +1,6 @@
 [tools]
 dotenvx = "latest"
 node = ["24.11.1", "dev_tools"]
-rust = "latest"
 usage = "latest"
 "npm:obsidian-headless" = { version = "latest", depends = "node@dev_tools" }
 
