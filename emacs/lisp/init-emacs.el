@@ -46,6 +46,8 @@
   (if (android)
       (setq with-editor-emacsclient-executable nil))
 
+  ;; This has information on fonts: https://idiocy.org/emacs-fonts-and-fontsets.html
+  ;; I set the nerd icon font as a fallback in the nerd-icon package file
   ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
   (if (android)
       (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-22"))
