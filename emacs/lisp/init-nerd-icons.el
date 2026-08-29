@@ -17,7 +17,7 @@
   :config
   ;; Fallback font to properly show nerd-icons!
   (if (android)
-      (set-fontset-font t nil  "Symbols Nerd Font Mono-22" nil 'append)
+      (set-fontset-font t nil  "Symbols Nerd Font Mono-22" nil 'prepend)
     (set-fontset-font t nil  "Symbols Nerd Font Mono-14" nil 'append))
   )
 

@@ -140,7 +140,7 @@
   (evil-define-key 'normal 'global (kbd "<leader> o s") 'org-fold-show-all)
 
   ;; Chinese dictionary
-  (evil-define-key 'normal 'global (kbd "<leader> c c") 'cc-edict-at-point)
+  ;; (evil-define-key 'normal 'global (kbd "<leader> c c") 'cc-edict-at-point)
 
   ;; Jinx (spell checker)
   (evil-define-key 'normal 'global (kbd "<leader> j a") 'jinx-correct)
@@ -259,6 +259,11 @@
       (interactive)
       (shell-command (concat "prettier --write " (shell-quote-argument (buffer-file-name))))
       (revert-buffer t t t)))
+
+  ;; Compile commands
+  (evil-define-key 'normal 'global (kbd "<leader> c h") 'compile)
+  (evil-define-key 'normal 'global (kbd "<leader> c p") 'project-compile)
+  (evil-define-key 'normal 'global (kbd "<leader> c c") 'recompile)
 
   (evil-define-key 'normal 'global (kbd "<leader> c f") 'apheleia-format-buffer) ;; Run formatter (prettier)
   (evil-define-key 'normal 'global (kbd "grr") 'lsp-find-references)

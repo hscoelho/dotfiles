@@ -86,6 +86,13 @@
          )
   )
 
+;; Use the Debug Adapter Protocol for running tests and debugging
+(use-package dap-mode
+  :straight t
+  :hook
+  (lsp-mode . dap-mode)
+  (lsp-mode . dap-ui-mode))
+
 ;; Angular LSP Configuration
 (defun ng-server-command ()
   "Return the Angular language server command using mise node path."
@@ -122,6 +129,37 @@
    ("\\.erb\\'" . web-mode)
    ("\\.mustache\\'" . web-mode)
    ("\\.djhtml\\'" . web-mode)))
+
+;;; SCALA
+(use-package scala-mode
+  :straight t
+  :interpreter ("scala" . scala-mode))
+
+;; Enable sbt mode for executing sbt commands
+(use-package sbt-mode
+  :straight t
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map)
+   ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
+   (setq sbt:program-options '("-Dsbt.supershell=false")))
+
+;; Add metals backend for lsp-mode
+(use-package lsp-metals)
+
+;; Enable navigating to dependency sources via M-. (xref-find-definitions).
+;; Metals returns jar:file: URIs for symbols defined in external libraries.
+;; Without jarchive, Emacs has no file-name-handler for these URIs and will
+;; fail to open them.
+(use-package jarchive
+  :straight t
+  :config
+  (jarchive-mode 1))
 
 ;; nushell ts
 (add-to-list 'treesit-language-source-alist
