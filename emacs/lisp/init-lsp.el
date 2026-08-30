@@ -131,6 +131,7 @@
    ("\\.djhtml\\'" . web-mode)))
 
 ;;; SCALA
+;;; If debugging is needed: https://sideshowcoder.com/2021/11/12/attaching-metals-lsp-debugger-to-existing-process-in-emacs/
 (use-package scala-mode
   :straight t
   :interpreter ("scala" . scala-mode))
@@ -150,7 +151,8 @@
    (setq sbt:program-options '("-Dsbt.supershell=false")))
 
 ;; Add metals backend for lsp-mode
-(use-package lsp-metals)
+(use-package lsp-metals
+  :straight t)
 
 ;; Enable navigating to dependency sources via M-. (xref-find-definitions).
 ;; Metals returns jar:file: URIs for symbols defined in external libraries.
