@@ -50,6 +50,7 @@
 (require 'init-epub)
 (require 'init-eldoc)
 (require 'init-embark)
+(require 'init-exec-path-from-shell)
 (require 'init-folding)
 (require 'init-formatting)
 (require 'init-ghostel)

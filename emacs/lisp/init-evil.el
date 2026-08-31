@@ -240,7 +240,7 @@
   (evil-define-key 'normal 'global (kbd "<leader> u") 'undo-tree-visualize)
 
   ;; Help keybindings
-  (evil-define-key 'normal 'global (kbd "<leader> h m") 'helpful-mode) ;; Describe current mode
+  (evil-define-key 'normal 'global (kbd "<leader> h m") 'describe-mode) ;; Describe current mode
   (evil-define-key 'normal 'global (kbd "<leader> h f") 'helpful-function) ;; Describe function
   (evil-define-key 'normal 'global (kbd "<leader> h v") 'helpful-variable) ;; Describe variable
   (evil-define-key 'normal 'global (kbd "<leader> h k") 'describe-key) ;; Describe key
@@ -269,6 +269,8 @@
   (evil-define-key 'normal 'global (kbd "grr") 'lsp-find-references)
 
   ;; LSP commands keybindings
+  (evil-define-key 'normal 'global (kbd "<leader> l l") 'lsp-avy-lens) ;; Execute lsp-lens commands (like 'run' and 'debug', when the lsp server is configured properly)
+  (evil-define-key 'normal 'global (kbd "<leader> l k") 'custom-consult-lsp-lens-execute) ;; Execute lsp-lens commands (like 'run' and 'debug', when the lsp server is configured properly)
   (evil-define-key 'normal lsp-mode-map
     ;; (kbd "gd") 'lsp-find-definition                ;; evil-collection already provides gd
     ;; (kbd "grr") 'lsp-find-references                   ;; Finds LSP references (changed to global, I think I should do this to the others as well)

@@ -62,7 +62,10 @@ use "completions-jj.nu" *  # Or `source "completions-jj.nu"`
 ## Custom commands
 use ./code_review.nu *
 
-$env.path ++= ["~/.opencode/bin"]
-$env.path ++= ["~/.kimi-code/bin"]
-$env.path ++= ["~/.local/share/coursier/bin"]
+$env.path = $env.path
+  | append "~/.opencode/bin"
+  | append "~/.local/share/coursier/bin"
+  | append "~/.kimi-code/bin"
+  | uniq
+
 source "~/.cargo/env.nu"

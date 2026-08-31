@@ -33,7 +33,7 @@
            ;; html-ts-mode
            web-mode                                     ;; Enable LSP for Web (HTML)
            scala-mode
-           ) . lsp-deferred))                   
+           ) . lsp-deferred))
   :commands lsp
   :custom
   (lsp-keymap-prefix "C-c l")                           ;; Set the prefix for LSP commands.
@@ -134,7 +134,10 @@
 ;;; If debugging is needed: https://sideshowcoder.com/2021/11/12/attaching-metals-lsp-debugger-to-existing-process-in-emacs/
 (use-package scala-mode
   :straight t
-  :interpreter ("scala" . scala-mode))
+  :interpreter ("scala" . scala-mode)
+  ;; :mode (("\\.sc" . scala-mode)
+  ;;        ("\\.scala" . scala-mode))
+  )
 
 ;; Enable sbt mode for executing sbt commands
 (use-package sbt-mode
