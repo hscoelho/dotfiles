@@ -195,6 +195,7 @@
   (evil-define-key 'normal 'global (kbd "<leader> g D") 'diff-hl-show-hunk) ;; Show diff for a hunk
   (evil-define-key 'normal 'global (kbd "<leader> g b") 'vc-annotate)       ;; Annotate buffer with version control info
 
+  ;; A (for AI)
   ;; Agent shell
   (evil-define-key 'normal 'global (kbd "<leader> a a") 'agent-shell) 
   ;; mode and model can be selected with (gs, gm and gv)
@@ -203,6 +204,9 @@
   (evil-define-key 'normal 'global (kbd "<leader> a n") 'agent-shell-new-shell) 
   (evil-define-key 'normal 'global (kbd "<leader> a r") 'agent-shell-restart) 
   (evil-define-key 'normal 'global (kbd "<leader> a R") 'agent-shell-resume-session) 
+
+  ;; gpt.el
+  (evil-define-key 'normal 'global (kbd "<leader> a c") 'gptel) 
 
   ;; Buffer management keybindings
   (evil-define-key 'normal 'global (kbd "] b") 'switch-to-next-buffer) ;; Switch to next buffer
