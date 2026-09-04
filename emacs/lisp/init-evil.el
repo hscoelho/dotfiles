@@ -204,7 +204,6 @@
   (evil-define-key 'normal 'global (kbd "<leader> a n") 'agent-shell-new-shell) 
   (evil-define-key 'normal 'global (kbd "<leader> a r") 'agent-shell-restart) 
   (evil-define-key 'normal 'global (kbd "<leader> a R") 'agent-shell-resume-session) 
-
   ;; gpt.el
   (evil-define-key 'normal 'global (kbd "<leader> a c") 'gptel) 
 

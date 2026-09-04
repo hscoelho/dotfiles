@@ -30,9 +30,13 @@
   (use-dialog-box nil)                            ;; Disable dialog boxes in favor of minibuffer prompts.
   (use-short-answers t)                           ;; Use short answers in prompts for quicker responses (y instead of yes)
   (warning-minimum-level :emergency)              ;; Set the minimum level of warnings to display.
+  (view-read-only t)
+  (repeat-mode t)
+  (pixel-scroll-mode t)
 
   :hook                                           ;; Add hooks to enable specific features in certain modes.
-  (prog-mode . display-line-numbers-mode)         ;; Enable line numbers in programming modes.
+  (prog-mode . display-line-numbers-mode)
+  (text-mode . display-line-numbers-mode)
 
   :config
   ;; By default emacs gives you access to a lot of *special* buffers, while navigating with [b and ]b,
@@ -62,8 +66,26 @@
   ;; Makes Emacs vertical divisor the symbol │ instead of |.
   (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
 
+  ;; from the newcomers-preset theme
+  (setopt frame-resize-pixelwise t)
+  (setopt window-resize-pixelwise t)
+  (setopt mode-line-compact 'long)
+  (setopt tab-bar-history-mode t)
+  (setopt dired-auto-revert-buffer t)
+  (setopt dired-mouse-drag-files t)
+  (setopt shell-command-prompt-show-cwd t)
+  (setopt compilation-scroll-output 'first-error)
+  (setopt editorconfig-mode t)
+  (setopt vc-auto-revert-mode t)
+  (setopt vc-dir-save-some-buffers-on-revert t)
+  (setopt vc-find-revision-no-save t)
+  (setopt vc-follow-symlinks t)
+  (setopt vc-deduce-backend-nonvc-modes t)
+
+
+
+
   :init                        ;; Initialization settings that apply before the package is loaded.
-  
   (tool-bar-mode -1)           ;; Disable the tool bar for a cleaner interface.
   (menu-bar-mode -1)           ;; Disable the menu bar for a more streamlined look.
 
