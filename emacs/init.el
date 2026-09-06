@@ -75,7 +75,7 @@
 (require 'init-vc)
 (require 'init-vertico)
 (require 'init-vterm)
-(require 'init-wakatime)
+;; (require 'init-wakatime)
 (require 'init-which-key)
 
 (use-package perspective
