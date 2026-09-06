@@ -72,6 +72,7 @@
 ;; (require 'init-reader)
 (require 'init-theme)
 (require 'init-todo)
+(require 'init-tramp)
 (require 'init-undo)
 (require 'init-vc)
 (require 'init-vertico)
