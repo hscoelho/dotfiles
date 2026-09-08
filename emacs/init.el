@@ -56,6 +56,7 @@
 (require 'init-ghostel)
 (require 'init-gpt)
 (require 'init-helpful)
+(require 'init-howm)
 (require 'init-indent)
 (require 'init-jinx)
 (require 'init-kitty)
