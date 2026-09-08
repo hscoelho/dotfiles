@@ -248,10 +248,6 @@
   (evil-define-key 'normal 'global (kbd "<leader> h v") 'helpful-variable) ;; Describe variable
   (evil-define-key 'normal 'global (kbd "<leader> h k") 'describe-key) ;; Describe key
 
-  ;; howm (notes)
-  (evil-define-key 'normal 'global (kbd "<leader> n n") 'howm-menu)
-  (evil-define-key 'normal 'global (kbd "<leader> n c") 'howm-create)
-
   ;; Tab navigation
   (evil-define-key 'normal 'global (kbd "] t") 'tab-next) ;; Go to next tab
   (evil-define-key 'normal 'global (kbd "[ t") 'tab-previous) ;; Go to previous tab
