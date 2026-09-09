@@ -36,27 +36,28 @@
 
   ;; howm-menu-mode
   (evil-define-key 'normal howm-menu-mode-map
-    "<return>"   #'action-lock-magic-return
-    "e"   #'howm-remember
-    "c"   #'howm-create
-    "D"   #'howm-duplicate-line
-    "s"   #'howm-list-grep-fixed
-    "g"   #'howm-list-grep
-    "o"   #'howm-list-occur
-    "h"   #'howm-history
-    "a"   #'howm-list-notes
-    "l"   #'howm-list-recent
-    "A"   #'howm-list-around
-    "w"   #'howm-random-walk
-    "y"   #'howm-list-schedule
-    "t"   #'howm-list-todo
-    "."   #'howm-find-today
-    ":"   #'howm-find-yesterday
-    "b"   #'howm-list-buffers
-    "x"   #'howm-list-mark-ring
-    "Q"   #'howm-kill-all
-    "d"   #'howm-insert-date
-    "m"   #'howm-menu-edit
+    (kbd "RET") #'action-lock-magic-return
+    "R" #'howm-menu
+    "e" #'howm-remember
+    "c" #'howm-create
+    "D" #'howm-duplicate-line
+    "s" #'howm-list-grep-fixed
+    "g" #'howm-list-grep
+    "o" #'howm-list-occur
+    "h" #'howm-history
+    "a" #'howm-list-notes
+    "l" #'howm-list-recent
+    "A" #'howm-list-around
+    "w" #'howm-random-walk
+    "y" #'howm-list-schedule
+    "t" #'howm-list-todo
+    "." #'howm-find-today
+    ":" #'howm-find-yesterday
+    "b" #'howm-list-buffers
+    "x" #'howm-list-mark-ring
+    "Q" #'howm-kill-all
+    "d" #'howm-insert-date
+    "m" #'howm-menu-edit
     "q" #'bury-buffer
     )
 

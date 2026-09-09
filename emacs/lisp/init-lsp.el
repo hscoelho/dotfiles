@@ -155,7 +155,16 @@
 
 ;; Add metals backend for lsp-mode
 (use-package lsp-metals
-  :straight t)
+  :straight t
+  :config
+  ;; This is done so that my metals works in my android tablet through TRAMP
+  (defun lsp-metals--server-command-remote-safe()
+    (if (file-remote-p default-directory)
+        '("metals" ,@lsp-metals-server-args)
+      `(,(lsp-package-path 'metals) ,@lsp-metals-server-args)
+      ))
+  (advice-add 'lsp-metals--server-command :override #'lsp-metals--server-command-remote-safe)
+  )
 
 ;; Enable navigating to dependency sources via M-. (xref-find-definitions).
 ;; Metals returns jar:file: URIs for symbols defined in external libraries.
