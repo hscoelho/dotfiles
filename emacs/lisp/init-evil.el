@@ -335,15 +335,13 @@
   :after evil
   :init
   ;; This hook fires immediately AFTER evil-collection finishes injecting its own keys
-  (add-hook 'evil-collection-setup-hook
-            (lambda (mode mode-keymaps &rest _args)
-              (when (eq mode 'dired)
-                (evil-collection-define-key 'normal 'dired-mode-map " " nil))))
-  :custom
-  (evil-collection-want-find-usages-bindings t)
-  ;; Hook to initialize `evil-collection' when `evil-mode' is activated.
-  :hook
-  (evil-mode . evil-collection-init))
+  ;; (add-hook 'evil-collection-setup-hook
+  ;;           (lambda (mode mode-keymaps &rest _args)
+  ;;             (when (eq mode 'dired)
+  ;;               (evil-collection-define-key 'normal 'dired-mode-map " " nil))))
+  :config
+  (evil-collection-init)
+  )
 
 ;; EVIL SURROUND
 ;; The `evil-surround' package provides text object surround
