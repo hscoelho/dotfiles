@@ -3,7 +3,8 @@
   :straight t     ;; This is built-in, no need to fetch it.
   :config
   (if (android)
-      (setq org-directory "/content/storage/com.android.externalstorage.documents/primary:org")
+      (setq org-directory "/data/data/com.termux/files/home/org")
+      ;; (setq org-directory "/content/storage/com.android.externalstorage.documents/primary:org")
     (setq org-directory "~/org")
     )
   :custom
