@@ -335,10 +335,11 @@
   :after evil
   :init
   ;; This hook fires immediately AFTER evil-collection finishes injecting its own keys
-  ;; (add-hook 'evil-collection-setup-hook
-  ;;           (lambda (mode mode-keymaps &rest _args)
-  ;;             (when (eq mode 'dired)
-  ;;               (evil-collection-define-key 'normal 'dired-mode-map " " nil))))
+  ;; disables <space> so that I can use my normal shortcuts
+  (add-hook 'evil-collection-setup-hook
+            (lambda (mode mode-keymaps &rest _args)
+              (when (eq mode 'dired)
+                (evil-collection-define-key 'normal 'dired-mode-map " " nil))))
   :config
   (evil-collection-init)
   )
