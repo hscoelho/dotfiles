@@ -54,12 +54,12 @@
   ;; I set the nerd icon font as a fallback in the nerd-icon package file
   ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
   (if (android)
-      (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-22"))
-    (add-to-list 'default-frame-alist '(font . "Iosevka Term Curly-14")))
+      (add-to-list 'default-frame-alist '(font . "Maple Mono NF CN-20"))
+    (add-to-list 'default-frame-alist '(font . "Maple Mono NF CN-14")))
 
-  (let ((font-height (if (android) 220 140)))
+  (let ((font-height (if (android) 200 140)))
     (set-face-attribute 'default nil
-                        :font "Iosevka Term Curly"
+                        :font "Maple Mono NF CN"
                         :height font-height
                         :weight 'normal))
 
