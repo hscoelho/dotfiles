@@ -15,7 +15,7 @@
   (require 'howm-org) ;; Write notes in Org-mode. (*2)
   ;; 
   ;; Preferences
-  (setq howm-directory "~/org/howm") ;; Where to store the files?
+  (setq howm-directory (concat org-directory "/howm")) ;; Where to store the files?
   (setq howm-follow-theme t) ;; Use your Emacs theme colors. (*3)
 
   (evil-define-key 'normal 'global
