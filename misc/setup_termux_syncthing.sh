@@ -1,4 +1,4 @@
-SYNCTHING_GUI_ADDRESS="127.0.0.1:8384"
+SYNCTHING_GUI_ADDERSS="127.0.0.1:37289"
 log "Setting up Syncthing as a termux-services runit service"
 SV_DIR="$PREFIX/var/service/syncthing"
 mkdir -p "$SV_DIR/log"
