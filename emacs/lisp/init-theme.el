@@ -25,7 +25,9 @@
      (number constant)
      ))
   :config
-  (load-theme 'modus-flexoki-light :no-confirm))
+  ;; (load-theme 'modus-flexoki-light :no-confirm)
+  (load-theme 'modus-operandi-tinted :no-confirm)
+  )
 
 ;; (use-package modus-themes
 ;;   :straight t

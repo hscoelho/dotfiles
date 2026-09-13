@@ -1,0 +1,157 @@
+{
+  "name": "Flexoki Red (Corrected)",
+  "corePalette": {
+    "primary": null,
+    "secondary": null,
+    "tertiary": null,
+    "neutral": null,
+    "neutralVariant": null,
+    "error": null
+  },
+  "lightColorScheme": {
+    "primary": [
+      "#",
+      "#ffD14D41"
+    ],
+    "onPrimary": [
+      "#",
+      "#ffE6E4D9"
+    ],
+    "primaryContainer": [
+      "#",
+      "#ffD14D41"
+    ],
+    "onPrimaryContainer": [
+      "#",
+      "#ffE6E4D9"
+    ],
+    "secondary": [
+      "#",
+      "#ffD14D41"
+    ],
+    "onSecondary": [
+      "#",
+      "#ffE6E4D9"
+    ],
+    "secondaryContainer": [
+      "#",
+      "#ffD14D41"
+    ],
+    "onSecondaryContainer": [
+      "#",
+      "#ffE6E4D9"
+    ],
+    "tertiary": [
+      "#",
+      "#ffD14D41"
+    ],
+    "onTertiary": [
+      "#",
+      "#ffE6E4D9"
+    ],
+    "tertiaryContainer": [
+      "#",
+      "#ffD14D41"
+    ],
+    "onTertiaryContainer": [
+      "#",
+      "#ffE8705F"
+    ],
+    "error": [
+      "#",
+      "#ffD14D41"
+    ],
+    "onError": [
+      "#",
+      "#ffE6E4D9"
+    ],
+    "errorContainer": [
+      "#",
+      "#ffAF3029"
+    ],
+    "onErrorContainer": [
+      "#",
+      "#ffE6E4D9"
+    ],
+    "surface": [
+      "#",
+      "#ffFFFCF0"
+    ],
+    "onSurface": [
+      "#",
+      "#ff100F0F"
+    ],
+    "onSurfaceVariant": [
+      "#",
+      "#ffD14D41"
+    ],
+    "outline": [
+      "#",
+      "#ff9F9D96"
+    ],
+    "outlineVariant": [
+      "#",
+      "#ffB7B5AC"
+    ],
+    "inverseSurface": [
+      "#",
+      "#ff1C1B1A"
+    ],
+    "inverseOnSurface": [
+      "#",
+      "#ffCECDC3"
+    ],
+    "inversePrimary": [
+      "#",
+      "#ffAF3029"
+    ],
+    "surfaceDim": [
+      "#",
+      "#ffCECDC3"
+    ],
+    "surfaceBright": [
+      "#",
+      "#ffFFFCF0"
+    ],
+    "surfaceContainerLowest": [
+      "#",
+      "#ffF2F0E5"
+    ],
+    "surfaceContainerLow": [
+      "#",
+      "#ffE6E4D9"
+    ],
+    "surfaceContainer": [
+      "#",
+      "#ffDAD8CE"
+    ],
+    "surfaceContainerHigh": [
+      "#",
+      "#ffCECDC3"
+    ],
+    "surfaceContainerHighest": [
+      "#",
+      "#ffB7B5AC"
+    ],
+    "background": [
+      "#",
+      "#ffFFFCF0"
+    ],
+    "onBackground": [
+      "#",
+      "#ff100F0F"
+    ],
+    "surfaceTint": [
+      "#",
+      "#ffFFFCF0"
+    ],
+    "scrim": [
+      "#",
+      "#ff100F0F"
+    ],
+    "surfaceVariant": [
+      "#",
+      "#ffFFFCF0"
+    ]
+  }
+}
