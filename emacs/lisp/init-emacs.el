@@ -55,9 +55,9 @@
   ;; Ensure newly created GUI frames (e.g., via emacsclient or C-x 5 2) also inherit this font
   (if (android)
       (add-to-list 'default-frame-alist '(font . "Maple Mono NF CN-20"))
-    (add-to-list 'default-frame-alist '(font . "Maple Mono NF CN-14")))
+    (add-to-list 'default-frame-alist '(font . "Maple Mono NF CN-13")))
 
-  (let ((font-height (if (android) 200 140)))
+  (let ((font-height (if (android) 200 130)))
     (set-face-attribute 'default nil
                         :font "Maple Mono NF CN"
                         :height font-height
