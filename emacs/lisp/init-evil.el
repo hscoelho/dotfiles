@@ -83,7 +83,6 @@
   (ghostel-project t))
 
 (use-package evil
-  :ensure t
   :straight t
   :defer
   :hook

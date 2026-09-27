@@ -46,6 +46,7 @@
 (require 'init-corfu)
 (require 'init-delimiters)
 (require 'init-dired)
+(require 'init-docview)
 (require 'init-dotenv)
 (require 'init-epub)
 (require 'init-eldoc)
