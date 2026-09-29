@@ -289,13 +289,20 @@
       (when (get-buffer help-buffer)
         (switch-to-buffer-other-window help-buffer))))
 
-  ;; Emacs 31 finaly brings us support for 'floating windows' (a.k.a. "child frames")
-  ;; to terminal Emacs. If you're still using 30, docs will be shown in a buffer at the
-  ;; inferior part of your frame.
-  (evil-define-key 'normal 'global (kbd "K")
-    (if (>= emacs-major-version 31)
-        #'eldoc-box-help-at-point
-      #'ek/lsp-describe-and-jump))
+  ;; eldoc-box is better but it's bugged for some reason in my emacs, so I decided to replace it with lsp ui doc
+  (defun lsp-ui-doc-focus-or-glance ()
+    "The idea is to glance at the doc on first call and focus to it on second call if necessary"
+    (interactive)
+    (if (lsp-ui-doc--frame-visible-p)
+        (lsp-ui-doc-focus-frame)
+      (lsp-ui-doc-glance)
+      )
+    )
+  (evil-define-key 'normal 'global (kbd "K") 'lsp-ui-doc-focus-or-glance)
+
+  ;; TODO: fix this
+  ;; tried this but for some reason it's not working. for now, I will simply use C-w q, as normal
+  ;; (evil-define-key 'normal lsp-ui-doc-mode-map (kbd "q") #'evil-quit)
 
   ;; Commenting functionality for single and multiple lines
   (evil-define-key 'normal 'global (kbd "gcc")

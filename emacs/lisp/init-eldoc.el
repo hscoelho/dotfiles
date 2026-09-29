@@ -15,10 +15,10 @@
   :init
   (global-eldoc-mode))
 
-(use-package eldoc-box
-  :ensure t
-  :straight t
-  :defer t)
+;; This is a nice package, but the focus is not working for me, so I'm using lsp-ui-doc for now
+;; (use-package eldoc-box
+;;   :straight t
+;;   :defer t)
 
 
 (provide 'init-eldoc)
