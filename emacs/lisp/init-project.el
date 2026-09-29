@@ -23,7 +23,7 @@
 ;;   (project-tab-groups-mode 1))
 ;; (setq tab-bar-format '(tab-bar-format-history tab-bar-format-tabs-groups tab-bar-separator))
 
-(setq project-switch-commands 'consult-project-buffer)
+(setq project-switch-commands 'project-find-file)
 (setq project-vc-extra-root-markers '(".project"))
 
 (provide 'init-project)
