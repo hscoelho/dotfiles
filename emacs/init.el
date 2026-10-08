@@ -61,6 +61,7 @@
 (require 'init-indent)
 (require 'init-jinx)
 (require 'init-kitty)
+(require 'init-latex)
 (require 'init-lsp)
 (require 'init-marginalia)
 (require 'init-markdown)

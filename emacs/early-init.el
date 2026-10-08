@@ -14,6 +14,14 @@
      ;; conversion-style set to nil for evil integration
     (setq overriding-text-conversion-style nil))
 
+  (let ((texlive "/data/data/com.termux/files/usr/bin/texlive"))
+    (setenv "PATH" (concat (getenv "PATH") ":" texlive))
+    (setq exec-path (append exec-path (list texlive))))
+  (setenv "TEXMFROOT" "/data/data/com.termux/files/usr/share/texlive/2026")
+  (setenv "EXMFLOCAL" "/data/data/com.termux/files/usr/share/texlive/texmf-local")
+  (setenv "OSFONTDIR" "/data/data/com.termux/files/usr/share/fonts/TTF")
+  (setenv "RFONTS" "/data/data/com.termux/files/usr/share/groff/{current/font,site-font}/devps")
+
   ;; adding coursier bins
   ;; (let ((coursierpath "/data/data/com.termux/files/home/.local/share/coursier/bin"))
   ;;   (setenv "PATH" (concat (getenv "PATH") ":" coursierpath))
