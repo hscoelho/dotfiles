@@ -75,6 +75,7 @@
 (require 'init-theme)
 (require 'init-todo)
 (require 'init-tramp)
+(provide 'init-typst)
 (require 'init-undo)
 (require 'init-vc)
 (require 'init-vertico)
