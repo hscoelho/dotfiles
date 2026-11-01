@@ -9,11 +9,12 @@
   :init
   ;; A tab group for each project, made by `project-switch-project'.
   (auto-tab-groups-project-mode)
-  ;; The modern tab style.  The icons come from nerd-icons, if you
-  ;; have it.  Plain strings also work:
-  ;; (auto-tab-groups-eyecandy-icons '(("HOME" . "⌂")))
-  (auto-tab-groups-eyecandy-mode)
   (auto-tab-groups-mode))
+
+(use-package modern-tab
+  :straight (modern-tab :type git :host github :repo "MArpogaus/modern-tab")
+  :hook ((after-init . modern-tab-bar-mode)
+         (after-init . modern-tab-line-mode)))
 
 ;; this is a simple version of the auto-tab-groups
 ;; I prefer auto-tab-groups because of the eyecandy mode
