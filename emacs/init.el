@@ -48,6 +48,7 @@
 (require 'init-dired)
 (require 'init-docview)
 (require 'init-dotenv)
+(require 'init-eaf)
 (require 'init-epub)
 (require 'init-eldoc)
 (require 'init-embark)
@@ -75,7 +76,7 @@
 (require 'init-theme)
 (require 'init-todo)
 (require 'init-tramp)
-(provide 'init-typst)
+(require 'init-typst)
 (require 'init-undo)
 (require 'init-vc)
 (require 'init-vertico)
@@ -88,3 +89,34 @@
 
 (provide 'init)
 ;;; init.el ends here
+;; I don't know why this was added, so I commented it out
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(org-journal-find-file-fn 'find-file nil nil "Customized with use-package org-journal")
+;;  '(safe-local-variable-values '((typst-ts-indent-offset . 2))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(action-lock-face ((t :inherit button)))
+;;  '(howm-mode-keyword-face ((t :inherit org-link)))
+;;  '(howm-mode-ref-face ((t :inherit org-link)))
+;;  '(howm-mode-title-face ((t :inherit org-level-1)))
+;;  '(howm-mode-wiki-face ((t :inherit org-link)))
+;;  '(howm-reminder-deadline-face ((t :inherit org-scheduled-today)))
+;;  '(howm-reminder-defer-face ((t :inherit org-scheduled)))
+;;  '(howm-reminder-done-face ((t :inherit org-done)))
+;;  '(howm-reminder-late-deadline-face ((t :inherit bold :inherit org-imminent-deadline)))
+;;  '(howm-reminder-normal-face ((t :inherit org-default)))
+;;  '(howm-reminder-scheduled-face ((t :inherit org-scheduled)))
+;;  '(howm-reminder-today-face ((t :inherit bold :inherit org-scheduled-today)))
+;;  '(howm-reminder-todo-face ((t :inherit org-todo)))
+;;  '(howm-reminder-tomorrow-face ((t :inherit bold :inherit org-scheduled)))
+;;  '(howm-simulate-todo-mode-line-face ((t :inherit bold)))
+;;  '(howm-view-empty-face ((t :inherit shadow)))
+;;  '(howm-view-hilit-face ((t :inherit isearch)))
+;;  '(howm-view-name-face ((t :inherit org-document-info))))
