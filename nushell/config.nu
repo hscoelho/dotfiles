@@ -23,6 +23,26 @@ alias rdp-vm = rdp-local /v:127.0.0.1:3389 /u:hcoelho /d:
 
 alias webcam-phone-back = scrcpy --video-source=camera --camera-size=1080x1920 --orientation=90 --camera-id=0 --v4l2-sink=/dev/video2 --no-audio
 
+def port_job_description [port] {
+  $"job_description_of_share_port_($port)"
+}
+
+# Forward a local port to a remote host in the background
+def share_port [port: int, host_to_share: string] {
+    let desc = port_job_description $port
+    job spawn -d $desc {
+        ssh -N -R $"($port):127.0.0.1:($port)" $host_to_share
+    }
+    print $"Port ($port) is now being forwarded to ($host_to_share) in the background."
+}
+
+def stop_share [port: int] {
+    let desc = port_job_description $port
+    let id = job list | find $desc | get id | first
+    job kill $id 
+    print $"Port ($port) is not being shared anymore"
+}
+
 
 ## Env 
 $env.SHELL = 'nu'
